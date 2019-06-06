@@ -1,0 +1,169 @@
+<div class="row">
+  <div class="col-md-7">
+    <div class="inner-wrapper">
+      <h4 class="inner-title">Add Your Service</h4>
+      <form #form="ngForm" class="col s12" method="POST" autocomplete="off">
+        <div class="demo-form-wrapper">
+          <mat-form-field>
+            <mat-placeholder>Service Name</mat-placeholder>
+            <input matInput name="name" #name="ngModel" [(ngModel)]="provider.name" required>
+          </mat-form-field>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="custom-alert">
+            <div class="errorMsg" *ngIf="name.errors.required">
+              Service Name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-form-group">
+          <mat-form-field>
+            <mat-placeholder>Choose Your Category</mat-placeholder>
+            <mat-select [(ngModel)]="provider.categoryId" name="categoryId" #categoryId="ngModel">
+              <mat-option *ngFor="let item of categoryList" [value]="item.id">{{item.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <br />
+
+        <div class="demo-form-wrapper">
+          <mat-form-field>
+            <mat-placeholder>Phone Number</mat-placeholder>
+            <input matInput type="tel" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="provider.phoneNumber"
+              maxlength="10" required>
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+          <div *ngIf="phoneNumber.invalid && phoneNumber.touched" class="custom-alert">
+            <div class="errorMsg" *ngIf="phoneNumber.errors.required">
+              PhoneNumber is required.
+            </div>
+          </div>
+          <!-- <mat-checkbox (click)="!numberVisibility">Do you want to display the Phone Number??
+          </mat-checkbox> -->
+        </div>
+
+        <div class="demo-form-wrapper">
+          <mat-form-field>
+            <mat-placeholder>Email</mat-placeholder>
+            <input type="email" matInput name="email" #email="ngModel" [(ngModel)]="provider.email" required email>
+            <mat-icon matSuffix>mail</mat-icon>
+          </mat-form-field>
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="custom-alert">
+            <div class="errorMsg" *ngIf="email.errors.required">Email is required.</div>
+            <div class="errorMsg" *ngIf="email.errors?.email">
+              Email formate is not valid.
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-form-wrapper">
+          <mat-form-field>
+            <mat-placeholder>Description</mat-placeholder>
+            <textarea matInput name="description" #description="ngModel" [(ngModel)]="provider.description" required
+              rows="5"></textarea>
+          </mat-form-field>
+          <div *ngIf="description.invalid && (description.dirty || description.touched)" class="custom-alert">
+            <div class="errorMsg" *ngIf="description.errors.required">
+              Description is required.
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="demo-form-wrapper">
+          <mat-form-field>
+            <mat-placeholder>Working Shift</mat-placeholder>
+            <textarea matInput name="workingShift" #workingShift="ngModel"
+              [(ngModel)]="provider.workingShift"></textarea>
+          </mat-form-field>
+        </div> -->
+
+        <div *ngIf="imageEdit==false" class="demo-form-group">
+          <h6>Service Images</h6>
+          <div class="form-group image-upload">
+            <label>
+              <span class="upload-btn">Browse Image</span>
+              <input type="file" (change)="onFileUpload($event)" multiple>
+            </label>
+          </div>
+          <div class="form-group image-upload" *ngIf="show">
+            <ul *ngFor="let image of imagePreview; let i=index">
+              <img class="thumb-preview" [src]="image" style="background-image: url();">
+              <div (click)="removeImage(i)"><i class="material-icons">close</i></div>
+              <p [innerHTML]="imgnameList[i]"></p>
+            </ul>
+          </div>
+        </div>
+
+        <!-- images preview -->
+        <div *ngIf="imageEdit==true" class="demo-form-wrapper">
+          <h6>Add/Remove/Change Images</h6>
+          <ul class="image-thumbnails">
+            <li *ngFor="let image of imageList">
+              <img src="../../../../../../../wwwroot/Images/{{image.originalImageName}}" alt="service-thumbnail">
+              <a [routerLink]="" (click)="deleteImage(image.id)"><i class="fas fa-times"></i></a>
+            </li>
+
+            <!-- <div class="form-group image-upload" *ngIf="show"> -->
+            <li *ngFor="let image of imagePreview; let i=index">
+              <img class="thumb-preview" [src]="image" style="background-image: url();">
+              <div (click)="removeImage(i)"><i class="material-icons">close</i></div>
+              <p [innerHTML]="imgnameList[i]"></p>
+            </li>
+            <!-- </div> -->
+            <li class="add-more">
+              <b>Add More</b>
+              <input type="file" (change)="onFileUpload($event)" multiple>
+            </li>
+          </ul>
+
+        </div>
+        <!-- images preview -->
+
+
+        <div class="demo-form-wrapper">
+          <h6>Service Availibility</h6>
+          <mat-checkbox name="status" #status="ngModel" value="true" [(ngModel)]="provider.status">I am Available
+          </mat-checkbox>
+        </div>
+
+
+        <!-- <div class="demo-form-wrapper">
+          <h6>Datepicker</h6>
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div> -->
+
+        <!-- <div class="demo-form-group">
+          <h6>RaDios</h6>
+          <mat-radio-group>
+            <mat-radio-button value="1">Option 1</mat-radio-button>
+            <mat-radio-button value="2">Option 2</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="demo-form-group">
+          <h6>Sliders</h6>
+          <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000">
+          </mat-slider>
+        </div> -->
+
+        <button *ngIf="id===0" (click)="onSignUp(form)" class="btn btn-primary">Add <mat-icon>chevron_right</mat-icon>
+        </button>
+        <button *ngIf="id!==0" (click)="onSignUp(form)" class="btn btn-primary">Update <mat-icon>chevron_right
+          </mat-icon></button>
+      </form>
+    </div>
+  </div>
+  <section class="confirmation_box" *ngIf="statusActive">
+    <div class="confirmation_wrapper">
+      <a [routerLink]="" class="cross_btn" (click)="destroyConfbox()"><i class="fas fa-times"></i></a>
+      <p>Do you want to editS the service ? </p>
+      <div class="confirmation_actions">
+        <button (click)="yes(form)" class="btn btn-primary">Yes</button>
+        <button (click)="destroyConfbox()" class="btn">No</button>
+      </div>
+    </div>
+  </section>
+</div>

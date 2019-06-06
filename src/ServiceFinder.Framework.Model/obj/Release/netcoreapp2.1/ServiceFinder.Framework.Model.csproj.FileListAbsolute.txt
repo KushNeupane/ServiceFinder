@@ -1,0 +1,9 @@
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Framework.Model\bin\Release\netcoreapp2.1\ServiceFinder.Framework.Model.deps.json
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Framework.Model\bin\Release\netcoreapp2.1\ServiceFinder.Framework.Model.dll
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Framework.Model\bin\Release\netcoreapp2.1\ServiceFinder.Framework.Model.pdb
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Framework.Model\obj\Release\netcoreapp2.1\ServiceFinder.Framework.Model.csprojAssemblyReference.cache
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Framework.Model\obj\Release\netcoreapp2.1\ServiceFinder.Framework.Model.csproj.CoreCompileInputs.cache
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Framework.Model\obj\Release\netcoreapp2.1\ServiceFinder.Framework.Model.AssemblyInfoInputs.cache
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Framework.Model\obj\Release\netcoreapp2.1\ServiceFinder.Framework.Model.AssemblyInfo.cs
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Framework.Model\obj\Release\netcoreapp2.1\ServiceFinder.Framework.Model.dll
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Framework.Model\obj\Release\netcoreapp2.1\ServiceFinder.Framework.Model.pdb

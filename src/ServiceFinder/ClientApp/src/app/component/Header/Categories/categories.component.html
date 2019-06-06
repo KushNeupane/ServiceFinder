@@ -1,0 +1,16 @@
+<app-header></app-header>
+<section class="our-services">
+  <div class="container">
+    <ul class="services-wrapper">
+      <li class="category">
+        <a href="#">
+          <h4 class="name">Categories <span><img src="../../../../assets/img/serviceCategoryIcons/location.svg"
+                alt=""></span></h4>
+          <ul class="sub-category">
+            <li *ngFor="let item of categoryList" [value]="item.Id">{{item.name}}</li>
+          </ul>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>

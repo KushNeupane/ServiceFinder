@@ -1,0 +1,149 @@
+@import '../../../assets/sass-helpers/variables';
+@import '../../../assets/sass-helpers/mixins';
+header{
+    padding: 0 15px;
+    height: 80px;
+    position: relative;
+    z-index: 1;
+    @include tablet{
+        height: 125px;
+    }
+    .header-wrapper{
+        max-width: 1520px;
+        width: 100%;
+    }
+    a{
+        color: $black;
+        font-size: 14px;
+        padding: 5px;
+        &.btn{
+            color: $white;
+            font-weight: 600;
+            padding: 5px 12px;
+            &:hover{
+                color: $white;
+            }
+        }
+        i{
+            font-size: 18px;
+        }
+        &:hover{
+            // font-weight: 600;
+            color: $red;
+        }
+    }
+    .navigation-links{
+        position: fixed;
+        left: -300px;
+        top: 0;
+        transition: all 0.5s ease-in-out;
+        display: block;
+        @media only screen and (max-width: 767px){
+            background: $black;
+            z-index: 1;
+            flex-basis: 300px;
+            min-width: 300px;
+            height: 100vh !important;
+            li{
+                &:hover,&:focus{
+                    background: $red;
+                }
+            }
+            a{
+                color: $white;
+                display: block;
+            }
+            li{
+                width: 100%;
+                padding: 10px 20px; 
+            }
+            ul{
+                height: 100vh;
+                justify-content: flex-start;
+            }
+        }
+        @include tablet{
+            flex-basis: 570px;
+            max-width: 570px;
+            position: static;
+        }
+        &.show{
+            left: 0;
+        }
+        @include tablet{
+            a:not(.btn){
+                position: relative;
+                &::after{
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    background: $red;
+                    content: "";
+                    // display: block;
+                    opacity: 0;
+                    bottom: -2px;
+                    left: 0;
+                }
+                &:hover{
+                    &::after{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    .logo{
+        flex-basis: 100%;
+        @include tablet{
+            flex-basis: unset;
+        }
+    }
+    .collapse{
+        @include tablet{
+            display: block;
+        }
+    }
+    &.sticky{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9;
+        animation: headerAnim 0.22s ease-in;
+        background: $white;
+        box-shadow: 5px 5px 5px rgba($color: $black, $alpha: 0.1);
+
+    }
+    @keyframes headerAnim {
+        from{
+            top: -50px;
+            background-color: transparent;
+        }
+        to{
+            background: $white;
+            top: 0;
+        }
+    }
+    .logout_dropdown{
+        position: absolute !important;
+        top: 40px;
+        // left: 50%;
+        right: 0;
+        // transform: translateX(-50%);
+        // background: $white;
+        // color: $red;
+        border-radius: 4px;
+        &:hover{
+            // background: $red;
+            // color: $white;
+            &::after{
+                display: none;
+            }
+        }
+    }
+    .no-underline a:hover{
+        &::after{
+            display: none;
+        }
+    }
+}

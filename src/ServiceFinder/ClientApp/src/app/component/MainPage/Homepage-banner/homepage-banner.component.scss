@@ -1,0 +1,302 @@
+@import '../../../../assets/sass-helpers/variables';
+@import '../../../../assets/sass-helpers/mixins';
+section.homepage-banner{
+    background: url(../../../../assets/img/banner-bg.png);
+    background-size: cover;
+    background-position: center;
+    margin-top: -80px;
+    padding-top: 10rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    @include tablet{
+        height: 100vh;
+        margin-top: -125px;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: -325px;
+    }
+    select{
+        @include prefix((appearance: none),webkit moz ms);
+        border: 0;
+        background: transparent;
+    }
+    form{
+        @media screen and (max-width: 767px) {
+            border-radius: 0 !important;
+        }
+        @include tablet{
+            background: $white-grey;
+            height: 60px;
+        }
+        margin-bottom: 20px;
+        svg{
+            max-width: 8px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            right: 10px;
+            @include tablet{
+                right: 30px;
+            }
+        }
+        .form-group,label{
+            margin: 0;
+        }
+        .form-group{
+            box-shadow: -3px 0px 7px 0px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 320px;
+            margin-bottom: 10px;
+            @include tablet{
+                flex-basis: 100%;
+                margin-bottom: 0;
+                max-width: unset;
+            }
+        }
+        label,.btn{
+            height: 30px;
+            line-height: 30px;
+            @include tablet{
+                height: 60px;
+                line-height: 60px;
+                margin-bottom: 0;
+            }
+        }
+        label,select{
+            width: 100%;
+            position: relative;
+        }
+        select{
+            padding: 0 20px;
+            background: $white-grey;
+            @include tablet{
+                background: transparent;
+            }
+        }
+        .btn{
+            @include tablet{
+                flex-basis: 165px;
+                min-width: 165px;
+            }
+            padding: 0 20px;
+            i{
+                line-height: 30px;
+                @include tablet{
+                    line-height: 60px;
+                }
+                margin: 0 10px 0 0 ;
+            }
+        }
+    }
+    ul{
+        max-width: 555px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    li{
+        flex-basis: 50%;
+        margin-bottom: 10px;
+        @include tablet{
+            flex-basis: 116px;
+            margin-bottom: 0;
+        }
+        a{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &:hover{
+                svg{
+                    fill: $red;
+                }
+            }
+        }
+    } 
+    svg{
+        max-width: 50px;
+        max-height: 50px;
+    }
+    .banner-wrapper{
+        max-width: 1160px;
+        width: 100%;
+        margin-top: -225px;
+    }
+    h1{
+        font-size: 35px;
+        @include tablet{
+            font-size: 65px;
+        }
+    }
+    p.text-white{
+        font-size: 24px;
+        margin-bottom: 30px;
+        @include tablet{
+            font-size: 50px;
+            margin-bottom: 60px;
+        }
+        // font-family: curly-medium;
+    }
+    h2{
+        font-size: 24px;
+        margin: 24px 0 18px;
+        @include tablet{
+            margin: 44px 0 30px;
+            font-size: 40px;
+        }
+    }
+}
+    .one{
+        top: 30%;
+        left: 20%;
+    }
+    .two{
+        top: 43%;
+        left: 3%;
+    }
+    .three{
+        top: 45%;
+        left: 25%;
+    }
+    .four{
+        top: 43%;
+        right: 20%;
+        .icon{
+            max-width: 85%;
+            margin: 2px;
+        }
+    }
+    .five{
+        top: 32%;
+        right: 7%;
+    }
+    .six{
+        top: 26%;
+        right: 27%;
+    }
+    @media screen and (min-width: 992px) and (max-width: 1024px){
+        .one{
+            top: 30%;
+            left: 12%;
+        }
+        .three{
+            top: 61%;
+        }
+        .four{
+            top: 59%;
+        }
+        .six{
+            top: 40%;
+            right: 16%;;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .three{
+            top: 55%;
+            left: 11%;
+        }
+        .four{
+            top: 44%;
+            right: 12%;
+        }
+        .map-pointers{
+            display: none;
+        }
+    }
+.map-pointers{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        .item{
+            position: absolute;
+            height: 72px;
+            width: 58px;
+            &.small{
+                height: 44px;
+                width: 55px;
+                .item-wrapper{
+                    height: 100%;
+                    padding-top: 5px;
+                }
+            }
+            .icon path{
+                fill: $black;
+            }
+            &.dark{
+                .icon{
+                    fill: $white;
+                }
+            }
+            .item-wrapper{
+                position: relative;
+                padding: 15px;
+                padding-bottom: 20px;
+                padding-top: 10px;
+                .icon{
+                    position: relative;
+                    z-index: 1;
+                }
+                .pointer{
+                    position: absolute;
+                    max-height: 100%;
+                    max-width: 100%;
+                    left: 0;
+                    top: 0;
+                }
+            }
+        }
+    }
+
+section.homepage-banner.d-flex{
+    input{
+        width: 100%;
+        padding: 0 25px;
+    }
+    input,.btn{
+        height: 60px;
+        line-height: 60px;
+    }
+    @media only screen and (max-width: 768px){
+        form{
+            border-radius: 25px !important;
+            background: $white;
+            .form-group{
+                margin-bottom: 0;
+                max-width: unset;
+            }
+            .form-group input,.form-group label,a.btn{
+                height: 40px;
+                align-items: center;
+            }
+            label{
+                height: 40px;
+                line-height: 40px;
+            }
+            &+ p{
+                font-size: 14px;
+            }
+        }
+
+    }
+    @media only screen and (max-width: 375px){
+        a.btn{
+            font-size: 0;
+            i{
+                font-size: 16px;
+            }
+        }
+        a.btn, input{
+            padding: 0 15px;
+        }
+    }
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }

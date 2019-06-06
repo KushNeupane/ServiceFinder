@@ -1,0 +1,42 @@
+<!-- <form method="GET">
+  <section class="our-services">
+    <h2 class="section-title">Categories</h2>
+    <div class="container-lg">
+      <ul class="services-wrapper">
+        <li class="category" *ngFor="let item of categoryList">
+          <h4 class="name">{{item.name}}</h4>
+          <ul class="sub-category" (change)="getServices()" *ngFor="let service of serviceList">
+            <li *ngIf="service.categoryId==item.id">
+              <a [routerLink]="['/getService', service.id]">
+                <span>{{service.name}}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+</form>
+<div class="col-md-12">
+  <div class="text-center mb-5">
+    <a class="btn btn-primary text-white">Load More <span class="fa fa-plus ml-2"></span> </a>
+  </div>
+</div> -->
+<section class="our-services">
+  <h2 class="section-title">Categories</h2>
+  <div class="container-lg">
+    <ul class="services-wrapper" >
+      <li class="category" *ngFor="let item of categoryList">
+          <a href="#">
+            <span class="mx-auto"><b>{{item.totalService}}</b><img src="assets/img/serviceCategoryIcons/tray.svg" alt=""></span>
+            <h4 class="name">{{item.name}}</h4>
+          </a>
+      </li>
+    </ul>
+    <div class="col-md-12">
+      <div class="text-center mb-5">
+        <a class="btn btn-primary text-white">Load More <span class="fa fa-plus ml-2"></span> </a>
+      </div>
+    </div>
+  </div>
+</section>

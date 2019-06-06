@@ -1,0 +1,146 @@
+<div class="signup-wrapper">
+  <form
+    class="dark-form"
+    #form="ngForm"
+    (submit)="onSignUp(form)"
+    method="POST"
+    autocomplete="off"
+  >
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Display Name"
+        name="displayName"
+        #displayName="ngModel"
+        [(ngModel)]="user.displayName"
+        required
+      />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+    <div
+      *ngIf="displayName.invalid && (displayName.dirty || displayName.touched)"
+      class="alert alert-danger"
+    >
+      <div class="errorMsg" *ngIf="displayName.errors.required">
+        Display Name is required.
+      </div>
+    </div>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Email"
+        name="email"
+        #email="ngModel"
+        [(ngModel)]="user.email"
+        required
+        email
+      />
+      <mat-icon matSuffix>mail</mat-icon>
+    </mat-form-field>
+    <div
+      *ngIf="email.invalid && (email.dirty || email.touched)"
+      class="alert alert-danger"
+    >
+      <div class="errorMsg" *ngIf="email.errors.required">Email is required.</div>
+      <div class="errorMsg" *ngIf="email.errors?.email">
+        Email formate is not valid.
+      </div>
+    </div>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="PhoneNumber"
+        type="tel"
+        name="phoneNumber"
+        #phoneNumber="ngModel"
+        [(ngModel)]="user.phoneNumber"       
+        maxlength="10"
+        required
+      />
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>
+    <div
+      *ngIf="phoneNumber.invalid && phoneNumber.touched"
+      class="alert alert-danger"
+    >
+      <div class="errorMsg" *ngIf="phoneNumber.errors.required">
+        PhoneNumber is required and must have 10 digits
+      </div>
+    </div>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Password"
+        [type]="hide ? 'text' : 'password'"
+        name="password"
+        #password="ngModel"
+        [(ngModel)]="user.password"
+        required
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{6,}$"
+      />
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility" : "visibility_off"
+      }}</mat-icon>
+    </mat-form-field>
+    <div
+      *ngIf="password.invalid && (password.dirty || password.touched)"
+      class="alert alert-danger"
+    >
+      <div class="errorMsg" *ngIf="password.errors.required">
+          Password is required.
+      </div>
+      <div class="errorMsg" *ngIf="password.errors.pattern">
+        Six or more character password is required and must contain at least one
+        digit, one capital letter and one of these symbols !,@,#,$,%,^,&,*
+      </div>
+    </div>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Confirm Password"
+        [type]="hide ? 'text' : 'password'"
+        name="confirmPassword"
+        #confirmPassword="ngModel"
+        [(ngModel)]="user.confirmPassword"
+        appConfirmEqualValidator="password"
+      />
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility" : "visibility_off"
+      }}</mat-icon>
+    </mat-form-field>
+    <div
+      *ngIf=" confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
+      class="alert alert-danger">
+      <div class="errorMsg" *ngIf="confirmPassword.errors.required">
+        Confirm Password Name is required.
+      </div>
+      <div
+        class="errorMsg" *ngIf="confirmPassword.errors?.notEqual">
+        Password and Confirm Password do not match
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+      Signup <i class="material-icons">arrow_forward</i>
+    </button>
+  </form>
+
+  <!-- Quick Sign In -->
+  <div class="quick-sign-in">
+    <h4>Quick SIgn In</h4>
+    <ul class="d-flex flex-column"> 
+      <li>
+        <a (click)="OnSocialSignIn('facebook')"
+          ><i class="fab fa-facebook"></i
+        >login with facebook</a>
+      </li>
+      <li>
+        <a (click)="OnSocialSignIn('google')"><i class="fab fa-google"></i>login with google</a>
+      </li>
+    </ul>
+  </div>
+</div>

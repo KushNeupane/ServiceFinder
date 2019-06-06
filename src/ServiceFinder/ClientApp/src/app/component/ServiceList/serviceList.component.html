@@ -1,0 +1,78 @@
+<app-header></app-header>
+<section class="search-result">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p><i class="fa fa-search"></i> <span>{{count}}</span> results found </p>
+                <div class="search-filters">
+                    <form>
+                        <mat-form-field appearance="legacy">
+                            <mat-label></mat-label>
+                            <input matInput matInput [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}">
+                            <mat-icon matSuffix>search</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-placeholder>Category</mat-placeholder>
+                            <mat-select [(ngModel)]="provider.categoryId" name="categoryId" #categoryId="ngModel">
+                                <mat-option *ngFor="let item of categoryList" [value]="item.id">{{item.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="picker" placeholder="Date for Service">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                        <mat-radio-group aria-label="Service Provider Status">
+                            <mat-radio-button value="1">Verified Provider</mat-radio-button>
+                            <mat-radio-button value="2">Not Required</mat-radio-button>
+                        </mat-radio-group>
+                        <a (click)="onClick(searchTerm)" class="btn btn-primary text-center mt-3">Filter Search</a>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="sorting">
+                    <form action="">
+                        <select name="" id="">
+                            <option value="1" selected disabled>Sort By</option>
+                            <option value="">Rating</option>
+                            <option value="">Disatance</option>
+                            <option value="">Popularity</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="result-list">
+                    <div *ngIf="searchedList===null">No Results Found!!!!!</div>
+                    <ul>
+                        <li *ngFor="let item of searchedList | paginate : {itemsPerPage: 5, currentPage:p}">
+                            <a [routerLink]="['/getService', item.id]">
+                                <figure>
+                                    <img src="assets/img/service-thumbnails/construction.png" alt="">
+                                </figure>
+
+                                <div class="details">
+                                    <h3>{{item.name}}</h3>
+                                    <p>{{item.description}}</p>
+                                    <!-- <ul>
+                      <li>Address: <span>Amannagar, Kathmandu</span></li>
+                      <li>Contact: <span>01-6587916</span></li>
+                      <li>Emaikl: <span>user@gmail.com</span></li>
+                      <li><span class="availability">Available</span></li>
+                    </ul> -->
+                                    <span class="btn btn-primary">Hire</span>
+                                </div>
+                                <div class="extra">
+                                    <span class="rating"><b>4</b><small>/5</small></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="text-right">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

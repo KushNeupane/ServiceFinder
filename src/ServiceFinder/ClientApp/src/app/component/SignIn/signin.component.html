@@ -1,0 +1,55 @@
+<app-header></app-header>
+<section class="login-forms d-flex justify-content-center align-items-center">
+  <!-- login/'signup wrapper' -->
+  <div class="tab-wrapper">
+    <div class="tab-menu">
+      <!-- tab-menu -->
+      <ul class="nav nav-tabs" id="loginSignupTab" role="tablist">
+        <li><a href="#" class="nav-link active" role="tab" data-toggle="tab" id="loginTab" href="#loginForm">Login</a>
+        </li>
+        <li><a href="#" class="nav-link" role="tab" data-toggle="tab" id="signUpTab" href="#signUpForm">Sign Up</a></li>
+      </ul>
+    </div>
+    <!-- tab contents -->
+    <div class="tab-content">
+      <!-- login -->
+      <div class="tab-pane fade show active" role="tabpanel" id="loginForm">
+        <div class="login-wrapper">
+          <form class="dark-form" #form="ngForm" action="javascript:void(0);" method="POST"
+            (submit)="onEmailSignIn(form)">
+            <mat-form-field>
+              <input matInput placeholder="Email" name="email" [(ngModel)]="email" autocomplete="off">
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Password" name="password" [(ngModel)]="password"
+                [type]="hide ? 'text':'password' ">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </mat-form-field>
+
+            <button type="submit" class="btn btn-primary">
+              Login <i class="material-icons">arrow_forward</i>
+            </button>
+            <p>Forgot password ? <a routerLink="/forgotPassword">Click here</a></p>
+          </form>
+
+          <!-- Quick Sign In -->
+          <div class="quick-sign-in">
+            <h4>Quick SIgn In</h4>
+            <ul class="d-flex flex-column">
+              <li><a (click)="OnSocialSignIn('facebook')"><i class="fab fa-facebook"></i>login with facebook</a></li>
+              <li><a (click)="OnSocialSignIn('google')"><i class="fab fa-google"></i>login with google</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- sign up -->
+      <div class="tab-pane fade" role="tabpanel" id="signUpForm">
+        <app-signup></app-signup>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

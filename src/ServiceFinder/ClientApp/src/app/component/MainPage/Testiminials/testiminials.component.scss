@@ -1,0 +1,33 @@
+@import '../../../../assets/sass-helpers/variables';
+@import '../../../../assets/sass-helpers/mixins';
+section.testimonials{
+    .slide{
+        background-image: url(../../../../assets/img/testimonial-watermark.png);
+        background-repeat: no-repeat;
+        background-position: top right;
+        margin-bottom: 25px;
+        @include tablet{
+            background-position: top 50px right 20px;
+            margin: 0 30px;
+            margin-bottom: 50px;
+        }
+        &:focus,&:hover{
+            outline: none;
+            box-shadow: 4px 4px 17px rgba(0, 0, 0, 0.2);
+        }
+        .user-thumbnail{
+            margin-bottom: 15px;
+        }
+        .name{
+            font-weight: 500;
+            font-family: $hFont;
+            font-size: 18px;
+            span{
+                color: $red;
+            }
+        }
+        .message{
+            color: $grey;
+        }
+    }
+}

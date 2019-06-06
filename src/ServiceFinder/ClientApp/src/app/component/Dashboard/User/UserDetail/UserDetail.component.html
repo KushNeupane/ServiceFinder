@@ -1,0 +1,90 @@
+
+<div class="row">
+  <!-- left -->
+  <div class="col-md-6">
+    <!-- My services -->
+    <div class="dashboard-block my-services">
+      <div class="header"><span>My Services</span> <a href="#" class="edit-option"><span></span></a></div>
+      <ul>
+        <li *ngFor="let item of MyServiceList" class="service-list-item" [value]="item.id">
+          <a [routerLink]="['/getService', item.id]">
+            <span>{{item.name}}
+            </span>
+          </a>
+          <div class="service-detail">
+            <!--<p class="status"><small>Running</small></p>-->
+            <div class="service-actions">
+              <ul>
+                <li>
+                  <a (click)="edit(item.id)" class="create-new">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="pause-resume">
+                    <i class="fas fa-pause"></i>
+                  </a>
+                </li>
+                <li>
+                  <a (click)="delete(item.id)" class="delete">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <section class="confirmation_box" *ngIf="statusActive">
+            <div class="confirmation_wrapper">
+              <a class="cross_btn" [routerLink]="" (click)="destroyConfbox()"><i class="fas fa-times"></i></a>
+              <p>Do you want to delete the service ? </p>
+              <div class="confirmation_actions">
+                <button (click)="yes(item.id)" class="btn btn-primary">Yes</button>
+                <button (click)="destroyConfbox()" class="btn">No</button>
+              </div>
+            </div>
+          </section>
+        </li>
+      </ul>
+    </div>
+    <!-- Service History -->
+    <div class="dashboard-block history">
+      <div class="header"><span>Recent Activities</span> <a href="#" class="edit-option"><span></span></a></div>
+    </div>
+  </div>
+  <!-- right -->
+  <div class="col-md-6">
+    <div class="dashboard-block profile-detail">
+      <div class="header-wrapper">
+        <div class="header">
+          <span>My Profile</span> <a title="Edit profile" class="edit-option"><span></span></a>
+        </div>
+        <div class="profile-mid">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <h2>{{users.displayName}}</h2>
+              <!-- <p><b>@jennido</b></p> -->
+            </div>
+            <figure>
+              <img src="../../../../../../../wwwroot/profilePic/{{profileImage}}" onerror="this.src='../../../../assets/img/defaultimg.jpg'">
+            </figure>
+          </div>
+          <ul class="detail-list">
+            <li>
+              <span class="lnr lnr-envelope"></span>
+              <a href="mailto:{{users.email}}">{{users.email}}</a>
+            </li>
+            <!-- location -->
+            <!-- contact number -->
+            <li>
+              <span class="lnr lnr-phone-handset"></span>
+              <a href="tel:{{users.phoneNumber}}">{{users.phoneNumber}}</a>
+            </li>
+          </ul>
+        </div>
+        <img src="../../../../../assets/img/profile-back-curve.png" class="background-curve" alt="">
+      </div>
+    </div>
+  </div>
+  <!-- popup -->
+
+</div>

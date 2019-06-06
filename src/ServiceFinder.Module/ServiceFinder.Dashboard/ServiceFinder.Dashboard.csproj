@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ServiceFinder.Framework.DataAccess\ServiceFinder.Framework.DataAccess.csproj" />
+    <ProjectReference Include="..\..\ServiceFinder.Framework.Model\ServiceFinder.Framework.Model.csproj" />
+  </ItemGroup>
+
+</Project>

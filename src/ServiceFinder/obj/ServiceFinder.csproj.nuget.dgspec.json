@@ -1,0 +1,534 @@
+{
+  "format": 1,
+  "restore": {
+    "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder\\ServiceFinder.csproj": {}
+  },
+  "projects": {
+    "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.DataAccess\\ServiceFinder.Framework.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.DataAccess\\ServiceFinder.Framework.DataAccess.csproj",
+        "projectName": "ServiceFinder.Framework.DataAccess",
+        "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.DataAccess\\ServiceFinder.Framework.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\CloudyfoxLpt2\\.nuget\\packages\\",
+        "outputPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\CloudyfoxLpt2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\ServiceFinder.Framework.Model.csproj": {
+                "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\ServiceFinder.Framework.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\ServiceFinder.Framework.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\ServiceFinder.Framework.Model.csproj",
+        "projectName": "ServiceFinder.Framework.Model",
+        "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\ServiceFinder.Framework.Model.csproj",
+        "packagesPath": "C:\\Users\\CloudyfoxLpt2\\.nuget\\packages\\",
+        "outputPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\CloudyfoxLpt2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.3, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.1.3, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.AccountManagement\\ServiceFinder.AccountManagement.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.AccountManagement\\ServiceFinder.AccountManagement.csproj",
+        "projectName": "ServiceFinder.AccountManagement",
+        "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.AccountManagement\\ServiceFinder.AccountManagement.csproj",
+        "packagesPath": "C:\\Users\\CloudyfoxLpt2\\.nuget\\packages\\",
+        "outputPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.AccountManagement\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\CloudyfoxLpt2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.DataAccess\\ServiceFinder.Framework.DataAccess.csproj": {
+                "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.DataAccess\\ServiceFinder.Framework.DataAccess.csproj"
+              },
+              "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\ServiceFinder.Framework.Model.csproj": {
+                "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\ServiceFinder.Framework.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.3, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.1.3, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.1.3, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.10.1, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.8.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.Dashboard\\ServiceFinder.Dashboard.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.Dashboard\\ServiceFinder.Dashboard.csproj",
+        "projectName": "ServiceFinder.Dashboard",
+        "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.Dashboard\\ServiceFinder.Dashboard.csproj",
+        "packagesPath": "C:\\Users\\CloudyfoxLpt2\\.nuget\\packages\\",
+        "outputPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.Dashboard\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\CloudyfoxLpt2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.DataAccess\\ServiceFinder.Framework.DataAccess.csproj": {
+                "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.DataAccess\\ServiceFinder.Framework.DataAccess.csproj"
+              },
+              "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\ServiceFinder.Framework.Model.csproj": {
+                "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\ServiceFinder.Framework.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder\\ServiceFinder.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder\\ServiceFinder.csproj",
+        "projectName": "ServiceFinder",
+        "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder\\ServiceFinder.csproj",
+        "packagesPath": "C:\\Users\\CloudyfoxLpt2\\.nuget\\packages\\",
+        "outputPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\CloudyfoxLpt2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.DataAccess\\ServiceFinder.Framework.DataAccess.csproj": {
+                "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.DataAccess\\ServiceFinder.Framework.DataAccess.csproj"
+              },
+              "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\ServiceFinder.Framework.Model.csproj": {
+                "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\ServiceFinder.Framework.Model.csproj"
+              },
+              "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.AccountManagement\\ServiceFinder.AccountManagement.csproj": {
+                "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.AccountManagement\\ServiceFinder.AccountManagement.csproj"
+              },
+              "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.Dashboard\\ServiceFinder.Dashboard.csproj": {
+                "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.Dashboard\\ServiceFinder.Dashboard.csproj"
+              },
+              "G:\\WorkingFolder\\ServiceFinder\\tests\\ServiceFinder.AccountManagement.UnitTests\\ServiceFinder.UnitTests.csproj": {
+                "projectPath": "G:\\WorkingFolder\\ServiceFinder\\tests\\ServiceFinder.AccountManagement.UnitTests\\ServiceFinder.UnitTests.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.100, )"
+            },
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.3, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.1.3, )"
+            },
+            "Microsoft.AspNetCore.SpaServices.Extensions": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.AspNetCore.StaticFiles": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[2.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer.Design": {
+              "target": "Package",
+              "version": "[1.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[2.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools.DotNet": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            },
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.8.0, )"
+            },
+            "Serilog.Extensions.Logging.File": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "G:\\WorkingFolder\\ServiceFinder\\tests\\ServiceFinder.AccountManagement.UnitTests\\ServiceFinder.UnitTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\WorkingFolder\\ServiceFinder\\tests\\ServiceFinder.AccountManagement.UnitTests\\ServiceFinder.UnitTests.csproj",
+        "projectName": "ServiceFinder.UnitTests",
+        "projectPath": "G:\\WorkingFolder\\ServiceFinder\\tests\\ServiceFinder.AccountManagement.UnitTests\\ServiceFinder.UnitTests.csproj",
+        "packagesPath": "C:\\Users\\CloudyfoxLpt2\\.nuget\\packages\\",
+        "outputPath": "G:\\WorkingFolder\\ServiceFinder\\tests\\ServiceFinder.AccountManagement.UnitTests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\CloudyfoxLpt2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {
+              "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.DataAccess\\ServiceFinder.Framework.DataAccess.csproj": {
+                "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.DataAccess\\ServiceFinder.Framework.DataAccess.csproj"
+              },
+              "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\ServiceFinder.Framework.Model.csproj": {
+                "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Framework.Model\\ServiceFinder.Framework.Model.csproj"
+              },
+              "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.Dashboard\\ServiceFinder.Dashboard.csproj": {
+                "projectPath": "G:\\WorkingFolder\\ServiceFinder\\src\\ServiceFinder.Module\\ServiceFinder.Dashboard\\ServiceFinder.Dashboard.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.9.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.10.1, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.11.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

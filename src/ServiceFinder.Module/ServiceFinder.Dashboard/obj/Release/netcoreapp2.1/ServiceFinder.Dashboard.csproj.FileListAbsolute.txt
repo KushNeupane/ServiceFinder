@@ -1,0 +1,14 @@
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\bin\Release\netcoreapp2.1\ServiceFinder.Dashboard.deps.json
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\bin\Release\netcoreapp2.1\ServiceFinder.Dashboard.dll
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\bin\Release\netcoreapp2.1\ServiceFinder.Dashboard.pdb
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\bin\Release\netcoreapp2.1\ServiceFinder.Framework.DataAccess.dll
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\bin\Release\netcoreapp2.1\ServiceFinder.Framework.Model.dll
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\bin\Release\netcoreapp2.1\ServiceFinder.Framework.DataAccess.pdb
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\bin\Release\netcoreapp2.1\ServiceFinder.Framework.Model.pdb
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\obj\Release\netcoreapp2.1\ServiceFinder.Dashboard.csprojAssemblyReference.cache
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\obj\Release\netcoreapp2.1\ServiceFinder.Dashboard.csproj.CoreCompileInputs.cache
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\obj\Release\netcoreapp2.1\ServiceFinder.Dashboard.AssemblyInfoInputs.cache
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\obj\Release\netcoreapp2.1\ServiceFinder.Dashboard.AssemblyInfo.cs
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\obj\Release\netcoreapp2.1\ServiceFinder.Dashboard.csproj.CopyComplete
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\obj\Release\netcoreapp2.1\ServiceFinder.Dashboard.dll
+G:\WorkingFolder\ServiceFinder\src\ServiceFinder.Module\ServiceFinder.Dashboard\obj\Release\netcoreapp2.1\ServiceFinder.Dashboard.pdb

@@ -1,0 +1,50 @@
+<section class="homepage-banner d-flex align-items-end align-items-sm-center justify-content-center ">
+  <div class="banner-wrapper d-flex flex-column justify-content-center text-center">
+    <!-- top texts -->
+    <h1 class="text-white"><b>Save time &amp; money</b></h1>
+    <p class="text-white">We find services for you</p>
+    <!-- service search form -->
+    <form
+      class="d-flex flex-md-row flex-sm-wrap flex-sm-nowrap rounded overflow-hide justify-content-between align-items-center">
+
+      <label class="text-left">
+        <input type="text" placeholder="Search Services here" aria-label="Number" [(ngModel)]="searchTerm"
+          [ngModelOptions]="{standalone: true}" matInput [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of serviceList | filter : searchTerm" [value]="option.name">
+            <span style="padding-right : 750px">{{option.name}}</span>
+          </mat-option>
+        </mat-autocomplete>
+      </label>
+
+      <label>
+        <select name="service-location" id="">
+          <option value="" disabled selected>Preferred Location</option>
+          <option value="Kathmandu">Kathmandu</option>
+          <option value="Bhaktapur">Bhaktapur</option>
+          <option value="Kavre">Kavre</option>
+        </select>
+        <svg class="lnr lnr-chevron-down">
+          <use xlink:href="#lnr-chevron-down"></use>
+        </svg>
+      </label>
+
+      <label>
+        <select name="service-category" id="">
+          <option value="" disabled selected>Service Category</option>
+          <option value="food">Food & Drinks</option>
+          <option value="Health">Health & Fitness</option>
+          <option value="Entertainment">Entertainment</option>
+        </select>
+        <svg class="lnr lnr-chevron-down">
+          <use xlink:href="#lnr-chevron-down"></use>
+        </svg>
+      </label>
+      <a (click)="searchList()" class="btn btn-primary rounded-0 d-flex text-white">
+        <i class="fa fa-search"></i>
+        Search
+      </a>
+    </form>
+    <p>Find experts nearby, for your service with a touch</p>
+  </div>
+</section>

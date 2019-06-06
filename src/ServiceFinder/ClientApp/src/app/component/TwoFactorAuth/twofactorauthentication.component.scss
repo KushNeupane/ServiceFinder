@@ -1,0 +1,137 @@
+@import '../../../assets/sass-helpers/variables';
+@import '../../../assets/sass-helpers/mixins';
+section.login-forms{
+    // margin-top: 80px;
+    background: url(../../../assets/img/loginbg.png);
+    background-size: cover;
+    background-position: center;
+    @include tablet{
+        height: 100vh;
+        margin-top: -125px;
+    }
+    .tab-wrapper{
+        background: rgba(0,0,0,0.8);
+        padding: 30px 15px;
+        border-radius: 8px;
+        flex-basis: 90%;
+        @include tablet{
+            padding: 50px;
+            width: 100%;
+            max-width: 500px;
+        }
+    }
+    .nav-tabs{
+        border: 0;
+        .nav-link{
+            background: none;
+            border: none;
+            color: $white;
+            opacity: 0.5;
+            font-size: 18px;
+            &:first-child{
+                padding-left: 0;
+            }
+            &.active{
+                opacity: 1;
+                &::after{
+                    content: "";
+                    display: block;
+                    height: 2px;
+                    background: $red;
+                }
+            }
+        }
+    }
+    form.dark-form{
+        margin-top: 15px;
+        mat-form-field.mat-form-field{
+            display: block;
+            width: 100%;
+            color: rgba(255,255,255,1) !important;
+            .mat-form-field-label{
+                opacity: 0;
+            }
+        }
+        align-items: center;
+    }
+
+    .login-wrapper,
+    .signup-wrapper{
+        display: flex;
+        @media screen and (max-width: 767px) {
+            flex-direction: column;
+        }
+        form,.quick-sign-in{
+            @include tablet{
+                flex-basis: 50%;
+            }
+        }
+        .quick-sign-in{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            margin-top: 20px;
+            
+            @include tablet{
+                margin-top: 0;
+                align-items: center;
+                justify-content: center;
+                h4{
+                    text-align: center;
+                }
+            }
+            h4{
+                display: inline-block;
+                color: $white;
+                font-size: 14px;
+                font-weight: 600;
+                &::after{
+                    content: "";
+                    height: 2px;
+                    width: 100px;
+                    @include tablet{
+                        width: 100%;
+                    }
+                    background-color: $white;
+                    margin-top: 4px;
+                    display: block;
+                }
+            }
+            ul{
+                display: flex;
+                li{
+                    margin: 10px;
+                }
+                a{
+                    font-size: 24px;
+                    color: $white;
+                    &:hover{
+                        color: $red;
+                    }
+                }
+            }
+        }
+        .btn.btn-primary{
+            display: flex;
+            i{
+                margin-left: 15px;
+            }
+        }
+        p{
+            margin-top: 10px;
+            color: $white;
+            a{
+                color: $red;
+            }
+        }
+    }
+    // angular form resett
+
+    // angular form resett
+}
+
+#buttonCss{
+    margin-top: 5px;
+    background-color: rgb(238, 95, 0);
+    color: white;
+}

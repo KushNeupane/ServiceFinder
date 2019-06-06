@@ -1,0 +1,365 @@
+@import "variables";
+@import "mixins";
+body{
+    font-family: $gFont;
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+h1,h2,h3,h4,h5,h6,label,button,.btn,header{
+    font-family: $hFont;
+}
+h1,h2,h3,h4,h5,h6,label{
+    color: $red;
+}
+img{
+    max-width: 100%;
+}
+ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+a{
+    color: $black;
+    &:hover{
+        text-decoration: none;
+        color: $red;
+    }
+}
+
+// removing bs focus
+input,a,.btn,button,select{
+    &:focus{
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
+.btn{
+    border: 0;
+    transition: all 0.3s ease-in-out;
+    &.btn-primary{
+        background-color: $red;
+        color: $white;
+        &:hover{
+            background-color: darken($red,10);
+        }
+    }
+    border-radius: 17px;
+}
+
+// helper-classes
+.mobile-show{
+    display: block;
+    @include tablet{
+        display: none;
+    }
+}
+.no-flex{
+    flex: none !important;
+}
+.overflow-hide{
+    overflow: hidden;
+}
+.rounded{
+    border-radius: 50px !important;
+}
+.text-white{
+    color: $white;
+}
+.text-black{
+    color: $black;
+}
+
+// layout-presets
+.container-lg{
+    max-width: 1520px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+section{
+    padding: 40px 0;
+    @include tablet{
+        padding: 80px 0;
+    }
+    &.bg-grey{
+        background: $white-grey;
+    }
+    .section-title{
+        font-size: 28px;
+        font-weight: 400;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+}
+
+.card{
+    position: relative;
+    border: 0;
+    max-width: 341px;
+    .info{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        color: $white;
+    }
+    h4{
+        color: $white;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    }
+    .address{
+        margin-bottom: 0;
+    }
+}
+.slide{
+    .card{
+        max-width: unset;
+    }
+}
+.rating{
+    color: $white;
+    background-color: $red;
+    font-weight: 600;
+    font-family: $hFont;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#navigation-toggler{
+    height: 23px;
+    width: 30px;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    &::after,&::before{
+        content: "";
+        position: absolute;
+        height: 2px;
+        display: block;
+        background: $red;
+        right: 0;
+        transition: all 0.5s ease-in-out;
+        transition-delay: 0.2s;
+    }
+    &::before{
+        top: 2px;
+        width: 15px;
+    }
+    &::after{
+        bottom: 2px;
+        width: 100%;
+    }
+    .hamburger{
+        height: 2px;
+        background: $red;
+        display: block;
+        position: absolute;
+        width: 20px;
+        right: 0;
+        top: 49%;
+        transition: all 0.5s ease-in-out;
+    }
+    &:not(.collapsed){
+        .hamburger{
+            right: -30px;
+            transition-delay: 0.5s;
+        }
+        &::before{
+            width: 100%;
+            transform: rotate(45deg);
+            top: 50%;
+        }
+        &::after{
+            bottom: 50%;
+            transform: rotate(-45deg);
+        }
+    }
+}
+// slick slider
+.slick-dotted{
+    .slick-dots{
+        position: static;
+        li{
+            button::before{
+                margin-top: 11px;
+                content: "";
+                height: 15px;
+                width: 15px;
+                background: $black;
+                border-radius: 50%;
+            }
+            &.slick-active{
+                button::before{
+                opacity: 1;
+                }
+            }
+        }
+    }
+}
+// slick slider
+
+// extra fonts
+// @font-face{
+//     font-family: "curly-normal";
+//     src: url(../fonts/Saginaw.ttf);
+// }
+// @font-face{
+//     font-family: "curly-bold";
+//     src: url(../fonts/SaginawBold.ttf);
+// }
+// @font-face{
+//     font-family: "curly-bold";
+//     src: url(../fonts/SaginawBold.ttf);
+// }
+// @font-face{
+//     font-family: "curly-medium";
+//     src: url(../fonts/SaginawMedium.ttf);
+// }
+// @font-face{
+//     font-family: "curly-light";
+//     src: url(../fonts/SaginawLight.ttf);
+// }
+
+
+// angular forms stylings
+form{
+    .mat-form-field{
+        width: 100%;
+        .mat-form-field-label{
+            color: opacify($grey, 0.5);
+            font-weight: 400;
+            font-family: $hFont;
+            &:not(.mat-empty){
+                font-weight: 600;
+                color: opacify($grey, 1);
+            }
+        }
+        &.mat-focused{
+            .mat-form-field-label{
+                color: $red;
+                font-weight: 600;
+            }
+            .mat-select-arrow-wrapper{
+                .mat-select-arrow{
+                    color: $red;
+                }
+            }
+        }
+        .mat-input-element{
+            caret-color: $red;
+        }
+        .mat-form-field-underline{
+            background-color: opacify($grey, 0.5);
+            .mat-form-field-ripple{
+                background-color: $red;
+            }
+        }
+    }
+    .mat-checkbox-layout,.mat-radio-label{
+        color: inherit;
+    }
+    .mat-radio-group{
+        .mat-radio-button{
+            margin-right: 8px;
+        }
+        .mat-radio-checked{
+            color: $red;
+            .mat-radio-inner-circle,
+            .mat-radio-outer-circle{
+                border-color: $red;
+            }
+        }
+    }
+    .mat-datepicker-toggle-active{
+        color: $red;
+    }
+    .mat-ripple-element{
+        background-color: $red;
+    }
+    .mat-slider-horizontal .mat-slider-ticks{
+        background: rgba(249, 25, 66, 0.4);
+    }
+    &.dark-form{
+        mat-form-field.mat-form-field{
+            font-family: inherit;
+            display: block;
+            width: 100%;
+            color: rgba(255,255,255,1) !important;
+            .mat-form-field-label{
+                color: rgba(255,255,255,0.7);
+                font-family: $hFont;
+                font-weight: 400;
+                &:not(.mat-empty){
+                    font-weight: 600;
+                    color: rgba(255,255,255,1);
+                }
+            }
+            &.mat-focused{
+                .mat-form-field-label{
+                    font-weight: 600;
+                    color: rgba(255,255,255,1);
+                }
+            }
+        }
+        .mat-form-field.mat-focused .mat-form-field-ripple{
+            background-color: rgba(255,255,255,1);
+        }
+        .mat-form-field-appearance-legacy .mat-form-field-underline{
+            background-color: rgba(255,255,255,0.5);
+        }
+        .mat-input-element{
+            caret-color: $white;
+        }
+        .mat-form-field-appearance-legacy .mat-form-field-wrapper{
+            padding-bottom: 1.5rem;
+        }
+    }
+    .btn{
+        display: flex;
+        .mat-icon,i{
+            margin-left: 10px;
+        }
+    }
+}
+
+// service list bttons
+
+.service-actions {
+    ul{
+        display: flex;
+    }
+    a{
+        height: 45px;
+        width: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        overflow: hidden;
+        color: $white;
+        &.create-new{
+            background: $blue;
+        }
+        &.pause-resume{
+            background: $green;
+        }
+        &.delete{
+            background: $muteRed;
+        }
+    }
+}

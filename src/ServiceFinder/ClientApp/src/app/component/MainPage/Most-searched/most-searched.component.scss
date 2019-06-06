@@ -1,0 +1,19 @@
+@import '../../../../assets/sass-helpers/variables';
+@import '../../../../assets/sass-helpers/mixins';
+
+section.most-searched{
+    padding-bottom: 20px;
+    margin-top: -80px;
+    .slide{
+        margin: 0 20px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .card{
+        margin: 0 auto;
+    }
+    .slick-dots{
+        position: static;
+        display: none;
+    }
+}

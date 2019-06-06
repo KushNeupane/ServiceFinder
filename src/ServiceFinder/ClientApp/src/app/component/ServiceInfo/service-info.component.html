@@ -1,0 +1,345 @@
+<app-header></app-header>
+<section class="service-detail py-0 pb-5 mb-0">
+  <form #form="ngForm" method="POST" autocomplete="off">
+    <!-- to show default cover image for the first time -->
+    <div class="header position-relative" *ngIf="serviceDetail.originalCoverImageName===null" [style.background-image]="'url(' + CoverimageUrl + ')'">
+      <div class="container">
+        <!-- upper part -->
+        <div class="row">
+          <div class="service-header-outer col-md-12 position-relative">
+
+            <!-- cover pic ahange -->
+            <button *ngIf="showCoverButton===false" class="btn btn-primary coverpic-change">
+              Change Cover Image
+              <input type="file" (change)="serviceCoverUpload($event.target.files)">
+            </button>
+
+            <button *ngIf="showCoverButton===true" (click)="uploadServiceCoverImage(form)"
+              class="btn btn-primary coverpic-change">
+              Save Cover Image
+              <!-- <input type="file" (change)="serviceCoverUpload($event.target.files)"> -->
+            </button>
+
+            <div class="service-header-wrapper d-flex align-items-end">
+              <!-- service profile photo uploading for the first time -->
+              <div class="profile-pic position-relative" *ngIf="serviceDetail.originalProfileImageName===null">
+                <img [src]="ProfileimageUrl">
+                <a *ngIf="showButton===false" [routerLink]="">Change Image</a>
+                <a *ngIf="showButton===true" [routerLink]="" (click)="uploadServiceProfileImage(form)">Save
+                  Changes</a>
+                <input type="file" (change)="serviceProfileUpload($event.target.files)">
+              </div>
+
+              <!-- service profile photo change  -->
+              <div class="profile-pic position-relative" *ngIf="serviceDetail.originalProfileImageName">
+                <img *ngIf="updatePic===false" src="../../../../../wwwroot/ServiceProfilePicture/{{profileImage}}">
+                <img *ngIf="updatePic===true" [src]="ProfileimageUrl" alt="">
+                <a *ngIf="showButton===false" [routerLink]="">Change Image</a>
+                <a *ngIf="showButton===true" [routerLink]="" (click)="uploadServiceProfileImage(form)">Save
+                  Changes</a>
+                <input type="file" (change)="serviceProfileUpload($event.target.files)">
+              </div>
+
+              <!-- service general details -->
+              <div class="general-details">
+                <h2>{{serviceDetail.name}} <span class="category-icon fooding"></span></h2>
+                <!-- <p class="tagline">We provide better quality product, hygenic foods and goods.</p> -->
+                <ul class="d-flex align-items-center">
+                  <!-- rating -->
+                  <!-- <li>
+                  <span class="lnr lnr-heart"></span>
+                  <span class="service-rating">4.7 <small>/5</small></span>
+                </li> -->
+                  <!-- mail -->
+                  <li>
+                    <span class="lnr lnr-envelope"></span>
+                    <a href="mailto:{{serviceDetail.email}}">{{serviceDetail.email}}</a>
+                  </li>
+                  <!-- location -->
+                  <li>
+                    <span class="lnr lnr-map-marker"></span>
+                    <span>Thamel, Kathmandu</span>
+                  </li>
+                  <!-- contact number -->
+                  <li>
+                    <span class="lnr lnr-phone-handset"></span>
+                    <a href="tel:{{serviceDetail.phoneNumber}}">{{serviceDetail.phoneNumber}}</a>
+                  </li>
+                  <li>
+                    <p class="btn btn-primary mb-0" (click)="open(content)">
+                      <span class="fa fa-edit mr-2" style="line-height: 24px;"></span>Review
+                    </p>
+    
+                    </li>
+                </ul>
+                <div class="directory">
+                  <span>services </span><span class="lnr lnr-chevron-right"></span>
+                  <span>food </span><span class="lnr lnr-chevron-right"></span>
+                  <span>bikram's bakery </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- to show cover image if there is already a cover image -->
+  <div class="header position-relative" *ngIf="serviceDetail.originalCoverImageName" [style.background-image]="'url(' + CoverimageUrl + ')'">
+    <div class="container">
+      <!-- upper part -->
+      <div class="row">
+        <div class="service-header-outer col-md-12 position-relative">
+
+          <!-- cover pic ahange -->
+          <button *ngIf="showCoverButton===false" class="btn btn-primary coverpic-change">
+            Change Cover Image
+            <input type="file" (change)="serviceCoverUpload($event.target.files)">
+          </button>
+
+          <button *ngIf="showCoverButton===true" (click)="uploadServiceCoverImage(form)"
+            class="btn btn-primary coverpic-change">
+            Save Cover Image
+            <!-- <input type="file" (change)="serviceCoverUpload($event.target.files)"> -->
+          </button>
+
+          <div class="service-header-wrapper d-flex align-items-end">
+            <!-- service profile photo uploading for the first time -->
+            <div class="profile-pic position-relative" *ngIf="serviceDetail.originalProfileImageName===null">
+              <img [src]="ProfileimageUrl">
+              <a *ngIf="showButton===false" [routerLink]="">Change Image</a>
+              <a *ngIf="showButton===true" [routerLink]="" (click)="uploadServiceProfileImage(form)">Save
+                Changes</a>
+              <input type="file" (change)="serviceProfileUpload($event.target.files)">
+            </div>
+
+            <!-- service profile photo change  -->
+            <div class="profile-pic position-relative" *ngIf="serviceDetail.originalProfileImageName">
+              <img *ngIf="updatePic===false" src="../../../../../wwwroot/ServiceProfilePicture/{{profileImage}}">
+              <img *ngIf="updatePic===true" [src]="ProfileimageUrl" alt="">
+              <a *ngIf="showButton===false" [routerLink]="">Change Image</a>
+              <a *ngIf="showButton===true" [routerLink]="" (click)="uploadServiceProfileImage(form)">Save
+                Changes</a>
+              <input type="file" (change)="serviceProfileUpload($event.target.files)">
+            </div>
+
+            <!-- service general details -->
+            <div class="general-details">
+              <h2>{{serviceDetail.name}} <span class="category-icon fooding"></span></h2>
+              <!-- <p class="tagline">We provide better quality product, hygenic foods and goods.</p> -->
+              <ul class="d-flex">
+                <!-- rating -->
+                <!-- <li>
+                <span class="lnr lnr-heart"></span>
+                <span class="service-rating">4.7 <small>/5</small></span>
+              </li> -->
+                <!-- mail -->
+                <li>
+                  <span class="lnr lnr-envelope"></span>
+                  <a href="mailto:{{serviceDetail.email}}">{{serviceDetail.email}}</a>
+                </li>
+                <!-- location -->
+                <li>
+                  <span class="lnr lnr-map-marker"></span>
+                  <span>Thamel, Kathmandu</span>
+                </li>
+                <!-- contact number -->
+                <li>
+                  <span class="lnr lnr-phone-handset"></span>
+                  <a href="tel:{{serviceDetail.phoneNumber}}">{{serviceDetail.phoneNumber}}</a>
+                </li>
+              </ul>
+              <div class="directory">
+                <span>services </span><span class="lnr lnr-chevron-right"></span>
+                <span>food </span><span class="lnr lnr-chevron-right"></span>
+                <span>bikram's bakery </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <!-- lower part -->
+    <div class="row">
+      <!-- detail tabs -->
+      <div class="col-md-8">
+        <!-- tab menus -->
+        <!-- <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" href="#overview" role="tab" data-toggle="tab">OVERVIEW</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery" role="tab" data-toggle="tab">GALLERY</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about-us" role="tab" data-toggle="tab">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reviews" role="tab" data-toggle="tab">REVIEWS</a>
+          </li>
+        </ul> -->
+        <!-- tab contents -->
+        <div class="tab-content">
+          <div class="bg-white detail-tab" role="tabpanel" id="overview">
+            <p>{{serviceDetail.description}}</p>
+            <!-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
+            <!-- <h6>Our Features</h6>
+            <ul>
+              <li>Pasteries</li>
+              <li>Coffee & Drinks</li>
+              <li>Birthday Cakes</li>
+              <li>Event Receptions(Birthdays, Anniversaries, Seminars, Others)</li>
+            </ul> -->
+          </div>
+          <div class="bg-white detail-tab" role="tabpanel" id="gallery">
+            <ngx-slick class="slick-slider carousel gallery-carousel" #slickModal="slick-modal" [config]="{
+                slidesToShow: 1,
+                slidesToScroll:1,
+                dots: fale,
+                arrows: true,
+                cssEase: easeInOut,
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      slidesToShow:1,
+                      slidesToScroll: 1
+                    }
+                  }
+                ]
+                }">
+              <li *ngFor="let item of imageList" class="slide" ngxSlickItem>
+                <div class="gallery-item">
+                  <img src="../../../../../wwwroot/Images/{{item.originalImageName}}" alt="service-thumbnail">
+                  <div class="info">
+                    <h4>{{item.originalImageName}}</h4>
+                    <p class="small-detail"></p>
+                  </div>
+                </div>
+              </li>
+            </ngx-slick>
+          </div>
+          <div class="bg-white detail-tab" role="tabpanel" id="about-us">
+            <ul>
+              <!-- location -->
+              <li>
+                <span class="lnr lnr-map-marker"></span>
+                <p><b>Address</b></p>
+                <span>Thamel, Kathmandu</span>
+              </li>
+              <!-- mail -->
+              <li>
+                <p><b>Email</b></p>
+                <span class="lnr lnr-envelope"></span>
+                <a href="mailto:{{serviceDetail.email}}">{{serviceDetail.email}}</a>
+              </li>
+              <!-- contact number -->
+              <li>
+                <p><b>Contact</b></p>
+                <span class="lnr lnr-phone-handset"></span>
+                <a href="tel:{{serviceDetail.phoneNumber}}">{{serviceDetail.phoneNumber}}</a>
+              </li>
+              <!-- Parking -->
+              <!-- <li>
+                  <p><b>Parking</b></p>
+                  <span class="lnr lnr-car"></span>
+                  <p>Available</p>
+              </li> -->
+            </ul>
+
+            <!-- =================== map section ==================== -->
+            <!-- <div>
+              <p><b>Map Assistant</b></p>
+              <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/undefined?origin=...&q=...&destination=...&center=...&zoom=...&key=..." allowfullscreen></iframe>
+            </div> -->
+          </div>
+          <div class="bg-white detail-tab" role="tabpanel" id="reviews">
+            <!-- rating header -->
+            <div class="rating-overview">
+              <!-- rating highlight -->
+              <div class="rating-block">
+                <span>ratings</span>
+                <div>
+                  <span class="overall-rating">{{averageRating}}</span>
+                  <span>/5</span>
+                </div>
+              </div>
+              <!-- rating header -->
+              <div>
+                <h3>Reviews</h3>
+                <p>Based on reviews made by <span>{{reviewList.length}}</span> customers</p>
+              </div>
+            </div>
+            <!-- list of reviews -->
+            <div *ngIf="reviewList.length==0">No Reviews Yet!!!!!</div>
+            <ul *ngFor="let review of reviewList">
+              <li>
+                <p><b></b>&nbsp;<span class="date">{{review.createdOn | date}}</span></p>
+                <p>{{review.reviewTest}}</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- contact part -->
+      <div class="col-md-4">
+        <P class="contact-heading"><B>CONTACT PROVIDER</B></P>
+        <div class="shift open">
+          SERVICE OPEN ( <span>9PM</span> - <span>8AM</span> )
+        </div>
+        <form class="contact-form">
+          <mat-form-field>
+            <input matInput placeholder="FULL NAME" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="EMAIL ADDRESS" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="CONTACT NO">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Leave a comment"></textarea>
+          </mat-form-field>
+          <button class="btn btn-primary">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rating-popup">
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Give your rating on {{serviceDetail.name}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #form="ngForm" (submit)="onRating(form)" method="POST" autocomplete="off">
+        
+        <p class="mb-0">Rate your experience?</p> 
+
+        <ngb-rating [(rate)]="serviceReview.overAllReview"></ngb-rating>
+        <pre name="overAllReview"
+          [(ngModel)]="serviceReview.overAllReview">Rate: <b>{{serviceReview.overAllReview}}</b></pre>
+
+        <mat-placeholder>Description</mat-placeholder>
+        <textarea matInput name="reviewTest" #reviewTest="ngModel"
+          [(ngModel)]="serviceReview.reviewTest"></textarea>
+
+        <mat-checkbox name="everUsed" #everUsed="ngModel" value="true" [(ngModel)]="serviceReview.everUsed">
+          Have u ever used this service?
+        </mat-checkbox>
+
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+
+      </form>
+    </div>
+  </ng-template>
+</section>
+<app-footer></app-footer>

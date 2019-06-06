@@ -1,0 +1,84 @@
+08/01/2019 2:42:35 PM	This log contains information about the import schema operation into project 'ServiceFinder.SSDT' on computer 'DELL-PC' by user 'User'.
+08/01/2019 2:42:35 PM	Import of database schema has started.
+08/01/2019 2:42:42 PM	Gathering database credentials
+08/01/2019 2:42:42 PM	Gathering database options
+08/01/2019 2:42:42 PM	Gathering users
+08/01/2019 2:42:42 PM	Gathering roles
+08/01/2019 2:42:42 PM	Gathering application roles
+08/01/2019 2:42:42 PM	Gathering role memberships
+08/01/2019 2:42:42 PM	Gathering filegroups
+08/01/2019 2:42:42 PM	Gathering full-text catalogs
+08/01/2019 2:42:42 PM	Gathering assemblies
+08/01/2019 2:42:42 PM	Gathering certificates
+08/01/2019 2:42:42 PM	Gathering asymmetric keys
+08/01/2019 2:42:42 PM	Gathering symmetric keys
+08/01/2019 2:42:42 PM	Gathering encrypted symmetric keys
+08/01/2019 2:42:42 PM	Gathering schemas
+08/01/2019 2:42:42 PM	Gathering XML schema collections
+08/01/2019 2:42:42 PM	Gathering user-defined data types
+08/01/2019 2:42:42 PM	Gathering user-defined types
+08/01/2019 2:42:42 PM	Gathering table types
+08/01/2019 2:42:42 PM	Gathering unique keys for table types
+08/01/2019 2:42:42 PM	Gathering primary keys for table types
+08/01/2019 2:42:42 PM	Gathering indexes for table types
+08/01/2019 2:42:42 PM	Gathering check constraints for table types
+08/01/2019 2:42:42 PM	Gathering default constraints for table types
+08/01/2019 2:42:42 PM	Gathering partition functions
+08/01/2019 2:42:42 PM	Gathering partition schemes
+08/01/2019 2:42:42 PM	Gathering functions
+08/01/2019 2:42:42 PM	Gathering encrypted functions
+08/01/2019 2:42:42 PM	Gathering aggregates
+08/01/2019 2:42:42 PM	Gathering procedures
+08/01/2019 2:42:42 PM	Gathering encrypted procedures
+08/01/2019 2:42:42 PM	Gathering tables
+08/01/2019 2:42:42 PM	Gathering primary keys
+08/01/2019 2:42:42 PM	Gathering unique constraints
+08/01/2019 2:42:42 PM	Gathering foreign keys
+08/01/2019 2:42:42 PM	Gathering default constraints
+08/01/2019 2:42:42 PM	Gathering check constraints
+08/01/2019 2:42:42 PM	Gathering views
+08/01/2019 2:42:42 PM	Gathering encrypted views
+08/01/2019 2:42:42 PM	Gathering indexes
+08/01/2019 2:42:42 PM	Gathering statistics
+08/01/2019 2:42:42 PM	Gathering full-text index stoplists
+08/01/2019 2:42:42 PM	Gathering search property lists
+08/01/2019 2:42:42 PM	Gathering search properties
+08/01/2019 2:42:42 PM	Gathering full-text indexes
+08/01/2019 2:42:42 PM	Gathering column store indexes
+08/01/2019 2:42:43 PM	Gathering spatial indexes
+08/01/2019 2:42:43 PM	Gathering XML indexes
+08/01/2019 2:42:43 PM	Gathering Selective XML indexes
+08/01/2019 2:42:43 PM	Gathering encrypted triggers
+08/01/2019 2:42:43 PM	Gathering triggers
+08/01/2019 2:42:43 PM	Gathering encrypted and clr ddl triggers
+08/01/2019 2:42:43 PM	Gathering ddl triggers
+08/01/2019 2:42:43 PM	Gathering synonyms
+08/01/2019 2:42:43 PM	Gathering defaults
+08/01/2019 2:42:43 PM	Gathering data constraint uddt bindings
+08/01/2019 2:42:43 PM	Gathering rules
+08/01/2019 2:42:43 PM	Gathering data constraint uddt bindings
+08/01/2019 2:42:43 PM	Gathering message types
+08/01/2019 2:42:43 PM	Gathering queues
+08/01/2019 2:42:43 PM	Gathering contracts
+08/01/2019 2:42:43 PM	Gathering services
+08/01/2019 2:42:43 PM	Gathering event notifications
+08/01/2019 2:42:43 PM	Gathering remote service bindings
+08/01/2019 2:42:43 PM	Gathering broker priorities
+08/01/2019 2:42:43 PM	Gathering signatures
+08/01/2019 2:42:43 PM	Gathering data compression options
+08/01/2019 2:42:43 PM	Gathering sequence types
+08/01/2019 2:42:43 PM	Gathering security policies
+08/01/2019 2:42:43 PM	Gather column encryption keys
+08/01/2019 2:42:43 PM	Gathering column master keys
+08/01/2019 2:42:43 PM	Gathering external data sources
+08/01/2019 2:42:43 PM	Gathering external file formats
+08/01/2019 2:42:43 PM	Gathering external tables
+08/01/2019 2:42:43 PM	Gathering extended properties
+08/01/2019 2:42:44 PM	Gathering credentials
+08/01/2019 2:42:44 PM	Gathering logins
+08/01/2019 2:42:44 PM	Gathering server audits
+08/01/2019 2:42:44 PM	Scanning project for duplicate elements
+08/01/2019 2:42:44 PM	Finished duplicate element processing
+08/01/2019 2:42:45 PM	Finished importing database.
+08/01/2019 2:42:45 PM	A summary of the import was saved to the following location: D:\WorkingFolder\ServiceFinder\database\ServiceFinder.SSDT\Import Schema Logs\ServiceFinder.SSDT_20190108085735.log
+08/01/2019 2:42:45 PM	Click Finish to continue...

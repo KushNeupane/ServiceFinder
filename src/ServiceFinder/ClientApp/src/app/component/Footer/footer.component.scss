@@ -1,0 +1,61 @@
+@import '../../../assets/sass-helpers/variables';
+@import '../../../assets/sass-helpers/mixins';
+
+footer{
+    padding: 40px 15px 25px;
+    background: $black;
+    color: $white;
+    a{
+        color: $white;
+        &:hover{
+            color: $red;
+        }
+        text-transform: uppercase;
+    }
+    .footer-form{
+        margin-bottom: 40px;
+        @include tablet{
+            margin-bottom: 80px;
+        }
+        form{
+            overflow: hidden;
+            height: 50px;
+            max-width: 500px;
+        }
+        .btn{
+            border-radius: 0;
+            flex-basis: 160px;
+            display: flex;
+            align-items: center;
+            i{
+                margin-right: 20px;
+            }
+            @media screen and (max-width: 575px) {
+                padding-left: 3px;
+                i{
+                    margin: 0 8px;
+                }
+            }
+        }
+        input{
+            flex-grow: 1;
+            padding: 0 20px;
+        }
+        h2{
+            margin-bottom: 25px;
+            color: $white;
+        }
+    }
+    .footer-links ul{
+        max-width: 680px;
+        li{
+            @media only screen and (max-width: 575px){
+                flex-basis: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .social li{
+        margin: 0 12px;
+    }
+}

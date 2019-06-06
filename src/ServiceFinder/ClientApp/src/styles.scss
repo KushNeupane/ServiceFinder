@@ -1,0 +1,579 @@
+@import "assets/sass-helpers/base";
+@import "assets/sass-helpers/dashboard";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~ngx-toastr/toastr.css";
+
+// global stylings here
+
+.gallery-item img {
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.gallery-carousel {
+  li {
+    max-height: 550px;
+    overflow: hidden;
+  }
+}
+
+.image-upload {
+  flex-wrap: wrap;
+
+  p {
+    word-break: break-all;
+  }
+}
+
+#gallery {
+
+  .slick-prev,
+  .slick-next {
+    z-index: 1;
+  }
+
+  .slick-prev {
+    left: 25px;
+  }
+
+  .slick-next {
+    right: 25px;
+  }
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+  background: darken($color: $red, $amount: 15%);
+  border-color: darken($color: $red, $amount: 15%);
+}
+
+
+// dashboard main  tab
+@import 'assets/sass-helpers/variables';
+@import 'assets/sass-helpers/mixins';
+
+section.dashboard {
+  .dashboard-block {
+    border-radius: 15px;
+    overflow: hidden;
+    background: $white;
+    box-shadow: 0px 7px 22.32px 1.68px rgba(0, 0, 0, 0.09);
+    margin-bottom: 25px;
+
+    .header {
+      display: flex;
+      color: $white;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 30px;
+
+      span {
+        font-weight: 600;
+        font-size: 18px;
+        font-family: $hFont;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        height: 23px;
+        line-height: 23px;
+
+        span {
+          display: block;
+          line-height: 23px;
+          height: 4px;
+          width: 4px;
+          background: $white;
+
+          &::before,
+          &::after {
+            content: "";
+            height: 4px;
+            width: 4px;
+            background: $white;
+            display: block;
+            position: relative;
+          }
+
+          &::before {
+            top: -8px;
+          }
+
+          &::after {
+            bottom: -4px;
+          }
+        }
+      }
+
+      &+ul {
+        padding: 15px 30px;
+
+        li {
+          flex-basis: 100%;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+
+          &:last-child {
+            margin-bottom: 0;
+
+            .status {
+              margin-bottom: 0;
+            }
+
+            li {
+              margin-bottom: 0;
+            }
+          }
+
+          ul {
+            li {
+              flex-basis: unset;
+              margin-right: 15px;
+
+              a {
+                height: 45px;
+                width: 45px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                overflow: hidden;
+                color: $white;
+
+                &.create-new {
+                  background: $blue;
+                }
+
+                &.pause-resume {
+                  background: $green;
+                }
+
+                &.delete {
+                  background: $muteRed;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+
+      li:hover {
+        .service-actions {
+          opacity: 1;
+        }
+      }
+
+      .service-actions {
+        opacity: 0.8;
+        transition: all 0.3s ease-in-out;
+
+        a.delete {
+          cursor: pointer;
+        }
+
+        a.create-new {
+          cursor: pointer;
+        }
+      }
+    }
+
+    h4 {
+      font-size: 18px;
+      color: initial;
+      margin-bottom: 0;
+    }
+
+    &.my-services {
+      .header {
+        background: $blue;
+      }
+    }
+
+    &.history {
+      .header {
+        background: $muteRed;
+      }
+
+      li small {
+        color: $grey;
+      }
+
+      li {
+        margin-bottom: 15px !important;
+      }
+    }
+
+    &.my-services,
+    &.history {
+      ul {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+    }
+
+    &.profile-detail {
+      .header {
+        padding: 0;
+      }
+
+      .header-wrapper {
+        padding: 10px 30px;
+        background: #06a1ce;
+        position: relative;
+
+        div {
+          position: relative;
+          z-index: 1;
+        }
+
+        .background-curve {
+          position: absolute;
+          bottom: 0px;
+          left: 0;
+          right: 0;
+        }
+      }
+
+      .profile-mid {
+
+        h2,
+        p {
+          color: $white;
+        }
+      }
+
+      .detail-list {
+        padding: 25px 0;
+        border-bottom: 1px solid $grey;
+        flex-wrap: wrap;
+
+        span.lnr {
+          color: $muteRed;
+          margin-right: 8px;
+        }
+
+        li {
+          flex-basis: 50%;
+          margin-bottom: 20px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .detail-brief {
+        padding: 10px 30px;
+        max-height: 400px;
+        overflow-y: auto;
+
+        ul {
+          display: initial;
+
+          li {
+            &::before {
+              content: "-";
+              margin-right: 15px;
+            }
+          }
+        }
+
+        h5 {
+          color: initial;
+        }
+      }
+
+      figure {
+        border-radius: 50%;
+        height: 150px;
+        width: 150px;
+        border: 2px solid $muteRed;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+// dashboard main  tab
+
+
+// pagination styles
+.ngx-pagination .current {
+  background: $red !important;
+}
+
+.pagination-next,
+.pagination-previous {
+  &.disabled {
+    background: $grey !important;
+    color: $white !important;
+  }
+
+  background: $red;
+  color: $white;
+  font-weight: 600;
+
+  &:hover {
+    background: darken($color: $red, $amount: 0.7);
+
+    a {
+      background: darken($color: $red, $amount: 0.7) !important;
+    }
+  }
+
+  a {
+    color: $white !important;
+  }
+}
+
+// pagination styles
+
+
+
+// login siognup forms
+.alert {
+  padding: 5px 10px;
+}
+
+
+
+
+// image thumbnails
+ul.image-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    position: relative;
+    height: 123px;
+    width: 123px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    a {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      color: $white;
+
+      &:hover {
+        color: $red;
+      }
+    }
+
+    &.add-more {
+      background: $grey;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $white;
+      cursor: pointer;
+
+      &:hover {
+        background: $red;
+        cursor: pointer;
+
+      }
+
+      input {
+        position: absolute;
+        cursor: pointer;
+
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        appearance: none;
+        -webkit-appearance: none;
+      }
+    }
+  }
+}
+
+.form-group.image-upload {
+  ul.ng-star-inserted {
+    height: 123px;
+    width: 123px;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    div {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      color: $white;
+
+      &:hover {
+        color: $red;
+      }
+    }
+
+    p {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// image thumbnails
+
+
+// profile photo
+.profile-photo {
+  position: relative;
+  height: 103px;
+  width: 103px;
+  overflow: hidden;
+  border-radius: 50%;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+  }
+
+  &:hover {
+    a {
+      opacity: 1;
+
+    }
+  }
+
+  a {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    opacity: 0;
+  }
+
+  input {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+  }
+}
+
+//confirmation box
+.confirmation_box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+
+  .confirmation_wrapper {
+    position: relative;
+    background: $white;
+    padding-top: 30px;
+    top: 100px;
+
+    @include tablet {
+      min-width: 320px;
+      top: 0;
+    }
+  }
+
+  .cross_btn {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+  }
+
+  .btn {
+    border-radius: 0;
+  }
+
+  p {
+    padding: 0 20px;
+    margin: 20px 0;
+  }
+
+  .confirmation_actions {
+    display: flex;
+
+    .btn {
+      flex-basis: 50%;
+      cursor: pointer;
+
+      &:last-child {
+        background: $black;
+        color: $white;
+      }
+    }
+  }
+}
+
+
+// popup modals
+.modal {
+  &-dialog {
+    max-width: 650px;
+  }
+
+  .ng-star-inserted {
+    font-size: 28px;
+  }
+
+  pre {
+    height: 1px;
+    overflow: hidden;
+  }
+
+  textarea {
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    margin: 5px 0 15px !important;
+  }
+}
+
+.custom-alert {
+  color: #721c24;
+  font-size: 13px;
+  margin: -15px 2px 15px 2px !important;
+}
