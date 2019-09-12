@@ -30,3 +30,4 @@
 /src/ServiceFinder.DependencyInjection/bin
 /src/ServiceFinder.DependencyInjection/obj
 /src/ServiceFinder/*
+/src/ServiceFinder.Infrastructure/obj
