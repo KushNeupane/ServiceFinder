@@ -8,7 +8,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
     <PackageReference Include="Moq" Version="4.10.1" />
@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ServiceFinder.DependencyInjection\ServiceFinder.DependencyInjection.csproj" />
     <ProjectReference Include="..\..\ServiceFinder.Framework.DataAccess\ServiceFinder.Framework.DataAccess.csproj" />
     <ProjectReference Include="..\..\ServiceFinder.Framework.Model\ServiceFinder.Framework.Model.csproj" />
   </ItemGroup>

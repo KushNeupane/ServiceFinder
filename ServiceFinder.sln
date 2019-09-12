@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{01C4EA5D-6D3E-4A3A-9F9C-7D7D8B7AF2FC}"
 EndProject
@@ -17,13 +17,17 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ServiceFinder.SSDT", "datab
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceFinder.AccountManagement", "src\ServiceFinder.Module\ServiceFinder.AccountManagement\ServiceFinder.AccountManagement.csproj", "{EF041789-915C-44A5-999F-4751399B29DD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceFinder.Dashboard", "src\ServiceFinder.Module\ServiceFinder.Dashboard\ServiceFinder.Dashboard.csproj", "{E0EB9B8A-A475-4000-BDDE-30A1B7A8D2FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceFinder.UserDashboard", "src\ServiceFinder.Module\ServiceFinder.Dashboard\ServiceFinder.UserDashboard.csproj", "{E0EB9B8A-A475-4000-BDDE-30A1B7A8D2FD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceFinder", "src\ServiceFinder\ServiceFinder.csproj", "{3677CE45-D023-43AC-8BCE-4BFB0D762209}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceFinder.Framework.DataAccess", "src\ServiceFinder.Framework.DataAccess\ServiceFinder.Framework.DataAccess.csproj", "{0B0BAF11-943B-4EAD-A647-301A84A1538D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceFinder.Framework.Model", "src\ServiceFinder.Framework.Model\ServiceFinder.Framework.Model.csproj", "{7507DB1D-21A4-4003-82E2-935E79D3548B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceFinder.AdminDashboard", "src\ServiceFinder.Module\ServiceFinder.AdminDashboard\ServiceFinder.AdminDashboard.csproj", "{9424737D-43C4-4B8E-B09E-E5B4510485F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceFinder.DependencyInjection", "src\ServiceFinder.DependencyInjection\ServiceFinder.DependencyInjection.csproj", "{7B07D8D5-7EC5-4621-B6FE-A2E87E1724D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +65,14 @@ Global
 		{7507DB1D-21A4-4003-82E2-935E79D3548B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7507DB1D-21A4-4003-82E2-935E79D3548B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7507DB1D-21A4-4003-82E2-935E79D3548B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9424737D-43C4-4B8E-B09E-E5B4510485F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9424737D-43C4-4B8E-B09E-E5B4510485F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9424737D-43C4-4B8E-B09E-E5B4510485F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9424737D-43C4-4B8E-B09E-E5B4510485F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B07D8D5-7EC5-4621-B6FE-A2E87E1724D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B07D8D5-7EC5-4621-B6FE-A2E87E1724D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B07D8D5-7EC5-4621-B6FE-A2E87E1724D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B07D8D5-7EC5-4621-B6FE-A2E87E1724D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +86,8 @@ Global
 		{3677CE45-D023-43AC-8BCE-4BFB0D762209} = {01C4EA5D-6D3E-4A3A-9F9C-7D7D8B7AF2FC}
 		{0B0BAF11-943B-4EAD-A647-301A84A1538D} = {01C4EA5D-6D3E-4A3A-9F9C-7D7D8B7AF2FC}
 		{7507DB1D-21A4-4003-82E2-935E79D3548B} = {01C4EA5D-6D3E-4A3A-9F9C-7D7D8B7AF2FC}
+		{9424737D-43C4-4B8E-B09E-E5B4510485F9} = {E30B7E72-2FA0-4168-A1FB-C816517BFFF0}
+		{7B07D8D5-7EC5-4621-B6FE-A2E87E1724D5} = {01C4EA5D-6D3E-4A3A-9F9C-7D7D8B7AF2FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4020F15F-8CE2-4A73-9555-E7E0E3C225E1}

@@ -41,30 +41,14 @@
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Compile Remove="ClientApp\dist\**" />
-    <Compile Remove="wwwroot\Images\**" />
-    <Compile Remove="wwwroot\profilePic\**" />
-    <Compile Remove="wwwroot\ServiceCoverPicture\**" />
-    <Compile Remove="wwwroot\ServiceProfilePicture\**" />
     <Content Remove="$(SpaRoot)**" />
     <Content Remove="ClientApp\dist\**" />
-    <Content Remove="wwwroot\Images\**" />
-    <Content Remove="wwwroot\profilePic\**" />
-    <Content Remove="wwwroot\ServiceCoverPicture\**" />
-    <Content Remove="wwwroot\ServiceProfilePicture\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Remove="ClientApp\dist\**" />
-    <EmbeddedResource Remove="wwwroot\Images\**" />
-    <EmbeddedResource Remove="wwwroot\profilePic\**" />
-    <EmbeddedResource Remove="wwwroot\ServiceCoverPicture\**" />
-    <EmbeddedResource Remove="wwwroot\ServiceProfilePicture\**" />
     <None Remove="ClientApp\dist\**" />
-    <None Remove="wwwroot\Images\**" />
-    <None Remove="wwwroot\profilePic\**" />
-    <None Remove="wwwroot\ServiceCoverPicture\**" />
-    <None Remove="wwwroot\ServiceProfilePicture\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -73,10 +57,19 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\tests\ServiceFinder.AccountManagement.UnitTests\ServiceFinder.UnitTests.csproj" />
+    <ProjectReference Include="..\ServiceFinder.DependencyInjection\ServiceFinder.DependencyInjection.csproj" />
     <ProjectReference Include="..\ServiceFinder.Framework.DataAccess\ServiceFinder.Framework.DataAccess.csproj" />
     <ProjectReference Include="..\ServiceFinder.Framework.Model\ServiceFinder.Framework.Model.csproj" />
     <ProjectReference Include="..\ServiceFinder.Module\ServiceFinder.AccountManagement\ServiceFinder.AccountManagement.csproj" />
-    <ProjectReference Include="..\ServiceFinder.Module\ServiceFinder.Dashboard\ServiceFinder.Dashboard.csproj" />
+    <ProjectReference Include="..\ServiceFinder.Module\ServiceFinder.AdminDashboard\ServiceFinder.AdminDashboard.csproj" />
+    <ProjectReference Include="..\ServiceFinder.Module\ServiceFinder.Dashboard\ServiceFinder.UserDashboard.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\CategoryIcon\" />
+    <Folder Include="wwwroot\profilePic\" />
+    <Folder Include="wwwroot\ServiceProfilePicture\" />
+    <Folder Include="wwwroot\ServiceCoverPicture\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

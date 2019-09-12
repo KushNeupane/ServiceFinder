@@ -1,0 +1,80 @@
+<div class="col-md-12">
+  <div *ngIf="changeButton===false" class="text-right mb-3">
+    <a class="btn btn-primary text-white" (click)="addcategory()">Add Category<span class="fa fa-plus ml-2"></span>
+    </a>
+  </div>
+  <div *ngIf="changeButton===true" class="text-right mb-3">
+    <a class="btn btn-primary text-white" (click)="backToList()">Back To List<span class="fa fa-plus ml-2"></span>
+    </a>
+  </div>
+  <div *ngIf="showList===true" class="dashboard-block my-services">
+
+    <!-- <div class="header"><a href="#" class="edit-option"><span></span></a></div> -->
+    <ul class="services-list">
+      <li *ngFor="let item of categoryList" class="service-list-item" [value]="item.id">
+
+        <span>{{item.name}}
+        </span>
+
+        <div class="service-detail">
+          <div class="service-actions">
+            <ul>
+              <li>
+                <a (click)="edit(item.id)" class="create-new">
+                  <i class="fas fa-edit"></i>
+                </a>
+              </li>
+              <li>
+                <a (click)="delete(item.id)" class="delete">
+                  <i class="fas fa-trash-alt"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <section class="confirmation_box"  *ngIf="statusActive">
+          <div class="confirmation_wrapper">
+            <a class="cross_btn" [routerLink]="" (click)="destroyConfbox()"><i class="fas fa-times"></i></a>
+            <p>Do you want to delete the service ? </p>
+            <div class="confirmation_actions">
+          
+              <button (click)="yes()" class="btn btn-primary">Yes</button>
+              <button (click)="destroyConfbox()" class="btn">No</button>
+            </div>
+          </div>
+        </section>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="showList===false" class="col-md-6">
+    <form #form="ngForm" method="POST" autocomplete="off">
+      <input type="hidden" name="id" #name="ngModel" [(ngModel)]="categoryModel.id">
+      <div class="demo-form-wrapper">
+        <mat-form-field>
+          <mat-placeholder>Add Category</mat-placeholder>
+          <input matInput type="text" #name="ngModel" [(ngModel)]="categoryModel.name" name="name" required>
+        </mat-form-field>
+      </div>
+      <div class="demo-form-wrapper">
+        <div class="profile-photo" *ngIf="categoryModel.systemDefinedImageName===null">
+          <img [src]="imageUrl" alt="">
+          <a [routerLink]="">Change Picture</a>
+          <input type="file" (change)="handleImageUpload($event.target.files)">
+        </div>
+      </div>
+      <div class="demo-form-wrapper">
+        <div class="profile-photo" *ngIf="categoryModel.systemDefinedImageName">
+          <img src="../../../../../../../wwwroot/Images/CategoryIcon/{{categoryModel.systemDefinedImageName}}" alt="">
+          <img *ngIf="updatePic===true" [src]="imageUrl" alt="">
+          <a [routerLink]="">Change Picture</a>
+          <input type="file" (change)="handleImageUpload($event.target.files)">
+        </div>
+      </div>
+      <a *ngIf="updateCategory===false" (click)="postCategory(form)" class="btn btn-primary text-white">Add Category <span
+          class="fa fa-plus ml-2"></span> </a>
+      <a *ngIf="updateCategory===true" (click)="updateCatgory(form)" class="btn btn-primary text-white">Update<span
+          class="fa fa-plus ml-2"></span> </a>
+    </form>
+  </div>
+</div>

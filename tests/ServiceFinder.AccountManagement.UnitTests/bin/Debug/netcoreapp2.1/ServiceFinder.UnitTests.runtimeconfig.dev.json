@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\CloudyfoxLpt2\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\CloudyfoxLpt2\\.nuget\\packages",
+      "C:\\Users\\Deepcloud\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Deepcloud\\.nuget\\packages",
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }

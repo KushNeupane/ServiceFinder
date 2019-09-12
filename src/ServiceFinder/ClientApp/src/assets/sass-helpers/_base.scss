@@ -299,31 +299,31 @@ form{
             font-family: inherit;
             display: block;
             width: 100%;
-            color: rgba(255,255,255,1) !important;
+            color: rgba($black,1) !important;
             .mat-form-field-label{
-                color: rgba(255,255,255,0.7);
+                color: rgba($black,0.7);
                 font-family: $hFont;
                 font-weight: 400;
                 &:not(.mat-empty){
                     font-weight: 600;
-                    color: rgba(255,255,255,1);
+                    color: rgba($black,1);
                 }
             }
             &.mat-focused{
                 .mat-form-field-label{
                     font-weight: 600;
-                    color: rgba(255,255,255,1);
+                    color: rgba($black,1);
                 }
             }
         }
         .mat-form-field.mat-focused .mat-form-field-ripple{
-            background-color: rgba(255,255,255,1);
+            background-color: rgba($black,1);
         }
         .mat-form-field-appearance-legacy .mat-form-field-underline{
-            background-color: rgba(255,255,255,0.5);
+            background-color: rgba($black,0.8);
         }
         .mat-input-element{
-            caret-color: $white;
+            caret-color: $black;
         }
         .mat-form-field-appearance-legacy .mat-form-field-wrapper{
             padding-bottom: 1.5rem;

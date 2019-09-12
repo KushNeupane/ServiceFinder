@@ -1,39 +1,59 @@
 ﻿using Service.Framework.Core.Response;
+using ServiceFinder.Framework.Model.Entity.AdminDashboard;
 using ServiceFinder.Framework.Model.Entity.UserDashboard;
 using ServiceFinder.Framework.Model.Models.UserDashboard;
+using ServiceFinder.Framework.Model.ViewModels;
 using ServiceFinder.Framework.Model.ViewModels.ServiceManagement;
 using System.Collections.Generic;
 
 namespace ServiceFinder.Framework.DataAccess.Services.Dashboard.ServiceManagement
 {
-    public interface IServiceManagement
-    {
+  public interface IServiceManagement
+  {
 
-        IEnumerable<CategoryAndServiceItemViewModel> GetCategories();
+   
+    IEnumerable<CategoryEntity> GetCategories();
 
-        IEnumerable<ServiceItemEntity> GetServices();
+    //to get the total count of visited services
+    IEnumerable<ServiceVisitViewModel> GetTotalVisitedServiceCount();
 
-        ServiceItemEntity GetServiceByServiceItemId(int? Id);
+    IEnumerable<ServiceItemEntity> GetServices();
 
-        IEnumerable<ServiceItemEntity> GetServicesByCategoryId(int? Id);
+    ServiceViewModel GetServiceByServiceItemId(int? Id);
 
-        void DeleteService(int? Id);
+    IEnumerable<ServicesByCategoryAndUserNameViewModel> GetServicesByCategoryId(int? id);
 
-        ServiceItemEntity UpdateService(int? id, ServiceItemEntity model, List<ServiceItemImageEntity> image);
+    void DeleteService(int? Id);
 
-        ServiceItemEntity AddService(ServiceItemEntity model, List<ServiceItemImageEntity> image);
+    ServiceItemEntity UpdateService(int? id, ServiceItemEntity model, List<ServiceItemImageEntity> image);
 
-        IEnumerable<ServiceItemImageEntity> GetImageByServiceItemImageId(int? Id);
+    ServiceItemEntity AddService(ServiceItemEntity model, List<ServiceItemImageEntity> image);
 
-        void DeleteImageByServiceItemImageId(int? Id);
+    IEnumerable<ServiceItemImageEntity> GetImageByServiceItemImageId(int? Id);
 
-        IEnumerable<ServiceItemEntity> GetServicesByUserId();
+    void DeleteImageByServiceItemImageId(int? Id);
 
-        ResponseModel AddReview(ServiceReviewEntity model);
+    IEnumerable<ServiceItemEntity> GetServicesByUserId();
 
-        List<ServiceReviewEntity> GetReviewByServiceId(int id);
+    ResponseModel AddReview(ServiceReviewEntity model);
 
-        List<ServiceReviewEntity> GetReviewByUserId();
+    List<ServiceReviewEntity> GetReviewByServiceId(int id);
 
-    }
+    List<ServiceReviewEntity> GetReviewByUserId();
+
+    void DeleteReview(int? Id);
+
+    ResponseModel UpdateReview(int? id, ServiceReviewEntity model);
+
+    void addServiceVisitLog(ServiceItemViewLog model);
+
+    IEnumerable<CategoryAndServiceItemViewModel> GetCategoriesWithServiceCount(int? id);
+
+    List<CityEntity> GetCities();
+
+    List<AdvancedSearchViewModel> GetFilteredService(int? categoryId, int? cityId, string searchTerm, int id);
+
+    ResponseModel AddSubsciber(string email);
+
+  }
 }

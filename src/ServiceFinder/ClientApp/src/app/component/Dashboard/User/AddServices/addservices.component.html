@@ -18,8 +18,18 @@
         <div class="demo-form-group">
           <mat-form-field>
             <mat-placeholder>Choose Your Category</mat-placeholder>
-            <mat-select [(ngModel)]="provider.categoryId" name="categoryId" #categoryId="ngModel">
+            <mat-select [(ngModel)]="provider.categoryId" name="categoryId" #categoryId="ngModel" required>
               <mat-option *ngFor="let item of categoryList" [value]="item.id">{{item.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <br />
+
+        <div class="demo-form-group">
+          <mat-form-field>
+            <mat-placeholder>City</mat-placeholder>
+            <mat-select [(ngModel)]="provider.cityId" name="cityId" #categoryId="ngModel" required>
+              <mat-option *ngFor="let item of cityList" [value]="item.id">{{item.name}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -58,12 +68,15 @@
         <div class="demo-form-wrapper">
           <mat-form-field>
             <mat-placeholder>Description</mat-placeholder>
-            <textarea matInput name="description" #description="ngModel" [(ngModel)]="provider.description" required
-              rows="5"></textarea>
+            <textarea matInput name="description" #description="ngModel" [(ngModel)]="provider.description" rows="5"
+              minlength="250" required></textarea>
           </mat-form-field>
           <div *ngIf="description.invalid && (description.dirty || description.touched)" class="custom-alert">
             <div class="errorMsg" *ngIf="description.errors.required">
               Description is required.
+            </div>
+            <div class="errorMsg" *ngIf="description.errors.minlength">
+              At least 250 words of description required
             </div>
           </div>
         </div>
@@ -119,11 +132,11 @@
         <!-- images preview -->
 
 
-        <div class="demo-form-wrapper">
+        <!-- <div class="demo-form-wrapper">
           <h6>Service Availibility</h6>
           <mat-checkbox name="status" #status="ngModel" value="true" [(ngModel)]="provider.status">I am Available
           </mat-checkbox>
-        </div>
+        </div> -->
 
 
         <!-- <div class="demo-form-wrapper">

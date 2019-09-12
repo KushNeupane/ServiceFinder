@@ -22,6 +22,8 @@ namespace ServiceFinder.Framework.Model.Entity.UserDashboard
         public bool EverUsed { get; set; }
         public DateTime CreatedOn { get; set; } = DateTime.Now;
         public bool IsDeleted { get; set; } = false;
+        public bool ShowOptions { get; set; } = false;
+
 
 
 

@@ -1,5 +1,5 @@
 import { FilterPipe } from './../../filter.pipe';
-import { ActivatedRoute, NavigationExtras,Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { ViewService } from '../../models/user.viewService.model';
 import { FormsModule, NgForm, FormControl } from '@angular/forms';
 import { AddServiceModel } from '../../models/user.addService.model';
@@ -8,7 +8,8 @@ import { AddserviceService } from 'src/app/services/Dashboard/AddService/addserv
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MatPaginator } from '@angular/material';
-
+import { SearchModel } from 'src/app/models/user.search.model';
+import { CityModel } from 'src/app/models/user.city.model';
 
 
 @Component({
@@ -20,32 +21,56 @@ import { MatPaginator } from '@angular/material';
 })
 export class ServiceListComponent implements OnInit {
   public filteredOptions: Observable<ViewService[]>;
-  public searchedList: ViewService[];
+  public searchList: any[];
   public searchTerm: string = null;
   myControl = new FormControl();
   public categoryList: CategoryModel[];
-  provider: AddServiceModel = new AddServiceModel;
+  provider: SearchModel = new SearchModel;
   private serviceList: ViewService[];
   public filterValue: string;
   public count: number;
   public categoryName: string = null;
+  public arr: any[];
+  cityList: CityModel[] = [];
+
 
   constructor(
     private service: AddserviceService,
     private route: ActivatedRoute,
     private searchPipe: FilterPipe,
-    private router : Router
+    private router: Router
   ) { }
 
-  @ViewChild(MatPaginator) paginator : MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   ngOnInit() {
     if (this.route.snapshot.queryParamMap.has('searchTerm')) {
-      this.searchTerm = this.route.snapshot.queryParamMap.get('searchTerm');
+      this.provider.searchTerm = this.route.snapshot.queryParamMap.get('searchTerm');
     }
-    this.searchedList = JSON.parse(localStorage.getItem('searchedList'));
-    
-    this.getCategory();
+
+    if (this.route.snapshot.queryParamMap.has('cityId')) {
+      this.provider.cityId = JSON.parse(this.route.snapshot.queryParamMap.get('cityId'));
+    }
+
+    if (this.route.snapshot.queryParamMap.has('categoryId')) {
+      this.provider.categoryId = JSON.parse(this.route.snapshot.queryParamMap.get('categoryId'));
+    }
+
+    if (this.route.snapshot.queryParamMap.has('loadMoreCount')) {
+      this.provider.loadMoreCount = JSON.parse(this.route.snapshot.queryParamMap.get('loadMoreCount'));
+    }
+
+
+    this.loadFiltered(this.provider);
     this.getServiceNames();
+    this.getCities();
+    this.getCategory();
+  }
+
+  getCities() {
+    this.service.getCities().subscribe(res => {
+      let result = <any>res;
+      this.cityList = result;
+    })
   }
 
   getCategory() {
@@ -56,60 +81,45 @@ export class ServiceListComponent implements OnInit {
     })
   }
   getServiceNames() {
-    this.service.GetServices().subscribe(result => {
-      this.serviceList = result;
-      console.log(this.serviceList);
+    this.service.GetServices().subscribe(res => {
+      this.serviceList = res;
     })
   }
 
-  
-  onClick(searchTerm: any) {
-    this.getServiceNames();
-    this.searchedList = [];
+  loadMore() {
+    this.provider.loadMoreCount += 5;
+    let values = JSON.stringify(this.provider);
 
-    //Search if only searchTerm available and if both category and searchTearm available
-    if (searchTerm) {
-      this.searchTerm= this.searchPipe.whitespace(searchTerm);
-      this.serviceList = this.searchPipe.transform(this.serviceList, this.searchTerm);
-
-      //arranging services according to category
-      if(this.provider.categoryId){
-      this.serviceList.forEach(service => {
-        if(service.categoryId==this.provider.categoryId){
-          this.searchedList.push(service);
-        }      
-      });
-    }
-    else{
-      this.searchedList=this.serviceList;
-    }
-    }
-
-    //Search only if categoryID is available. Search according to category only
-    else{
-      if(this.provider.categoryId){
-        this.serviceList.forEach(service => {
-          if(service.categoryId==this.provider.categoryId){
-            this.searchedList.push(service);
-          }      
-        });
+    this.service.getFilteredSearch(values).subscribe(res => {     
+      let result = <any>res
+      for (let i = 0; i < result.length; i++) {
+        this.searchList.push(res[i]);
       }
-      else{
-          this.searchedList = null;
-          this.count=0;
-      }
-    }
-    this.count=this.searchedList.length
-    let navigationExtras: NavigationExtras = {
-      queryParams: {
-        "searchTerm": this.searchTerm,
-        "categoryId": this.provider.categoryId
-
-      }
-    };
-    this.router.navigate(['serviceList'], navigationExtras);
+    })
   }
 
+  loadFiltered(searchValue) {
+    if (searchValue.categoryId == undefined) {
+      searchValue.categoryId = 0;
+    }
+    if (searchValue.cityId == undefined) {
+      searchValue.cityId = 0;
+    }
+    let values = JSON.stringify(searchValue);
+    this.service.getFilteredSearch(values).subscribe(res => {
+      let result = <any>res;
+      this.searchList = result;
+      this.count = this.searchList.length;
+
+      let navigationExtras: NavigationExtras = {
+        queryParams: {
+          "searchTerm": searchValue.searchTerm,
+          "categoryId": searchValue.categoryId,
+          "cityId": searchValue.cityId,
+          "loadMoreCount": this.provider.loadMoreCount
+        }
+      };
+      this.router.navigate(['serviceList'], navigationExtras);
+    });
+  }
 }
-
-

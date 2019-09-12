@@ -1,9 +1,13 @@
+@import "~ngx-toastr/toastr.css";
 @import "assets/sass-helpers/base";
 @import "assets/sass-helpers/dashboard";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import "~ngx-toastr/toastr.css";
 
 // global stylings here
+
+.homepage header:not(.sticky){
+  box-shadow: none;
+}
 
 .gallery-item img {
   width: 100%;
@@ -557,8 +561,12 @@ ul.image-thumbnails {
     max-width: 650px;
   }
 
-  .ng-star-inserted {
+  span.ng-star-inserted {
     font-size: 28px;
+    color: $red;
+    &.mat-placeholder-required{
+        font-size: 16px !important;
+    }
   }
 
   pre {
@@ -576,4 +584,12 @@ ul.image-thumbnails {
   color: #721c24;
   font-size: 13px;
   margin: -15px 2px 15px 2px !important;
+}
+
+.rating-actions{
+  display: flex;
+  li{
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+  }
 }

@@ -1,0 +1,28 @@
+<div class="bg-white detail-tab" role="tabpanel" id="reviewList">
+  <!-- rating header -->
+  <div class="rating-overview">
+  </div>
+  <!-- list of reviews -->
+  <div *ngIf="reviewList.length==0">No Reviews Yet!!!!!</div>
+  <ul *ngFor="let review of reviewList">
+    <a [routerLink]="['/getService', review.serviceItemId]" href="#" class="position-relative text-black">
+      <h4>{{review.serviceItem.name}}</h4>
+      <p><small class="date italic">{{review.createdOn | date}}</small>&nbsp; <ngb-rating [rate]="review.overAllReview"></ngb-rating>
+      </p>
+      <p class="mb-0">{{review.reviewTest}}</p>
+      <p></p>
+      <!-- <ul class="rating-actions">
+        <li>
+          <a href="#" *ngIf="review.isDeleted" (click)="update(content,review.id)" [routerLink]="">
+            <i class="far fa-edit"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" *ngIf="review.isDeleted" (click)="deleteReviewConfirmation(review.id)" [routerLink]="">
+            <i class="far fa-trash-alt"></i>
+          </a>
+        </li>
+      </ul> -->
+    </a>
+  </ul>
+</div>

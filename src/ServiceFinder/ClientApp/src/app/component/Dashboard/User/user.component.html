@@ -13,23 +13,27 @@
             Dashboard
           </a>
         </li>
-
         <li>
           <a (click)="myservices()">
             <i class="material-icons">build</i>
             Service
           </a>
         </li>
+        <li>
+          <a (click)="myReviews()" routerLink='/dashboard/myReviews'>
+            <i class="material-icons">star</i>
+            My Reviews
+          </a>
+        </li>
 
         <li>
-          <a routerLink='/dashboard/editprofile'>
+          <a (click)="Setting()" routerLink='/dashboard/editprofile'>
             <i class="material-icons">settings</i>
             Setting
           </a>
         </li>
       </ul>
     </mat-sidenav>
-
     <mat-sidenav-content>
       <div class="container">
         <div class="row">
@@ -41,7 +45,6 @@
               </button>
               <h2>{{title}}</h2>
               <ul class="user-actions d-flex">
-
                 <li class="dropdown thumb">
                   <a href="#" class="dropdown-toggle btn" data-toggle="dropdown">
                     <img src="../../../../../../wwwroot/profilePic/{{profileImage}}"

@@ -10,6 +10,9 @@ import { CategoryModel } from 'src/app/models/user.category.model';
 import { RequestOptions, Headers } from '@angular/http';
 import { AddServiceModel } from 'src/app/models/user.addService.model';
 import { ViewImages } from 'src/app/models/user.viewImage.model';
+import { ViewServiceById } from 'src/app/models/user.ViewServiceById.model';
+import { CityModel } from 'src/app/models/user.city.model';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 
@@ -24,7 +27,7 @@ export class AddServicesComponent implements OnInit {
   statusActive: boolean = false;
   catty: CategoryModel = new CategoryModel;
   public numberVisibility: boolean = true;
-  provider: AddServiceModel = new AddServiceModel;
+  provider: ViewServiceById = new ViewServiceById;
   public categoryList: CategoryModel[];
   show: boolean = false;
   imagePreview: string[] = [];
@@ -38,6 +41,7 @@ export class AddServicesComponent implements OnInit {
   public arr: any[] = [];
   public remaining: any[] = [];
   public editpPopUP: boolean = false;
+  cityList : CityModel[]=[];
 
   //image Editing variables, and values
   imageEdit: boolean;
@@ -57,6 +61,7 @@ export class AddServicesComponent implements OnInit {
     })
 
     this.getCategory();
+    this.getCities();
     //to get service id via query parameter    
     // const routeParams = this._route.snapshot.params;
     // this.id = routeParams.id;
@@ -69,6 +74,13 @@ export class AddServicesComponent implements OnInit {
     this.service.GetCategories().subscribe(result => {
       this.categoryList = result;
       console.log(this.categoryList);
+    })
+  }
+
+  getCities(){
+    this.service.getCities().subscribe(res=>{
+      let result = <any>res
+      this.cityList=result;
     })
   }
 
@@ -174,23 +186,16 @@ export class AddServicesComponent implements OnInit {
     if (id == 0) {
       this.imageEdit = false;
       this.provider = {
-        categoryId: null,
-        name: null,
-        description: null,
-        userTypeId: null,
-        email: null,
-        phoneNumber: null,
-        workingShift: null,
-        status: null,
-        createdOn: null,
-        isDeleted: null
+        serviceDataById : null,
+        showReview : null
       }
     }
     else {
       //to show image retrieved from database to carry out edit operation
       this.imageEdit = true;
       this.service.GetServiceByServiceItemId(id).subscribe(res => {
-        this.provider = res;
+        let result =<any>res
+        this.provider = result.serviceData;
         this.service.GetImages(this.id).subscribe(result => {
           this.imageList = result;
         })

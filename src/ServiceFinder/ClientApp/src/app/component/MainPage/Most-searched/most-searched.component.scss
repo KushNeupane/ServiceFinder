@@ -11,6 +11,16 @@ section.most-searched{
     }
     .card{
         margin: 0 auto;
+        height: 280px;
+        h4{
+            font-size: 16px;
+            margin-top:10px;
+        }
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
     }
     .slick-dots{
         position: static;

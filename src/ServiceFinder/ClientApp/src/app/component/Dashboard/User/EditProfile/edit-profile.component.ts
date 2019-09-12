@@ -16,11 +16,11 @@ export class EditProfileComponent implements OnInit {
 
   imageUrl: string = "/assets/img/defaultimg.jpg";
   public options
-  editprofile: EditProfileModel;
+  editprofile= new EditProfileModel();
   fileToUpload: File = null;
   public profileData: string;
   public selectedFiles = new FormData();
-  public profileImage: string;
+  public profileImage: string = null;
   updatePic: boolean = false;
   statusActive: boolean;
 
@@ -71,9 +71,8 @@ GetCurrentUser(){
     this.selectedFiles.append('values', this.profileData);
     this.selectedFiles.append('Image', this.fileToUpload);
     this.statusActive = true;
-
-
   }
+  
   changePassword() {
     this.router.navigate(['/dashboard/changePassword'])
   }
@@ -86,7 +85,9 @@ GetCurrentUser(){
       else {
         form.reset();
         this.toastr.success("Updated successfully", "User Updated", { positionClass: 'toast-top-center' });
-        this.router.navigate(['/dashboard/userdetail'])
+        this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+        this.router.navigate(['/dashboard/userdetail'])); 
+        
       }
     })
   }

@@ -38,6 +38,7 @@ export class SignupComponent implements OnInit {
     }
     else {
       this.signUpService.signUpUser(form.value).subscribe(res => {
+        debugger
         let response = <any>res;
         if (!response.isSuccess) {
           response.errors.forEach(error => {

@@ -23,7 +23,7 @@ namespace ServiceFinder.AccountManagement.Controllers
     [ApiController]
     public class EditProfileController : ControllerBase
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        
         private readonly UserManager<ApplicationUserEntity> userManager;
         private string currentUserId;
 
@@ -139,11 +139,15 @@ namespace ServiceFinder.AccountManagement.Controllers
             var id = this.currentUserId;
             ApplicationUserEntity user = await userManager.FindByIdAsync(id);
             EditProfileViewModel model = new EditProfileViewModel();
-            model.displayName = user.DisplayName;
-            model.address = user.Address;
-            model.email = user.Email;
-            model.phoneNumber = user.PhoneNumber;
-            model.originalImageName = user.OriginalImageName;
+
+            if (this.currentUserId != null)
+            {
+                model.displayName = user.DisplayName;
+                model.address = user.Address;
+                model.email = user.Email;
+                model.phoneNumber = user.PhoneNumber;
+                model.originalImageName = user.OriginalImageName;
+            }
             return model;
         }
     }

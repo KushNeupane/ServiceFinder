@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using ServiceFinder.DependencyInjection.Usability;
 using System.Threading.Tasks;
 
 namespace Service.Framework.Core.Helper
 {
   public interface IEmailSender
   {
-    Task SendEmailAsync(string email, string subject, string message);
+    Task SendEmailAsync(MailSettingModel mailSetting, string email, string subject, string message);
   }
 }

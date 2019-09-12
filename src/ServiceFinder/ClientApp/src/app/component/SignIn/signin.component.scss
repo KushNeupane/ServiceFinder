@@ -7,13 +7,17 @@ section.login-forms{
     background-position: center;
     @include tablet{
         height: 100vh;
-        margin-top: -125px;
+       // margin-top: -125px;
     }
     .tab-wrapper{
-        background: rgba(0,0,0,0.8);
+        background: rgba(white,0.9);
         padding: 30px 15px;
         border-radius: 8px;
         flex-basis: 90%;
+        -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,0.3);
+        -moz-box-shadow: 0 0 15px 0 rgba(0,0,0,0.3);
+        -ms-box-shadow: 0 0 15px 0 rgba(0,0,0,0.3);
+        box-shadow: 0 0 15px 0 rgba(0,0,0,0.3);
         @include tablet{
             padding: 50px;
             width: 100%;
@@ -25,7 +29,7 @@ section.login-forms{
         .nav-link{
             background: none;
             border: none;
-            color: $white;
+            color: $red;
             opacity: 0.5;
             font-size: 18px;
             &:first-child{
@@ -47,7 +51,7 @@ section.login-forms{
         mat-form-field.mat-form-field{
             display: block;
             width: 100%;
-            color: rgba(255,255,255,1) !important;
+            color: rgba($black,1) !important;
             .mat-form-field-label{
                 opacity: 0;
             }
@@ -80,7 +84,7 @@ section.login-forms{
             }
             h4{
                 display: inline-block;
-                color: $white;
+                color: $black;
                 font-size: 14px;
                 font-weight: 600;
                 &::after{
@@ -90,7 +94,7 @@ section.login-forms{
                     @include tablet{
                         width: 100%;
                     }
-                    background-color: $white;
+                    background-color: $black;
                     margin-top: 4px;
                     display: block;
                 }
@@ -130,7 +134,7 @@ section.login-forms{
         }
         p{
             margin-top: 10px;
-            color: $white;
+            color: $black;
             a{
                 color: $red;
             }

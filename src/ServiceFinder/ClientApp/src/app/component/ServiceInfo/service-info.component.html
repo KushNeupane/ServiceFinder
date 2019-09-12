@@ -2,49 +2,53 @@
 <section class="service-detail py-0 pb-5 mb-0">
   <form #form="ngForm" method="POST" autocomplete="off">
     <!-- to show default cover image for the first time -->
-    <div class="header position-relative" *ngIf="serviceDetail.originalCoverImageName===null" [style.background-image]="'url(' + CoverimageUrl + ')'">
+    <div class="header position-relative" *ngIf="serviceDetail.originalCoverImageName===null"
+      [style.background-image]="'url(' + CoverimageUrl + ')'">
       <div class="container">
         <!-- upper part -->
         <div class="row">
           <div class="service-header-outer col-md-12 position-relative">
 
             <!-- cover pic ahange -->
-            <button *ngIf="showCoverButton===false" class="btn btn-primary coverpic-change">
+            <button *ngIf="showCoverButton===false && reviewDisplay===false" class="btn btn-primary coverpic-change">
               Change Cover Image
-              <input type="file" (change)="serviceCoverUpload($event.target.files)">
+              <input *ngIf="reviewDisplay===false" type="file" (change)="serviceCoverUpload($event.target.files)">
             </button>
 
-            <button *ngIf="showCoverButton===true" (click)="uploadServiceCoverImage(form)"
+            <button *ngIf="showCoverButton===true  && reviewDisplay===false" (click)="uploadServiceCoverImage(form)"
               class="btn btn-primary coverpic-change">
               Save Cover Image
               <!-- <input type="file" (change)="serviceCoverUpload($event.target.files)"> -->
             </button>
 
-            <div class="service-header-wrapper d-flex align-items-end">
+            <div class="service-header-wrapper d-flex align-items-end flex-wrap">
               <!-- service profile photo uploading for the first time -->
               <div class="profile-pic position-relative" *ngIf="serviceDetail.originalProfileImageName===null">
                 <img [src]="ProfileimageUrl">
-                <a *ngIf="showButton===false" [routerLink]="">Change Image</a>
-                <a *ngIf="showButton===true" [routerLink]="" (click)="uploadServiceProfileImage(form)">Save
+                <a *ngIf="showButton===false && reviewDisplay===false" [routerLink]="">Change Image</a>
+                <a *ngIf="showButton===true && reviewDisplay===false" [routerLink]=""
+                  (click)="uploadServiceProfileImage(form)">Save
                   Changes</a>
-                <input type="file" (change)="serviceProfileUpload($event.target.files)">
+                <input *ngIf="reviewDisplay===false" type="file" (change)="serviceProfileUpload($event.target.files)">
               </div>
 
               <!-- service profile photo change  -->
               <div class="profile-pic position-relative" *ngIf="serviceDetail.originalProfileImageName">
-                <img *ngIf="updatePic===false" src="../../../../../wwwroot/ServiceProfilePicture/{{profileImage}}">
+                <img *ngIf="updatePic===false" [style.background-image]="'url('+ ProfileimageUrl +')'"
+                  [style.background-size]="'cover'" [style.background-position]="'center'">
                 <img *ngIf="updatePic===true" [src]="ProfileimageUrl" alt="">
-                <a *ngIf="showButton===false" [routerLink]="">Change Image</a>
-                <a *ngIf="showButton===true" [routerLink]="" (click)="uploadServiceProfileImage(form)">Save
+                <a *ngIf="showButton===false && reviewDisplay===false" [routerLink]="">Change Image</a>
+                <a *ngIf="showButton===true && reviewDisplay===false" [routerLink]=""
+                  (click)="uploadServiceProfileImage(form)">Save
                   Changes</a>
-                <input type="file" (change)="serviceProfileUpload($event.target.files)">
+                <input *ngIf="reviewDisplay===false" type="file" (change)="serviceProfileUpload($event.target.files)">
               </div>
 
               <!-- service general details -->
               <div class="general-details">
                 <h2>{{serviceDetail.name}} <span class="category-icon fooding"></span></h2>
                 <!-- <p class="tagline">We provide better quality product, hygenic foods and goods.</p> -->
-                <ul class="d-flex align-items-center">
+                <ul class="d-flex align-items-center flex-wrap">
                   <!-- rating -->
                   <!-- <li>
                   <span class="lnr lnr-heart"></span>
@@ -58,19 +62,19 @@
                   <!-- location -->
                   <li>
                     <span class="lnr lnr-map-marker"></span>
-                    <span>Thamel, Kathmandu</span>
+                    <span>{{city}}</span>
                   </li>
                   <!-- contact number -->
                   <li>
                     <span class="lnr lnr-phone-handset"></span>
                     <a href="tel:{{serviceDetail.phoneNumber}}">{{serviceDetail.phoneNumber}}</a>
                   </li>
-                  <li>
+                  <li *ngIf="reviewDisplay===true">
                     <p class="btn btn-primary mb-0" (click)="open(content)">
                       <span class="fa fa-edit mr-2" style="line-height: 24px;"></span>Review
                     </p>
-    
-                    </li>
+
+                  </li>
                 </ul>
                 <div class="directory">
                   <span>services </span><span class="lnr lnr-chevron-right"></span>
@@ -85,49 +89,53 @@
     </div>
   </form>
   <!-- to show cover image if there is already a cover image -->
-  <div class="header position-relative" *ngIf="serviceDetail.originalCoverImageName" [style.background-image]="'url(' + CoverimageUrl + ')'">
+  <div class="header position-relative" *ngIf="serviceDetail.originalCoverImageName"
+    [style.background-image]="'url(' + CoverimageUrl + ')'">
     <div class="container">
       <!-- upper part -->
       <div class="row">
         <div class="service-header-outer col-md-12 position-relative">
 
           <!-- cover pic ahange -->
-          <button *ngIf="showCoverButton===false" class="btn btn-primary coverpic-change">
+          <button *ngIf="showCoverButton===false && reviewDisplay===false" class="btn btn-primary coverpic-change">
             Change Cover Image
-            <input type="file" (change)="serviceCoverUpload($event.target.files)">
+            <input *ngIf="reviewDisplay===false" type="file" (change)="serviceCoverUpload($event.target.files)">
           </button>
 
-          <button *ngIf="showCoverButton===true" (click)="uploadServiceCoverImage(form)"
+          <button *ngIf="showCoverButton===true && reviewDisplay===false" (click)="uploadServiceCoverImage(form)"
             class="btn btn-primary coverpic-change">
             Save Cover Image
             <!-- <input type="file" (change)="serviceCoverUpload($event.target.files)"> -->
           </button>
 
-          <div class="service-header-wrapper d-flex align-items-end">
+          <div class="service-header-wrapper d-flex align-items-end flex-wrap">
             <!-- service profile photo uploading for the first time -->
             <div class="profile-pic position-relative" *ngIf="serviceDetail.originalProfileImageName===null">
               <img [src]="ProfileimageUrl">
-              <a *ngIf="showButton===false" [routerLink]="">Change Image</a>
-              <a *ngIf="showButton===true" [routerLink]="" (click)="uploadServiceProfileImage(form)">Save
+              <a *ngIf="showButton===false && reviewDisplay===false" [routerLink]="">Change Image</a>
+              <a *ngIf="showButton===true && reviewDisplay===false" [routerLink]=""
+                (click)="uploadServiceProfileImage(form)">Save
                 Changes</a>
-              <input type="file" (change)="serviceProfileUpload($event.target.files)">
+              <input *ngIf="reviewDisplay===false" type="file" (change)="serviceProfileUpload($event.target.files)">
             </div>
 
             <!-- service profile photo change  -->
             <div class="profile-pic position-relative" *ngIf="serviceDetail.originalProfileImageName">
-              <img *ngIf="updatePic===false" src="../../../../../wwwroot/ServiceProfilePicture/{{profileImage}}">
+              <img *ngIf="updatePic===false" [style.background-image]="'url('+ ProfileimageUrl +')'"
+                [style.background-size]="'cover'" [style.background-position]="'center'">
               <img *ngIf="updatePic===true" [src]="ProfileimageUrl" alt="">
-              <a *ngIf="showButton===false" [routerLink]="">Change Image</a>
-              <a *ngIf="showButton===true" [routerLink]="" (click)="uploadServiceProfileImage(form)">Save
+              <a *ngIf="showButton===false && reviewDisplay===false" [routerLink]="">Change Image</a>
+              <a *ngIf="showButton===true && reviewDisplay===false" [routerLink]=""
+                (click)="uploadServiceProfileImage(form)">Save
                 Changes</a>
-              <input type="file" (change)="serviceProfileUpload($event.target.files)">
+              <input *ngIf="reviewDisplay===false" type="file" (change)="serviceProfileUpload($event.target.files)">
             </div>
 
             <!-- service general details -->
             <div class="general-details">
               <h2>{{serviceDetail.name}} <span class="category-icon fooding"></span></h2>
               <!-- <p class="tagline">We provide better quality product, hygenic foods and goods.</p> -->
-              <ul class="d-flex">
+              <ul class="d-flex flex-wrap">
                 <!-- rating -->
                 <!-- <li>
                 <span class="lnr lnr-heart"></span>
@@ -141,12 +149,17 @@
                 <!-- location -->
                 <li>
                   <span class="lnr lnr-map-marker"></span>
-                  <span>Thamel, Kathmandu</span>
+                  <span>{{city}}</span>
                 </li>
                 <!-- contact number -->
                 <li>
                   <span class="lnr lnr-phone-handset"></span>
                   <a href="tel:{{serviceDetail.phoneNumber}}">{{serviceDetail.phoneNumber}}</a>
+                </li>
+                <li *ngIf="reviewDisplay===true">
+                  <p class="btn btn-primary mb-0" (click)="open(content)">
+                    <span class="fa fa-edit mr-2" style="line-height: 24px;"></span>Review
+                  </p>
                 </li>
               </ul>
               <div class="directory">
@@ -165,33 +178,10 @@
     <div class="row">
       <!-- detail tabs -->
       <div class="col-md-8">
-        <!-- tab menus -->
-        <!-- <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" href="#overview" role="tab" data-toggle="tab">OVERVIEW</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#gallery" role="tab" data-toggle="tab">GALLERY</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about-us" role="tab" data-toggle="tab">ABOUT US</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#reviews" role="tab" data-toggle="tab">REVIEWS</a>
-          </li>
-        </ul> -->
         <!-- tab contents -->
         <div class="tab-content">
           <div class="bg-white detail-tab" role="tabpanel" id="overview">
             <p>{{serviceDetail.description}}</p>
-            <!-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
-            <!-- <h6>Our Features</h6>
-            <ul>
-              <li>Pasteries</li>
-              <li>Coffee & Drinks</li>
-              <li>Birthday Cakes</li>
-              <li>Event Receptions(Birthdays, Anniversaries, Seminars, Others)</li>
-            </ul> -->
           </div>
           <div class="bg-white detail-tab" role="tabpanel" id="gallery">
             <ngx-slick class="slick-slider carousel gallery-carousel" #slickModal="slick-modal" [config]="{
@@ -221,40 +211,6 @@
               </li>
             </ngx-slick>
           </div>
-          <div class="bg-white detail-tab" role="tabpanel" id="about-us">
-            <ul>
-              <!-- location -->
-              <li>
-                <span class="lnr lnr-map-marker"></span>
-                <p><b>Address</b></p>
-                <span>Thamel, Kathmandu</span>
-              </li>
-              <!-- mail -->
-              <li>
-                <p><b>Email</b></p>
-                <span class="lnr lnr-envelope"></span>
-                <a href="mailto:{{serviceDetail.email}}">{{serviceDetail.email}}</a>
-              </li>
-              <!-- contact number -->
-              <li>
-                <p><b>Contact</b></p>
-                <span class="lnr lnr-phone-handset"></span>
-                <a href="tel:{{serviceDetail.phoneNumber}}">{{serviceDetail.phoneNumber}}</a>
-              </li>
-              <!-- Parking -->
-              <!-- <li>
-                  <p><b>Parking</b></p>
-                  <span class="lnr lnr-car"></span>
-                  <p>Available</p>
-              </li> -->
-            </ul>
-
-            <!-- =================== map section ==================== -->
-            <!-- <div>
-              <p><b>Map Assistant</b></p>
-              <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/undefined?origin=...&q=...&destination=...&center=...&zoom=...&key=..." allowfullscreen></iframe>
-            </div> -->
-          </div>
           <div class="bg-white detail-tab" role="tabpanel" id="reviews">
             <!-- rating header -->
             <div class="rating-overview">
@@ -275,9 +231,25 @@
             <!-- list of reviews -->
             <div *ngIf="reviewList.length==0">No Reviews Yet!!!!!</div>
             <ul *ngFor="let review of reviewList">
-              <li>
-                <p><b></b>&nbsp;<span class="date">{{review.createdOn | date}}</span></p>
-                <p>{{review.reviewTest}}</p>
+              <li class="position-relative text-black">
+                <p><b>{{review.applicationUser.displayName}} </b>&nbsp; <ngb-rating [rate]="review.overAllReview">
+                  </ngb-rating>
+                </p>
+                <p class="mb-0">{{review.reviewTest}}</p>
+                <p><small class="date italic">{{review.createdOn | date}}</small></p>
+                <ul class="rating-actions">
+                  <li>
+                    <a href="#" *ngIf="review.showOptions" (click)="update(content,review.id)" [routerLink]="">
+                      <i class="far fa-edit"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" *ngIf="review.showOptions" (click)="deleteReviewConfirmation(review.id)"
+                      [routerLink]="">
+                      <i class="far fa-trash-alt"></i>
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -289,21 +261,92 @@
         <div class="shift open">
           SERVICE OPEN ( <span>9PM</span> - <span>8AM</span> )
         </div>
-        <form class="contact-form">
-          <mat-form-field>
-            <input matInput placeholder="FULL NAME" required>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="EMAIL ADDRESS" required>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="CONTACT NO">
-          </mat-form-field>
+        <div class="business-info">
+          <h2>Business Info</h2>
+          <div class="bg-white detail-tab" role="tabpanel" id="about-us">
+            <ul>
+              <!-- location -->
+              <li>
+                <span class="lnr lnr-map-marker"></span>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>{{city}}</span>
+              </li>
+              <!-- contact number -->
+              <li>
+                <span class="lnr lnr-phone-handset"></span>
+                <i class="fas fa-mobile-alt"></i>
+                <a href="tel:{{serviceDetail.phoneNumber}}">{{serviceDetail.phoneNumber}}</a>
+              </li>
+              <!-- mail -->
+              <li>
+                <span class="lnr lnr-envelope"></span>
+                <i class="fas fa-envelope-open-text"></i>
+                <a href="mailto:{{serviceDetail.email}}">{{serviceDetail.email}}</a>
+              </li>
+              <li>
+                <span class="lnr lnr-phone-handset"></span>
+                <i class="fas fa-globe"></i>
+                <a href="tel:{{serviceDetail.phoneNumber}}">{{serviceDetail.phoneNumber}}</a>
+              </li>
+            </ul>
+
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Question Answer Section -->
+      <div class="col-md-8">
+        <P class="contact-heading"><B>
+            <h3>Question Answer Section</h3>
+          </B></P>
+        <div  class="shift open">
+          No Question Yet
+        </div>
+        <!-- <div *ngIf="question===false && reply===true" class="shift open">
+          Your Questions Here
+        </div> -->
+
+        <ul *ngFor="let qaModel of QADisplayModel">
+          <li *ngIf="qaModel.questionText">
+            Q: <h6>{{qaModel.userName}}: {{ qaModel.questionText}}?
+              <i *ngIf="qaModel.showOptions===true" (click)="replyOnQuestion(qaModel.questionId)" class="fa fa-reply"
+                aria-hidden="true"></i>
+              <i *ngIf="question===true && firstQuestion===false && qaModel.editOptions===true" class="far fa-edit"
+                (click)="editQuestion(qaModel.questionId)"></i>
+              <i *ngIf="question===true && firstQuestion===false && qaModel.editOptions===true" class="far fa-edit"
+                class="far fa-trash-alt" (click)="deleteQuestion(qaModel.questionId)"></i>
+            </h6>
+
+            <div *ngFor="let answer of qaModel.answers;">
+              A: <strong>{{answer.answerText}}</strong>
+              <i *ngIf="answer.answerText!==null && qaModel.showOptions===true" (click)="editAnswer(answer.answerId)"
+                class="far fa-edit"></i>
+              <i *ngIf="answer.answerText!==null && qaModel.showOptions===true" (click)="deleteAnswer(answer.answerId)"
+                class="far fa-trash-alt"></i>
+            </div>
+          </li>
+        </ul>
+        <form *ngIf="question===false && reply===true" class="contact-form" #form="ngForm">
+          <input type="hidden" name="answerId" #answerId="ngModel" [(ngModel)]="questionanswer.answerId">
+          <input type="hidden" name="questionId" #questionId="ngModel" [(ngModel)]="questionanswer.questionId">
           <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Leave a comment"></textarea>
+            <textarea name="answerText" #answerText="ngModel" [(ngModel)]="questionanswer.answerText" matInput
+              placeholder="Reply Here"></textarea>
           </mat-form-field>
-          <button class="btn btn-primary">
-            Send Message
+          <button (click)="onAnswer(form)" class="btn btn-primary">Reply</button>
+        </form>
+        <form *ngIf="question===true && firstQuestion===false" class="contact-form" #form="ngForm">
+          <input type="hidden" name="questionId" #questionId="ngModel" [(ngModel)]="questionanswer.questionId">
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Ask Your Questions About This Service" name="questionText"
+              #questionText="ngModel" [(ngModel)]="questionanswer.questionText"></textarea>
+          </mat-form-field>
+          <button *ngIf="!loggedIn" type="submit" (click)="open(content)" class="btn btn-primary">
+            Ask
+          </button>
+          <button *ngIf="loggedIn" type="submit" (click)="onQuestion(form)" class="btn btn-primary">
+            Ask
           </button>
         </form>
       </div>
@@ -311,35 +354,187 @@
   </div>
 </section>
 
-<section id="rating-popup">
+<!-- Review PopUp Section -->
+<section id="rating-popup" class="rating">
   <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Give your rating on {{serviceDetail.name}}</h4>
+      <h4 *ngIf="loggedIn" class="modal-title" id="modal-basic-title">Give your rating on {{serviceDetail.name}}</h4>
+      <h4 *ngIf="!loggedIn" class="modal-title" id="modal-basic-title">Please log in to Continue!</h4>
       <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+
     <div class="modal-body">
-      <form #form="ngForm" (submit)="onRating(form)" method="POST" autocomplete="off">
-        
-        <p class="mb-0">Rate your experience?</p> 
+      <form *ngIf="loggedIn" #form="ngForm" method="POST" autocomplete="off">
+
+        <p class="mb-0">Rate your experience?</p>
 
         <ngb-rating [(rate)]="serviceReview.overAllReview"></ngb-rating>
-        <pre name="overAllReview"
-          [(ngModel)]="serviceReview.overAllReview">Rate: <b>{{serviceReview.overAllReview}}</b></pre>
+        <pre name="overAllReview" [(ngModel)]="serviceReview.overAllReview"
+          ngDefaultControl>Rate: <b>{{serviceReview.overAllReview}}</b> </pre>
 
         <mat-placeholder>Description</mat-placeholder>
-        <textarea matInput name="reviewTest" #reviewTest="ngModel"
-          [(ngModel)]="serviceReview.reviewTest"></textarea>
+        <textarea matInput name="reviewTest" #reviewTest="ngModel" [(ngModel)]="serviceReview.reviewTest"></textarea>
 
         <mat-checkbox name="everUsed" #everUsed="ngModel" value="true" [(ngModel)]="serviceReview.everUsed">
           Have u ever used this service?
         </mat-checkbox>
 
-        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        <button *ngIf="!updateButton" class="btn btn-primary mt-2" (click)="c(onRating(form))">Submit</button>
 
+        <button *ngIf="updateButton" class="btn btn-primary mt-2" (click)="c(updateReview(form))">Update</button>
       </form>
+
+      <!-- Login if you are a member -->
+      <ng-container *ngIf=!loggedIn>
+
+        <i>{{MemberStatus}} Member?<u (click)="Logging()">{{Status}} </u> here..</i>
+        <div *ngIf=LogInStatus class="login-wrapper">
+          <form #form='ngForm' method="POST" autocomplete="off">
+            <mat-form-field>
+              <input matInput placeholder="Email" name="email" [(ngModel)]="email" autocomplete="off">
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Password" name="password" [(ngModel)]="password"
+                [type]="hide ? 'text':'password' ">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </mat-form-field>
+
+            <button type="submit" class="btn btn-primary" (click)="c(onEmailSignIn(form))">
+              Login <i class="material-icons">arrow_forward</i>
+            </button>
+
+            <span>Forgot password? <a (click)="c(ForgetPassword())">Click here</a></span>
+          </form>
+
+          <div *ngIf="!loggedIn" class="quick-sign-in">
+            <h4>Quick SIgn In</h4>
+            <ul class="d-flex flex-column">
+              <li><a (click)="OnSocialSignIn('facebook')"><i class="fab fa-facebook"></i>login with facebook</a></li>
+              <li><a (click)="OnSocialSignIn('google')"><i class="fab fa-google"></i>login with google</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Register if you are a new member -->
+
+        <div *ngIf=!LogInStatus class="signup-wrapper">
+          <form class="signup-form-modal" #form="ngForm" (submit)="onSignUp(form)" method="POST" autocomplete="off">
+            <mat-form-field>
+              <input matInput placeholder="Display Name" name="displayName" #displayName="ngModel"
+                [(ngModel)]="user.displayName" required />
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+            <div *ngIf="displayName.invalid && (displayName.dirty || displayName.touched)" class="custom-alert">
+              <div class="errorMsg" *ngIf="displayName.errors.required">
+                Display Name is required.
+              </div>
+            </div>
+
+            <mat-form-field>
+              <input matInput placeholder="Email" name="email" #email="ngModel" [(ngModel)]="user.email" required
+                email />
+              <mat-icon matSuffix>mail</mat-icon>
+            </mat-form-field>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="custom-alert">
+              <div class="errorMsg" *ngIf="email.errors.required">Email is required.</div>
+              <div class="errorMsg" *ngIf="email.errors?.email">
+                Email formate is not valid.
+              </div>
+            </div>
+
+            <mat-form-field>
+              <input matInput placeholder="PhoneNumber" type="tel" name="phoneNumber" #phoneNumber="ngModel"
+                [(ngModel)]="user.phoneNumber" maxlength="10" required />
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+            <div *ngIf="phoneNumber.invalid && phoneNumber.touched" class="custom-alert">
+              <div class="errorMsg" *ngIf="phoneNumber.errors.required">
+                PhoneNumber is required and must have 10 digits
+              </div>
+            </div>
+
+            <mat-form-field>
+              <input matInput placeholder="Password" [type]="hide ? 'text' : 'password'" name="password"
+                #password="ngModel" [(ngModel)]="user.password" required
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{6,}$" />
+              <mat-icon matSuffix (click)="hide = !hide">{{
+                hide ? "visibility" : "visibility_off"
+              }}</mat-icon>
+            </mat-form-field>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="custom-alert">
+              <div class="errorMsg" *ngIf="password.errors.required">
+                Password is required.
+              </div>
+              <div class="errorMsg" *ngIf="password.errors.pattern">
+                Six or more character password is required and must contain at least one
+                digit, one capital letter and one of these symbols !,@,#,$,%,^,&,*
+              </div>
+            </div>
+
+            <mat-form-field>
+              <input matInput placeholder="Confirm Password" [type]="hide ? 'text' : 'password'" name="confirmPassword"
+                #confirmPassword="ngModel" [(ngModel)]="user.confirmPassword" appConfirmEqualValidator="password" />
+              <mat-icon matSuffix (click)="hide = !hide">{{
+                hide ? "visibility" : "visibility_off"
+              }}</mat-icon>
+            </mat-form-field>
+            <div *ngIf=" confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
+              class="custom-alert">
+              <div class="errorMsg" *ngIf="confirmPassword.errors.required">
+                Confirm Password Name is required.
+              </div>
+              <div class="errorMsg" *ngIf="confirmPassword.errors?.notEqual">
+                Password and Confirm Password do not match
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Signup <i class="material-icons">arrow_forward</i>
+            </button>
+          </form>
+
+          <div class="quick-sign-in">
+            <h4>Quick SIgn In</h4>
+            <ul class="d-flex flex-column">
+              <li>
+                <a (click)="OnSocialSignIn('facebook')"><i class="fab fa-facebook"></i>login with facebook</a>
+              </li>
+              <li>
+                <a (click)="OnSocialSignIn('google')"><i class="fab fa-google"></i>login with google</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ng-container>
     </div>
   </ng-template>
 </section>
+
+<!-- Confirmation Box to delete review -->
+<section class="confirmation_box" *ngIf="statusActive">
+  <div class="confirmation_wrapper">
+    <a [routerLink]="" class="cross_btn" (click)="destroyConfbox()"><i class="fas fa-times"></i></a>
+    <p>Do you want to delete your review ? </p>
+    <div class="confirmation_actions">
+      <button (click)="deleteReview(reviewIdToDel)" class="btn btn-primary">Yes</button>
+      <button (click)="destroyConfbox()" class="btn">No</button>
+    </div>
+  </div>
+</section>
+
+<section class="confirmation_box" *ngIf="aModelActive">
+  <div class="confirmation_wrapper">
+    <a [routerLink]="" class="cross_btn" (click)="destroyAConfbox()"><i class="fas fa-times"></i></a>
+    <p>Do you want to delete your Question ? </p>
+    <div class="confirmation_actions">
+      <button (click)="deleteAnswerPopUp(answerTodelete)" class="btn btn-primary">Yes</button>
+      <button (click)="destroyAConfbox()" class="btn">No</button>
+    </div>
+  </div>
+</section>
+
 <app-footer></app-footer>

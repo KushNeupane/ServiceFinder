@@ -1,9 +1,12 @@
+
+
 export class ViewService {
 
     categoryId: number;
+    cityId: number;
     name: string;
     description: string;
-    userTypeId: number;
+    userId: string;
     email: string;
     phoneNumber: string;
     workingShift: string;
@@ -12,6 +15,6 @@ export class ViewService {
     isDeleted: Boolean;
     originalProfileImageName: string;
     originalCoverImageName: string;
-   
-    
+    displayName: string;
+
 }

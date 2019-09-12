@@ -27,15 +27,15 @@
   <div class="container-lg">
     <ul class="services-wrapper" >
       <li class="category" *ngFor="let item of categoryList">
-          <a href="#">
-            <span class="mx-auto"><b>{{item.totalService}}</b><img src="assets/img/serviceCategoryIcons/tray.svg" alt=""></span>
+          <a [routerLink]="['/categoryDetails', item.id]">
+            <span class="mx-auto"><b>{{item.totalService}}</b><img  src="../../../../../../wwwroot/Images/CategoryIcon/{{item.systemDefinedImageName}}" alt=""></span>
             <h4 class="name">{{item.name}}</h4>
           </a>
       </li>
     </ul>
     <div class="col-md-12">
       <div class="text-center mb-5">
-        <a class="btn btn-primary text-white">Load More <span class="fa fa-plus ml-2"></span> </a>
+        <a (click)="loadMore()" class="btn btn-primary text-white">Load More <span class="fa fa-plus ml-2"></span> </a>
       </div>
     </div>
   </div>

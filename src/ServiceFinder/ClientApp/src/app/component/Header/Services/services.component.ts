@@ -18,7 +18,6 @@ export class ServicesComponent implements OnInit {
   }
 
 getServices(){
-  debugger;
   this.service.GetServices().subscribe(result=>{
     this.serviceList=result;
     console.log(this.serviceList);

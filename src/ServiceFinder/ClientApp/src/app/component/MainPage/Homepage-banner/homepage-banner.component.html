@@ -4,43 +4,64 @@
     <h1 class="text-white"><b>Save time &amp; money</b></h1>
     <p class="text-white">We find services for you</p>
     <!-- service search form -->
-    <form
+    <form #form="ngForm"
       class="d-flex flex-md-row flex-sm-wrap flex-sm-nowrap rounded overflow-hide justify-content-between align-items-center">
+      <div class="form-group">
+        <label class="text-left">
+          <input type="text" placeholder="Search Services here" aria-label="Number" name="searchTerm"
+            [(ngModel)]="searchTerm" matInput [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of serviceList | filter : searchTerm" [value]="option.name">
+              <span style="padding-right : 750px">{{option.name}}</span>
+            </mat-option>
+          </mat-autocomplete>
+        </label>
+      </div>
 
-      <label class="text-left">
-        <input type="text" placeholder="Search Services here" aria-label="Number" [(ngModel)]="searchTerm"
-          [ngModelOptions]="{standalone: true}" matInput [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of serviceList | filter : searchTerm" [value]="option.name">
-            <span style="padding-right : 750px">{{option.name}}</span>
-          </mat-option>
-        </mat-autocomplete>
-      </label>
 
-      <label>
-        <select name="service-location" id="">
-          <option value="" disabled selected>Preferred Location</option>
-          <option value="Kathmandu">Kathmandu</option>
-          <option value="Bhaktapur">Bhaktapur</option>
-          <option value="Kavre">Kavre</option>
-        </select>
-        <svg class="lnr lnr-chevron-down">
-          <use xlink:href="#lnr-chevron-down"></use>
-        </svg>
-      </label>
+      <!-- <label>
+        <div class="form-group">
+          <mat-select placeholder="City" [(ngModel)]="provider.cityId" name="cityId">
+            <mat-option [value]="undefined" selected hidden>City </mat-option>
+            <mat-option *ngFor="let item of cityList" [value]="item.id">{{item.name}}</mat-option>
+          </mat-select>
+        </div>
+      </label> -->
 
-      <label>
-        <select name="service-category" id="">
-          <option value="" disabled selected>Service Category</option>
-          <option value="food">Food & Drinks</option>
-          <option value="Health">Health & Fitness</option>
-          <option value="Entertainment">Entertainment</option>
-        </select>
-        <svg class="lnr lnr-chevron-down">
-          <use xlink:href="#lnr-chevron-down"></use>
-        </svg>
-      </label>
-      <a (click)="searchList()" class="btn btn-primary rounded-0 d-flex text-white">
+      <div class="form-group city-select">
+        <label>
+          <select name="service-city" placeholder="City" [(ngModel)]="provider.cityId" name="cityId">
+            <option value="undefined" disabled selected><b>City</b></option>
+            <option *ngFor="let item of cityList" [value]="item.id">{{item.name}}</option>
+          </select>
+          <svg class="lnr lnr-chevron-down">
+            <use xlink:href="#lnr-chevron-down"></use>
+          </svg>
+        </label>
+      </div>
+
+      <!-- <label>
+        <div class="form-group">
+          <mat-select placeholder="Category" [(ngModel)]="provider.categoryId" name="categoryId">
+            <mat-option [value]="undefined" selected hidden>Category </mat-option>
+            <mat-option *ngFor="let item of categoryList" [value]="item.id">{{item.name}}</mat-option>
+          </mat-select>
+        </div>
+      </label> -->
+
+      <div class="form-group">
+        <label>
+          <select name="service-category" placeholder="City" [(ngModel)]="provider.categoryId" name="categoryId">
+            <option value="undefined" disabled selected>Category</option>
+            <option *ngFor="let item of categoryList" [value]="item.id">{{item.name}}</option>
+          </select>
+          <svg class="lnr lnr-chevron-down">
+            <use xlink:href="#lnr-chevron-down"></use>
+          </svg>
+        </label>
+      </div>
+
+      <a (click)="searchList(form)" class="btn btn-primary rounded-0 d-flex text-white">
         <i class="fa fa-search"></i>
         Search
       </a>

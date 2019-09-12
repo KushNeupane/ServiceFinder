@@ -1,8 +1,8 @@
 <app-header></app-header>
-<section class="search-result">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
+<!-- <section class="search-result"> -->
+<!-- <div class="container">
+        <div class="row"> -->
+<!-- <div class="col-md-3">
                 <p><i class="fa fa-search"></i> <span>{{count}}</span> results found </p>
                 <div class="search-filters">
                     <form>
@@ -30,9 +30,8 @@
                         <a (click)="onClick(searchTerm)" class="btn btn-primary text-center mt-3">Filter Search</a>
                     </form>
                 </div>
-            </div>
-            <div class="col-md-9">
-                <div class="sorting">
+            </div> -->
+<!-- <div class="sorting">
                     <form action="">
                         <select name="" id="">
                             <option value="1" selected disabled>Sort By</option>
@@ -41,38 +40,59 @@
                             <option value="">Popularity</option>
                         </select>
                     </form>
-                </div>
-                <div class="result-list">
+                </div> -->
+<!-- <div class="result-list">
                     <div *ngIf="searchedList===null">No Results Found!!!!!</div>
                     <ul>
-                        <li *ngFor="let item of searchedList | paginate : {itemsPerPage: 5, currentPage:p}">
+                        <li *ngFor="let item of searchedList">
                             <a [routerLink]="['/getService', item.id]">
                                 <figure>
-                                    <img src="assets/img/service-thumbnails/construction.png" alt="">
+                                    <img src="../../../../../wwwroot/ServiceProfilePicture/{{item.displayName}}/{{item.originalProfileImageName}}"
+                                        alt="">
                                 </figure>
-
                                 <div class="details">
                                     <h3>{{item.name}}</h3>
                                     <p>{{item.description}}</p>
-                                    <!-- <ul>
-                      <li>Address: <span>Amannagar, Kathmandu</span></li>
-                      <li>Contact: <span>01-6587916</span></li>
-                      <li>Emaikl: <span>user@gmail.com</span></li>
-                      <li><span class="availability">Available</span></li>
-                    </ul> -->
+                                    <ul>
+                                        <li>Address: <span>Amannagar, Kathmandu</span></li>
+                                        <li>Contact: <span>01-6587916</span></li>
+                                        <li>Emaikl: <span>user@gmail.com</span></li>
+                                        <li><span class="availability">Available</span></li>
+                                    </ul>
                                     <span class="btn btn-primary">Hire</span>
                                 </div>
                                 <div class="extra">
-                                    <span class="rating"><b>4</b><small>/5</small></span>
+                                    <span class="rating"><b>{{item.overAllReview}}</b><small>/5</small></span>
                                 </div>
                             </a>
                         </li>
                     </ul>
-                    <div class="text-right">
-                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div> -->
+<section class="service-detail-list">
+    <h2 class="section-title">Sevices</h2>
+    <ul class="d-flex flex-wrap">
+        <li *ngFor="let service of searchList">
+            <a [routerLink]="['/getService', service.serviceItemId]">
+                <div class="card">
+                    <img src="../../../../../../wwwroot/ServiceProfilePicture/{{service.displayName}}/{{service.originalProfileImageName}}"
+                        alt="Not Found" onerror="this.src='../../../../assets/img/default-service-image.png'">
+                    <div class="info">
+                        <span class="rating rounded"><b>{{service.averageRating | number : '1.1-1'}}</b><small>/5</small></span>
+                        <h4>{{service.name}}</h4>
+                        <!-- <p class="address">{{service.address}}</p> -->
                     </div>
                 </div>
-            </div>
+            </a>
+        </li>
+    </ul>
+    <div class="col-md-12">
+        <div class="text-center mb-5">
+            <a (click)="loadMore()" class="btn btn-primary text-white">Load More <span class="fa fa-plus ml-2"></span>
+            </a>
         </div>
     </div>
 </section>
+<!-- </div>
+    </div>
+</section> -->
+<app-footer></app-footer>

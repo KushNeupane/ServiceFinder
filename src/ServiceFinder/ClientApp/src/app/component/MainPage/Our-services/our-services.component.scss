@@ -8,9 +8,9 @@ section.our-services{
     .services-wrapper{
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        //justify-content: space-around;
         @include desktop{
-            justify-content: space-between;
+            //justify-content: space-between;
         }
         &> li{
             display: flex;
@@ -18,11 +18,20 @@ section.our-services{
             flex-direction: column;
             justify-content: center;
             text-align: center;
+            @include medium{
+                flex-basis: 48%;
+                margin-left:1%;
+                margin-right:1%;
+            }
+            @include tablet{
+                flex-basis: 31%
+            }
             @include desktop{
                 flex-basis: 23%;
+                
             }
-            max-width: 341px;
-            min-width: 300px;
+            //max-width: 341px;
+            flex-basis: 100%;
             background: $white-grey;
             padding: 25px 30px;
             margin-bottom: 50px;
@@ -32,6 +41,16 @@ section.our-services{
             font-weight: 500;
             &:hover{
                 box-shadow: 7px 7px 24px rgba(0,0,0,0.09);
+            }
+            img{
+                position: relative;
+                height: 125px;
+                padding: 20px;
+                width: 125px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
             }
         }
         h4{

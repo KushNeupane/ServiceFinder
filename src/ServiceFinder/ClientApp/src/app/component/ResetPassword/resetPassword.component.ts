@@ -20,12 +20,10 @@ export class ResetPasswordComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    debugger;
     this.resetPass = new UserResetPass();
     this.token =  localStorage.resetPasswordToken ;
   }
   onResetPass(form: NgForm) {
-    debugger;
     if (form.value) {
       this.resetModel = new UserResetPass();
       this.resetModel.email = form.value.email;

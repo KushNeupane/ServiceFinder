@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-md-7">
+    <div class="inner-wrapper">
+      <h4 class="inner-title">Add a City</h4>
+      <form #form="ngForm" class="col s12" method="POST" autocomplete="off">
+        <div class="demo-form-wrapper">
+          <mat-form-field>
+            <mat-placeholder>City Name</mat-placeholder>
+            <input matInput name="name" #name="ngModel" [(ngModel)]="provider.name" required>
+          </mat-form-field>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="custom-alert">
+            <div class="errorMsg" *ngIf="name.errors.required">
+              City Name is required.
+            </div>
+          </div>
+        </div>
+        
+        <div class="demo-form-wrapper">
+          <mat-form-field>
+            <mat-placeholder>Province</mat-placeholder>
+            <input matInput name="province" #province="ngModel" [(ngModel)]="provider.province" required>
+          </mat-form-field>
+          <div *ngIf="province.invalid && (province.dirty || province.touched)" class="custom-alert">
+            <div class="errorMsg" *ngIf="province.errors.required">
+              Province is required.
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="demo-form-wrapper">
+          <mat-form-field>
+            <mat-placeholder>Email</mat-placeholder>
+            <input type="email" matInput name="email" #email="ngModel" [(ngModel)]="provider.email" required email>
+            <mat-icon matSuffix>mail</mat-icon>
+          </mat-form-field>
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="custom-alert">
+            <div class="errorMsg" *ngIf="email.errors.required">Email is required.</div>
+            <div class="errorMsg" *ngIf="email.errors?.email">
+              Email formate is not valid.
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="demo-form-wrapper">
+          <mat-form-field>
+            <mat-placeholder>Description</mat-placeholder>
+            <textarea matInput name="description" #description="ngModel" [(ngModel)]="provider.description" rows="5"
+              minlength="250" required></textarea>
+          </mat-form-field>
+          <div *ngIf="description.invalid && (description.dirty || description.touched)" class="custom-alert">
+            <div class="errorMsg" *ngIf="description.errors.required">
+              Description is required.
+            </div>
+            <div class="errorMsg" *ngIf="description.errors.minlength">
+              At least 250 words of description required
+            </div>
+          </div>
+        </div> -->
+
+        <button *ngIf="id===0" (click)="addCity(form.value)" class="btn btn-primary">Add <mat-icon>chevron_right</mat-icon>
+        </button>
+        <button *ngIf="id!==0" (click)="updateCity()" class="btn btn-primary">Update <mat-icon>chevron_right
+          </mat-icon></button>
+      </form>
+    </div>
+  </div>
+  <section class="confirmation_box" *ngIf="statusActive">
+    <div class="confirmation_wrapper">
+      <a [routerLink]="" class="cross_btn" (click)="destroyConfbox()"><i class="fas fa-times"></i></a>
+      <p>Do you want to edit the city ? </p>
+      <div class="confirmation_actions">
+        <button (click)="yes(form.value,id)" class="btn btn-primary">Yes</button>
+        <button (click)="destroyConfbox()" class="btn">No</button>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,52 @@
+@import '../../../../../assets/sass-helpers/variables';
+@import '../../../../../assets/sass-helpers/mixins';
+
+.add-new {
+  cursor: pointer;
+}
+
+.dashboard-block {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.services-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-height: unset !important;
+
+  .service-list-item {
+    flex-basis: 100%;
+
+    @media only screen and (min-width: 768px) {
+      flex-basis: 48%;
+    }
+
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    background: $white;
+    margin-bottom: 15px;
+
+    ul {
+      margin-top: 0;
+
+      li {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+// extra fixings
+.service-actions {
+  min-width: 165px;
+
+  ul {
+    margin-top: 0;
+  }
+}

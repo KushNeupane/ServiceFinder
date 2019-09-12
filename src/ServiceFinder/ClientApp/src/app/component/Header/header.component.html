@@ -1,7 +1,7 @@
 <header class="d-flex" [ngClass]="{'d-flex':true,'sticky':isSticky}">
   <div class="header-wrapper d-flex justify-content-between flex-wrap align-items-center mx-auto">
     <div class="logo d-flex justify-content-between align-items-center">
-      <a routerLink="/">
+      <a [routerLink]="['']">
         <img src="../../../assets/img/logo.png" alt="brand-logo">
       </a>
       <a href="#" id="navigation-toggler" data-toggle="collapse" data-target="#main-menu" class="mobile-show collapsed">
@@ -14,17 +14,18 @@
           <a routerLink="/services">Services</a>
         </li>
         <li>
-          <a routerLink="#">Help</a>
-        </li>
-        <li>
-          <a routerLink="/categories">Categories</a>
+          <a routerLink="/help">Help</a>
         </li>
         <li class="position-relative no-underline">
-          <a routerLink="/signin" *ngIf="!IsUserLogged()"> <i class="far fa-user-circle"></i> Login</a>
-          <a routerLink="/dashboard/userdetail" *ngIf="IsUserLogged()" (mouseenter)="hovered()" (mouseleave)="unhovered()"> <i
-              class="far fa-user-circle"></i> Welcome,
-            {{users?.displayName}}</a>
-          <a (click)="logout()" *ngIf="hoverState" class="logout_dropdown btn btn-primary" (mouseenter)="hovered()">Logout</a>
+          <a routerLink="/signin" *ngIf="!isValidUser"> <i class="far fa-user-circle"></i> Login</a>
+
+          <ng-container *ngIf="isValidUser">
+            <a  (click)="dashboard()" (mouseenter)="hovered()" (mouseleave)="unhovered()" routerLink="">
+              <i class="far fa-user-circle"></i> Welcome,
+              {{users?.displayName}}</a>
+            <a (click)="logout()" *ngIf="hoverState" class="logout_dropdown btn btn-primary"
+              (mouseenter)="hovered()">Logout</a>
+          </ng-container>
         </li>
       </ul>
     </div>

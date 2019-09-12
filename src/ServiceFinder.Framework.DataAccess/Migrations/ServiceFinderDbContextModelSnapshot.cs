@@ -15,7 +15,7 @@ namespace ServiceFinder.Framework.DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -43,8 +43,8 @@ namespace ServiceFinder.Framework.DataAccess.Migrations
                     b.ToTable("AspNetRoles");
 
                     b.HasData(
-                        new { Id = "2b8d9187-3377-4dd8-ab3a-3b6b4302705d", ConcurrencyStamp = "54a13206-61f4-4f34-8931-a3c560347822", Name = "admin", NormalizedName = "ADMIN" },
-                        new { Id = "4f1e6e2e-426b-434e-819f-dc19f227ab89", ConcurrencyStamp = "190b53e2-27b3-4d14-bd1f-784be98d5654", Name = "user", NormalizedName = "USER" }
+                        new { Id = "54881c24-a805-42a3-bc59-b3bc56dfb9d0", ConcurrencyStamp = "b70c903e-df38-4c26-b8c0-a990ef043459", Name = "admin", NormalizedName = "ADMIN" },
+                        new { Id = "9f183b8e-eda5-456a-9004-3ea217e96588", ConcurrencyStamp = "422ef34b-7414-4e9a-a608-6e50ef7c6820", Name = "user", NormalizedName = "USER" }
                     );
                 });
 
@@ -138,6 +138,185 @@ namespace ServiceFinder.Framework.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("ServiceFinder.Framework.Model.Entity.AdminDashboard.SubscriberEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("ChangeDate");
+
+                    b.Property<string>("ChangedBy");
+
+                    b.Property<string>("CreatedBy");
+
+                    b.Property<DateTime>("CreatedOn");
+
+                    b.Property<DateTime?>("CreationDate");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("UserChangedId");
+
+                    b.Property<string>("UserCreatedId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("subscriber");
+                });
+
+            modelBuilder.Entity("ServiceFinder.Framework.Model.Entity.UserDashboard.Answer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AnswerText");
+
+                    b.Property<DateTime?>("ChangeDate");
+
+                    b.Property<string>("ChangedBy");
+
+                    b.Property<string>("CreatedBy");
+
+                    b.Property<DateTime?>("CreationDate");
+
+                    b.Property<DateTime>("DateTime");
+
+                    b.Property<int>("QuestionId");
+
+                    b.Property<string>("UserChangedId");
+
+                    b.Property<string>("UserCreatedId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionId");
+
+                    b.ToTable("answer");
+                });
+
+            modelBuilder.Entity("ServiceFinder.Framework.Model.Entity.UserDashboard.CityEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("ChangeDate");
+
+                    b.Property<string>("ChangedBy");
+
+                    b.Property<string>("CreatedBy");
+
+                    b.Property<DateTime>("CreatedOn");
+
+                    b.Property<DateTime?>("CreationDate");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Province");
+
+                    b.Property<bool>("Status");
+
+                    b.Property<string>("UserChangedId");
+
+                    b.Property<string>("UserCreatedId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("city");
+
+                    b.HasData(
+                        new { Id = 1, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Kathmandu", Province = "3", Status = true },
+                        new { Id = 2, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Pokhara", Province = "Gandaki", Status = true },
+                        new { Id = 3, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Lalitpur", Province = "3", Status = true },
+                        new { Id = 4, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Biratnagar", Province = "1", Status = true },
+                        new { Id = 5, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Birjung", Province = "2", Status = true },
+                        new { Id = 6, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Bharatpur", Province = "3", Status = true },
+                        new { Id = 7, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Dharan", Province = "1", Status = true },
+                        new { Id = 8, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Butwal", Province = "5", Status = true },
+                        new { Id = 9, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Janakpur", Province = "2", Status = true },
+                        new { Id = 10, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Dhangadhi", Province = "Sudurpashchim", Status = true },
+                        new { Id = 11, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Bhaktapur", Province = "3", Status = true },
+                        new { Id = 12, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Nepalgunj", Province = "5", Status = true },
+                        new { Id = 13, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Hetauda", Province = "3", Status = true },
+                        new { Id = 14, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Itahari", Province = "1", Status = true },
+                        new { Id = 15, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Banepa", Province = "3", Status = true },
+                        new { Id = 16, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Dhulikhel", Province = "3", Status = true },
+                        new { Id = 17, CreatedOn = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Baglung", Province = "Gandaki", Status = true }
+                    );
+                });
+
+            modelBuilder.Entity("ServiceFinder.Framework.Model.Entity.UserDashboard.Question", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("ChangeDate");
+
+                    b.Property<string>("ChangedBy");
+
+                    b.Property<string>("CreatedBy");
+
+                    b.Property<DateTime?>("CreationDate");
+
+                    b.Property<DateTime>("DateTime");
+
+                    b.Property<string>("QuestionText");
+
+                    b.Property<int>("ServiceItemId");
+
+                    b.Property<string>("UserChangedId");
+
+                    b.Property<string>("UserCreatedId");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServiceItemId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("question");
+                });
+
+            modelBuilder.Entity("ServiceFinder.Framework.Model.Entity.UserDashboard.ServiceItemViewLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("ChangeDate");
+
+                    b.Property<string>("ChangedBy");
+
+                    b.Property<string>("CreatedBy");
+
+                    b.Property<DateTime?>("CreationDate");
+
+                    b.Property<int>("ServiceItemId");
+
+                    b.Property<string>("UserChangedId");
+
+                    b.Property<string>("UserCreatedId");
+
+                    b.Property<string>("UserId");
+
+                    b.Property<int>("ViewCount");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServiceItemId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("serviceItemViewLog");
+                });
+
             modelBuilder.Entity("ServiceFinder.Framework.Model.Entity.UserDashboard.ServiceReviewEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -165,6 +344,8 @@ namespace ServiceFinder.Framework.DataAccess.Migrations
                     b.Property<DateTime>("ReviewTime");
 
                     b.Property<int>("ServiceItemId");
+
+                    b.Property<bool>("ShowOptions");
 
                     b.Property<string>("UserChangedId");
 
@@ -214,11 +395,11 @@ namespace ServiceFinder.Framework.DataAccess.Migrations
                     b.ToTable("categories");
 
                     b.HasData(
-                        new { Id = 1, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 965, DateTimeKind.Local), Name = "Hospitality", Status = false },
-                        new { Id = 2, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Travel", Status = false },
-                        new { Id = 3, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Transportation", Status = false },
-                        new { Id = 4, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Media", Status = false },
-                        new { Id = 5, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Entertainment", Status = false }
+                        new { Id = 1, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 638, DateTimeKind.Local), Name = "Hospitality", Status = false },
+                        new { Id = 2, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 638, DateTimeKind.Local), Name = "Travel", Status = false },
+                        new { Id = 3, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 638, DateTimeKind.Local), Name = "Transportation", Status = false },
+                        new { Id = 4, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 638, DateTimeKind.Local), Name = "Media", Status = false },
+                        new { Id = 5, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 638, DateTimeKind.Local), Name = "Entertainment", Status = false }
                     );
                 });
 
@@ -233,6 +414,8 @@ namespace ServiceFinder.Framework.DataAccess.Migrations
                     b.Property<DateTime?>("ChangeDate");
 
                     b.Property<string>("ChangedBy");
+
+                    b.Property<int?>("CityId");
 
                     b.Property<string>("CoverImageUrl");
 
@@ -270,36 +453,38 @@ namespace ServiceFinder.Framework.DataAccess.Migrations
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("CityId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("serviceItems");
 
                     b.HasData(
-                        new { Id = 1, CategoryId = 1, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Hospitality Service 1", Status = false },
-                        new { Id = 2, CategoryId = 1, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Hospitality Service 2", Status = false },
-                        new { Id = 3, CategoryId = 1, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Hospitality Service 3", Status = false },
-                        new { Id = 4, CategoryId = 1, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Hospitality Service 4", Status = false },
-                        new { Id = 5, CategoryId = 1, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Hospitality Service 5", Status = false },
-                        new { Id = 6, CategoryId = 2, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Travel Service 1", Status = false },
-                        new { Id = 7, CategoryId = 2, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Travel Service 2", Status = false },
-                        new { Id = 8, CategoryId = 2, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Travel Service 3", Status = false },
-                        new { Id = 9, CategoryId = 2, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Travel Service 4", Status = false },
-                        new { Id = 10, CategoryId = 2, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Travel Service 5", Status = false },
-                        new { Id = 11, CategoryId = 3, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Transportation Service 1", Status = false },
-                        new { Id = 12, CategoryId = 3, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Transportation Service 2", Status = false },
-                        new { Id = 13, CategoryId = 3, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Transportation Service 3", Status = false },
-                        new { Id = 14, CategoryId = 3, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Transportation Service 4", Status = false },
-                        new { Id = 15, CategoryId = 3, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Transportation Service 5", Status = false },
-                        new { Id = 16, CategoryId = 4, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Media Service 1", Status = false },
-                        new { Id = 17, CategoryId = 4, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Media Service 2", Status = false },
-                        new { Id = 18, CategoryId = 4, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Media Service 3", Status = false },
-                        new { Id = 19, CategoryId = 4, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Media Service 4", Status = false },
-                        new { Id = 20, CategoryId = 4, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Media Service 5", Status = false },
-                        new { Id = 21, CategoryId = 5, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Entertainment Service 1", Status = false },
-                        new { Id = 22, CategoryId = 5, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Entertainment Service 2", Status = false },
-                        new { Id = 23, CategoryId = 5, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Entertainment Service 3", Status = false },
-                        new { Id = 24, CategoryId = 5, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Entertainment Service 4", Status = false },
-                        new { Id = 25, CategoryId = 5, CreationDate = new DateTime(2019, 6, 5, 14, 31, 47, 966, DateTimeKind.Local), Name = "Entertainment Service 5", Status = false }
+                        new { Id = 1, CategoryId = 1, CityId = 1, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Hospitality Service 1", Status = false },
+                        new { Id = 2, CategoryId = 1, CityId = 2, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Hospitality Service 2", Status = false },
+                        new { Id = 3, CategoryId = 1, CityId = 3, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Hospitality Service 3", Status = false },
+                        new { Id = 4, CategoryId = 1, CityId = 4, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Hospitality Service 4", Status = false },
+                        new { Id = 5, CategoryId = 1, CityId = 5, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Hospitality Service 5", Status = false },
+                        new { Id = 6, CategoryId = 2, CityId = 6, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Travel Service 1", Status = false },
+                        new { Id = 7, CategoryId = 2, CityId = 7, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Travel Service 2", Status = false },
+                        new { Id = 8, CategoryId = 2, CityId = 8, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Travel Service 3", Status = false },
+                        new { Id = 9, CategoryId = 2, CityId = 9, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Travel Service 4", Status = false },
+                        new { Id = 10, CategoryId = 2, CityId = 10, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Travel Service 5", Status = false },
+                        new { Id = 11, CategoryId = 3, CityId = 11, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Transportation Service 1", Status = false },
+                        new { Id = 12, CategoryId = 3, CityId = 12, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Transportation Service 2", Status = false },
+                        new { Id = 13, CategoryId = 3, CityId = 13, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Transportation Service 3", Status = false },
+                        new { Id = 14, CategoryId = 3, CityId = 14, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Transportation Service 4", Status = false },
+                        new { Id = 15, CategoryId = 3, CityId = 15, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Transportation Service 5", Status = false },
+                        new { Id = 16, CategoryId = 4, CityId = 16, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Media Service 1", Status = false },
+                        new { Id = 17, CategoryId = 4, CityId = 17, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Media Service 2", Status = false },
+                        new { Id = 18, CategoryId = 4, CityId = 1, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Media Service 3", Status = false },
+                        new { Id = 19, CategoryId = 4, CityId = 2, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Media Service 4", Status = false },
+                        new { Id = 20, CategoryId = 4, CityId = 3, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Media Service 5", Status = false },
+                        new { Id = 21, CategoryId = 5, CityId = 4, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Entertainment Service 1", Status = false },
+                        new { Id = 22, CategoryId = 5, CityId = 5, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Entertainment Service 2", Status = false },
+                        new { Id = 23, CategoryId = 5, CityId = 6, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Entertainment Service 3", Status = false },
+                        new { Id = 24, CategoryId = 5, CityId = 7, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Entertainment Service 4", Status = false },
+                        new { Id = 25, CategoryId = 5, CityId = 8, CreationDate = new DateTime(2019, 7, 17, 10, 0, 39, 639, DateTimeKind.Local), Name = "Entertainment Service 5", Status = false }
                     );
                 });
 
@@ -452,6 +637,38 @@ namespace ServiceFinder.Framework.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("ServiceFinder.Framework.Model.Entity.UserDashboard.Answer", b =>
+                {
+                    b.HasOne("ServiceFinder.Framework.Model.Entity.UserDashboard.Question", "ServiceItem")
+                        .WithMany()
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ServiceFinder.Framework.Model.Entity.UserDashboard.Question", b =>
+                {
+                    b.HasOne("ServiceFinder.Framework.Model.Models.UserDashboard.ServiceItemEntity", "ServiceItem")
+                        .WithMany()
+                        .HasForeignKey("ServiceItemId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TAM.Framework.Model.Models.AccountManagement.ApplicationUserEntity", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("ServiceFinder.Framework.Model.Entity.UserDashboard.ServiceItemViewLog", b =>
+                {
+                    b.HasOne("ServiceFinder.Framework.Model.Models.UserDashboard.ServiceItemEntity", "ServiceItem")
+                        .WithMany()
+                        .HasForeignKey("ServiceItemId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("TAM.Framework.Model.Models.AccountManagement.ApplicationUserEntity", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("ServiceFinder.Framework.Model.Entity.UserDashboard.ServiceReviewEntity", b =>
                 {
                     b.HasOne("ServiceFinder.Framework.Model.Models.UserDashboard.ServiceItemEntity", "ServiceItem")
@@ -469,6 +686,10 @@ namespace ServiceFinder.Framework.DataAccess.Migrations
                     b.HasOne("ServiceFinder.Framework.Model.Models.UserDashboard.CategoryEntity", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId");
+
+                    b.HasOne("ServiceFinder.Framework.Model.Entity.UserDashboard.CityEntity", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId");
 
                     b.HasOne("TAM.Framework.Model.Models.AccountManagement.ApplicationUserEntity", "ApplicationUser")
                         .WithMany()

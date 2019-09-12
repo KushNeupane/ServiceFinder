@@ -1,0 +1,28 @@
+@import '../../../../../assets/sass-helpers/variables';
+@import '../../../../../assets/sass-helpers/mixins';
+#reviewList{
+    padding: 20px 15px;
+    h4{
+        font-size: 20px;
+        color: $black;
+    }
+    p{
+        color: lighten($color: $black, $amount: 10%);
+    }
+    ul{
+        margin-bottom: 0;
+        padding: 20px 10px;
+        border-bottom: 1px solid $grey;
+        &:hover{
+            background: rgba(0,0,0,0.01);
+        }
+        &:last-child{
+            border-bottom: 0;
+        }
+    }
+    a{
+        &:hover{
+            color: initial;
+        }
+    }
+}

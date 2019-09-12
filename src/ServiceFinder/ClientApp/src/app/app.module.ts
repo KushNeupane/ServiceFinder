@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AgmCoreModule } from '@agm/core';
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -38,7 +39,7 @@ import { SignupComponent } from "./component/SignUp/signup.component";
 import { ConfirmEqualValidatorDirective } from "./Validation/confirmPassword.validation";
 import { TwofactorauthenticationComponent } from "./component/TwoFactorAuth/twofactorauthentication.component";
 import { DashboardComponent } from "../app/component/Dashboard/dashboard.component";
-import { HomepageBannerComponent } from "../app/component/MainPage/homepage-banner/homepage-banner.component";
+import { HomepageBannerComponent } from "../app/component/MainPage/Homepage-banner/homepage-banner.component";
 import { HowItWorksComponent } from "../app/component/MainPage/how-it-works/how-it-works.component";
 import { MostSearchedComponent } from "../app/component/MainPage/most-searched/most-searched.component";
 import { OurServicesComponent } from "../app/component/MainPage/our-services/our-services.component";
@@ -55,7 +56,6 @@ import { AddServicesComponent } from "./component/Dashboard/User/AddServices/add
 import "hammerjs";
 import { MaterialModule } from "./material";
 import { AppRoutingModule } from "./app-routing.module";
-import { CategoriesComponent } from "./component/Header/categories/categories.component";
 import { ServicesComponent } from "./component/Header/services/services.component";
 import { ServiceInfoComponent } from './component/ServiceInfo/service-info.component';
 import { ProviderServiceComponent } from './component/Dashboard/User/ProviderService/providerService.component';
@@ -67,7 +67,6 @@ import { UserDetailComponent } from './component/Dashboard/User/UserDetail/UserD
 import { UserComponent } from './component/Dashboard/User/user.component';
 import { ServiceListComponent } from './component/ServiceList/ServiceList.component';
 import { FilterPipe } from './filter.pipe';
-import { HomeComponent } from './component/Footer/home/home.component';
 import { PrivacyPolicyComponent } from './component/Footer/privacy-policy/privacyPolicy.component';
 import { OthersComponent } from './component/Footer/others/others.component';
 import { AboutUsComponent } from './component/Footer/about-us/aboutUs.component';
@@ -77,14 +76,23 @@ import { ChangePasswordComponent } from './component/Dashboard/User/ChangePasswo
 import { ForgotPasswordComponent } from './component/ForgotPassword/forgotPassword.component';
 import { ResetPasswordComponent } from './component/ResetPassword/resetPassword.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CategoryDetailsComponent } from './component/MainPage/category-details/category-details.component';
+import { MyReviewsComponent } from './component/Dashboard/User/MyReviews/myReviews.component';
+import { CategoriesComponent } from './component/Dashboard/Admin/categories/categories.component';
+import { HelpComponent } from './component/Header/Help/help.component';
+import { HomeComponent } from './component/Footer/home/home.component';
+import { CitiesComponent } from './component/Dashboard/Admin/cities/cities.component';
+import { AddcitiesComponent } from './component/Dashboard/Admin/addcities/addcities.component';
 
 
 
 
 @NgModule({
   declarations: [
+    
     AdminComponent,
     UserComponent,
+    HomeComponent,
     AppComponent,
     MainpageComponent,
     HeaderComponent,
@@ -109,7 +117,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 	  UserDetailComponent,
 	  ServiceListComponent,
     FilterPipe,
-	  HomeComponent,
 	  AboutUsComponent,
 	  PrivacyPolicyComponent,
     OthersComponent,
@@ -118,11 +125,17 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ChangePasswordComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    CategoryDetailsComponent,
+    MyReviewsComponent,
+    CitiesComponent,
+    HelpComponent,
+    AddcitiesComponent,
   
 	 
 	
   ],
   imports: [
+    HttpClientModule,
     NgbModule,
     SocialLoginModule,
     BrowserModule,
@@ -148,6 +161,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatAutocompleteModule,
     NgxPaginationModule,
     SlickModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAraqbwFH8SsvJWygxRXH3WhWu9wS5aieQ',
+      libraries: ["places"]
+    }),
     ToastrModule.forRoot({
       timeOut: 3000,
       preventDuplicates: true

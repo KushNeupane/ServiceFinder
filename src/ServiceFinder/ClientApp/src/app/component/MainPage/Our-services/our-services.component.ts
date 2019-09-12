@@ -9,13 +9,14 @@ import { AddserviceService } from 'src/app/services/Dashboard/AddService/addserv
   styleUrls: ['./our-services.component.scss']
 })
 export class OurServicesComponent implements OnInit {
-  public categoryList: CategoryModel[] = [];
+  public categoryList: any = [];
   public serviceList: ViewService[] = [];
   public idList: number[] = [];
   public catnames: string[] = [];
   public servicenames: string[] = [];
   public count: number;
   public showServices: boolean = false;
+  public loadMoreCount: number = 0;
 
   constructor(private service: AddserviceService) { }
 
@@ -24,29 +25,18 @@ export class OurServicesComponent implements OnInit {
   }
 
   getCategory() {
-    this.service.GetCategories().subscribe(res => {
-      
+
+    this.service.getCategoriesWithServiceCount(this.loadMoreCount).subscribe(res => {   
       this.categoryList = res;
-      
-      
-    //   console.log(this.categoryList);
-    //  for (let category of this.categoryList) {
-    //    this.idList.push(category.id);
-    //    console.log(this.idList);
-    //  }
-    //   for (let id of this.idList) {
-    //     this.service.GetServicesByCategoryId(id).subscribe(result => {
-         
-          
-    //       for (let i = 0; i < result.length; i++) {
-    //         this.count = result.length;
-    //         if (result[i]) {
-    //           this.serviceList.push(result[i]);
-    //           console.log(result[i]);
-    //         }
-    //       }
-    //     })
-    //   }
+
+    })
+  }
+  loadMore() {
+    this.loadMoreCount += 4;
+    this.service.getCategoriesWithServiceCount(this.loadMoreCount).subscribe(res => {
+      for (let i = 0; i < res.length; i++) {
+        this.categoryList.push(res[i])
+      }
     })
   }
 }

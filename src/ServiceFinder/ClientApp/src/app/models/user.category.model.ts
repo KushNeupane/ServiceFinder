@@ -6,4 +6,6 @@ export class CategoryModel{
     description :string
     status :boolean
     isDeleted :boolean
+    serviceItemId: number;
+    originalImageName: string;
 }

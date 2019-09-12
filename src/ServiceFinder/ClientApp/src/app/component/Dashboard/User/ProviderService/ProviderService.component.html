@@ -1,10 +1,9 @@
 <div class="col-md-12">
-  <div class="text-right mb-3">
-    <a class="btn btn-primary text-white" (click)="addservices()">Create service <span class="fa fa-plus ml-2"></span>
-    </a>
-  </div>
+    <div class="text-right mb-3">
+        <a class="btn btn-primary text-white" (click)="addservices()">Create service <span class="fa fa-plus ml-2"></span>
+        </a>
+      </div>
   <div class="dashboard-block my-services">
-
     <!-- <div class="header"><a href="#" class="edit-option"><span></span></a></div> -->
     <ul class="services-list">
       <li *ngFor="let item of MyServiceList" class="service-list-item" [value]="item.id">
@@ -21,24 +20,24 @@
                 </a>
               </li>
               <li>
-                <a (click)="delete()" class="delete">
+                <a (click)="delete(item.id)" class="delete">
                   <i class="fas fa-trash-alt"></i>
                 </a>
               </li>
             </ul>
           </div>
         </div>
+        <section class="confirmation_box" *ngIf="statusActive">
+          <div class="confirmation_wrapper">
+            <a class="cross_btn" [routerLink]="" (click)="destroyConfbox()"><i class="fas fa-times"></i></a>
+            <p>Do you want to delete the service ? </p>
+            <div class="confirmation_actions">
+              <button (click)="yes(item.id)" class="btn btn-primary">Yes</button>
+              <button (click)="destroyConfbox()" class="btn">No</button>
+            </div>
+          </div>
+        </section>
       </li>
     </ul>
   </div>
-  <section class="confirmation_box" *ngIf="statusActive">
-    <div class="confirmation_wrapper">
-      <a class="cross_btn" [routerLink]="" (click)="destroyConfbox()"><i class="fas fa-times"></i></a>
-      <p>Do you want to delete the service ? </p>
-      <div class="confirmation_actions">
-        <button (click)="yes(item.id)" class="btn btn-primary">Yes</button>
-        <button (click)="destroyConfbox()" class="btn">No</button>
-      </div>
-    </div>
-  </section>
 </div>

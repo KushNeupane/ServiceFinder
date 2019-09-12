@@ -4,27 +4,48 @@ section.service-detail{
     background-color: transparentize($color: $grey, $amount: 0.8);
     margin-bottom: 30px;
     .header{
-        padding-top: 150px;
+        padding-top: 80px;
+        @media screen and (min-width: 768px) {
+            padding-top: 150px;
+        }
+        
         margin-bottom: 80px;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+       
         .service-header-wrapper{
             position: relative;
             bottom: -40px;
             .profile-pic{
                 margin-right: 20px;
                 border: 2px solid $red;
+                .img{
+                    height: 100%;
+                    width: 100%;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
             }
         }
         .general-details{
             h2,p,li,a{
                 color: $white;
+                @media screen and (max-width: 768px) {
+                    text-align: center;
+                }
             }
             ul{
-                margin-bottom: 40px;
+                margin-bottom: 20px;
+                @media screen and (max-width: 768px) {
+                    margin-bottom: 50px;
+                    justify-content: center;
+                }
                 li{
+                    margin-bottom: 20px;
                     margin-right: 10px;
+                    line-height: 36px;
                     span.lnr{
                         margin-right: 5px;
                     }
@@ -33,6 +54,12 @@ section.service-detail{
         }
         .profile-pic{
             overflow: hidden;
+            @media screen and (max-width: 768px) {
+                margin: 0 auto;
+                margin-right: auto !important;
+                
+            }
+            
         }
         .coverpic-change{
             input{
@@ -139,21 +166,21 @@ section.service-detail{
                 }
                 .date{
                     text-transform: capitalize;
+                    font-style: italic;
                 }
             }
         } 
     }
-
     #about-us{
         ul{
-            display: flex;
-            flex-wrap: wrap;
+           // display: flex;
+            //flex-wrap: wrap;
             border-bottom: 1px solid transparentize($color: $grey, $amount: 0.7);
             margin-bottom: 25px;
             li{
-                flex-basis: 50%;
+                //flex-basis: 50%;
                 position: relative;
-                padding-left: 30px;
+               // padding-left: 30px;
                 margin-bottom: 20px;
                 p{
                     margin-bottom: 8px;
@@ -207,12 +234,13 @@ section.service-detail{
             }
         }
     }
-
-
     // profile-pic
     .profile-pic{
         height: 225px;
         width: 225px;
+        @media screen and (max-width: 768px) {
+            margin-bottom: 20px;
+        }
         img{
             height: 100%;
             width: 100%;
@@ -248,7 +276,6 @@ section.service-detail{
             cursor: pointer;
         }
     }
-
     .btn.coverpic-change{
         position: absolute;
         right: 15px;
@@ -274,10 +301,125 @@ section.service-detail{
             transition: opacity 0.54s ease-in-out;
            
         }
+    }
+}
+section#rating-popup{
+    padding: 0;
+}
+.rating{
+    .ng-star-inserted{
+        color: $red;
+    }
+}
+.rating-actions{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    i{
+        color: $red;
+        margin-left: 10px;
+        &.fa-edit{
+            color: $black;
+        }
+    }
+}
+.overall-rating{
+    font-size: 36px !important;
+    margin-right: 4px;
+    font-weight: 900;
+}
 
+form.dark-form{
+    margin-top: 15px;
+    mat-form-field.mat-form-field{
+        display: block;
+        width: 100%;
+        color: rgba(255,255,255,1) !important;
+        .mat-form-field-label{
+            opacity: 0;
+        }
     }
 }
 
-section#rating-popup{
-    padding: 0;
+.login-wrapper,
+.signup-wrapper{
+    display: flex;
+    @media screen and (max-width: 767px) {
+        flex-direction: column;
+    }
+    form,.quick-sign-in{
+        @include tablet{
+            flex-basis: 50%;
+        }
+    }
+    .quick-sign-in{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-top: 20px;
+        @include tablet{
+            margin-top: 0;
+            align-items: center;
+            justify-content: center;
+            h4{
+                text-align: center;
+            }
+        }
+        h4{
+            display: inline-block;
+            color: $white;
+            font-size: 14px;
+            font-weight: 600;
+            &::after{
+                content: "";
+                height: 2px;
+                width: 100px;
+                @include tablet{
+                    width: 100%;
+                }
+                background-color: $white;
+                margin-top: 4px;
+                display: block;
+            }
+        }
+        ul{
+            display: flex;
+            li{
+                cursor: pointer;
+                margin-top: 10px;
+                padding: 8px 15px;
+                display: flex;
+                align-items: center;
+                background: #4267b2;
+                text-transform: capitalize;
+                color: $white;
+                &:last-child{
+                    background: #34a853;
+                }
+                i{
+                    margin-right: 10px;
+                }
+            }
+            a i{
+                font-size: 24px;
+                color: $white;
+                &:hover{
+                    color: $red;
+                }
+            }
+        }
+    }
+    .btn.btn-primary{
+        display: flex;
+        i{
+            margin-left: 15px;
+        }
+    }
+    p{
+        margin-top: 10px;
+        color: $white;
+        a{
+            color: $red;
+        }
+    }
 }

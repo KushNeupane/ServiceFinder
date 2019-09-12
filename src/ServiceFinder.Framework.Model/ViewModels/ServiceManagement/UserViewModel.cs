@@ -6,7 +6,6 @@ using TAM.Framework.Model.Models;
 
 namespace ServiceFinder.Framework.Model.ViewModels
 {
-  [Table("UserView")]
   public class UserViewModel : BaseEntity
   {
   }

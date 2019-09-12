@@ -1,6 +1,5 @@
 import { ChangePasswordComponent } from './component/Dashboard/User/ChangePassword/change-password.component';
 import { UserDetailComponent } from './component/Dashboard/User/UserDetail/UserDetail.component';
-import { CategoriesComponent } from "./component/Header/categories/categories.component";
 import { AuthGuard } from "./AuthGuard/auth.guard";
 import { DashboardComponent } from "./component/Dashboard/dashboard.component";
 import { RouterModule, Routes } from "@angular/router";
@@ -24,6 +23,14 @@ import { EditProfileComponent } from './component/Dashboard/User/EditProfile/edi
 import { ForgotPasswordComponent } from './component/ForgotPassword/forgotPassword.component';
 import { ResetPasswordComponent } from './component/ResetPassword/resetPassword.component';
 import { UserComponent } from './component/Dashboard/User/user.component';
+import { CategoryDetailsComponent } from './component/MainPage/category-details/category-details.component';
+import { MyReviewsComponent } from './component/Dashboard/User/MyReviews/myReviews.component';
+import { AdminComponent } from './component/Dashboard/Admin/admin.component';
+import { CategoriesComponent } from './component/Dashboard/Admin/categories/categories.component';
+import { CitiesComponent } from './component/Dashboard/Admin/cities/cities.component';
+import { HelpComponent } from './component/Header/Help/help.component';
+import { AddcitiesComponent } from './component/Dashboard/Admin/addcities/addcities.component';
+
 
 export const appRoutes: Routes = [
   {
@@ -43,12 +50,12 @@ export const appRoutes: Routes = [
     component: TwofactorauthenticationComponent
   },
   {
-    path: "categories",
-    component: CategoriesComponent
-  },
-  {
     path: "services",
     component: ServicesComponent
+  },
+  {
+    path: "help",
+    component: HelpComponent
   },
   {
     path: "serviceList",
@@ -63,6 +70,11 @@ export const appRoutes: Routes = [
   {
     path: "home",
     component: HomeComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: "categoryDetails/:categoryId",
+    component: CategoryDetailsComponent,
     pathMatch: 'full'
   },
   {
@@ -121,6 +133,33 @@ export const appRoutes: Routes = [
         path:"changePassword",
         component : ChangePasswordComponent,
         canActivate : [AuthGuard]
+      },
+      {
+        path:"myReviews",
+        component : MyReviewsComponent,
+        canActivate : [AuthGuard]
+      },
+      {
+        path:"admin",
+        component : AdminComponent,
+        canActivate : [AuthGuard]
+      },
+      {
+        path:"categories",
+        component : CategoriesComponent,
+        canActivate : [AuthGuard]
+      },
+      {
+        path:"cities",
+        component : CitiesComponent,
+        canActivate : [AuthGuard]
+      },
+      {
+        path: "addCity/:id",
+        component: AddcitiesComponent,
+        canActivate : [AuthGuard],
+        pathMatch: 'full'
+
       }
 
     ]
@@ -147,5 +186,3 @@ export const appRoutes: Routes = [
   }
   
 ];
-
-

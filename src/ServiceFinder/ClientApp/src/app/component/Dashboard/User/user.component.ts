@@ -16,7 +16,7 @@ import {MediaMatcher} from '@angular/cdk/layout';
 export class UserComponent implements OnInit {
 
   
-  private title : string ;
+  title : string ;
   public MyServiceList : ViewService[];
   users: EditProfileModel = new EditProfileModel;
   public profileImage: string;
@@ -37,12 +37,12 @@ export class UserComponent implements OnInit {
    }
 
   ngOnInit() {
+      this.title ="Dashboard"
       this.service.getCurrentUser().subscribe(result=>{
       this.users = result;
       this.profileImage = this.users.originalImageName;
       
     })
-    this.title = localStorage.getItem('title');
     this.route.queryParams.subscribe(params => {
       this.title = params["title"];
     });
@@ -78,6 +78,14 @@ export class UserComponent implements OnInit {
     this.service.GetServicesByUserId().subscribe(res => {
       this.MyServiceList=res;
     })
+  }
+
+  myReviews(){
+    this.title="List of my reviews";
+  }
+
+  Setting(){
+    this.title="Edit Profile";
   }
 
 

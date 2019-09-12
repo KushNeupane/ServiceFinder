@@ -1,61 +1,89 @@
 @import '../../../assets/sass-helpers/variables';
 @import '../../../assets/sass-helpers/mixins';
-section.search-result{
-    background: $white-grey;
-    .result-list{
-        h3{
-            font-size: 22px;
-        }
-        ul{
-            display: flex;
-            flex-wrap: wrap;
-            li{
-                margin-bottom: 10px;
-                width: 100%;
-            }
-        }
-        a{
-            display: block;
-            max-height: 200px;
-            display: flex;
-            background: $white;
-            &:hover{
-                p{
-                    color: initial;
-                }
-            }
-            figure{
-                flex: none;
-                width: 200px;
-                height: 200px;
-                margin: 0;
-                img{
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-        }
-        .details{
-            padding: 10px 20px;
-            flex-grow: 1;
-            ul{
-                li{
-                    padding: 0;
-                    margin-right: 5px;
-                    margin-bottom: 5px;
-                }
-            }
-        }
-    }
-    .sorting{
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 12px;
-    }
-    .search-filters{
-        background: $white;
-        padding: 10px;
-    }
+// section.search-result{
+//     background: $white-grey;
+//     .result-list{
+//         h3{
+//             font-size: 22px;
+//         }
+//         ul{
+//             display: flex;
+//             flex-wrap: wrap;
+//             li{
+//                 margin-bottom: 10px;
+//                 width: 100%;
+//             }
+//         }
+//         a{
+//             display: block;
+//             max-height: 200px;
+//             display: flex;
+//             background: $white;
+//             &:hover{
+//                 p{
+//                     color: initial;
+//                 }
+//             }
+//             figure{
+//                 flex: none;
+//                 width: 200px;
+//                 height: 200px;
+//                 margin: 0;
+//                 img{
+//                     width: 100%;
+//                     height: 100%;
+//                     object-fit: cover;
+//                 }
+//             }
+//         }
+//         .details{
+//             padding: 10px 20px;
+//             flex-grow: 1;
+//             ul{
+//                 li{
+//                     padding: 0;
+//                     margin-right: 5px;
+//                     margin-bottom: 5px;
+//                 }
+//             }
+//         }
+//     }
+//     .sorting{
+//         display: flex;
+//         justify-content: flex-end;
+//         margin-bottom: 12px;
+//     }
+//     .search-filters{
+//         background: $white;
+//         padding: 10px;
+//     }
+
+// }
+section.service-detail-list{
+   padding: 40px 15px;
+   @media only screen and (min-width: 768px){
+       padding: 80px 20px;
+   }
+   @media only screen and (min-width: 992px){
+       padding: 80px 40px;
+   }
+   ul{
+       margin-left: 40px;
+       .card{
+           margin: 0 auto;
+           height: 280px;
+           img{
+               height: 100%;
+               width: 100%;
+               object-fit: cover;
+           }
+       }
+
+       li{
+           margin: 0 10px 15px 0;
+           height: 290 px;
+           width: 298px;
+       }
+   }
 
 }

@@ -10,8 +10,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using ServiceFinder.DependencyInjection.Usability;
 using ServiceFinder.Extensions;
+using ServiceFinder.Framework.DataAccess.Services.AdminDashboard.Category;
+using ServiceFinder.Framework.DataAccess.Services.AdminDashboard.City;
 using ServiceFinder.Framework.DataAccess.Services.Dashboard.ServiceManagement;
+using ServiceFinder.Framework.DataAccess.Services.UserDashboard.QuestionAnswer;
 using System;
 using System.IO;
 using TAM.Framework.DataAccess.Contexts.AccountManagement;
@@ -37,11 +41,15 @@ namespace ServiceFinder
                        .AllowAnyHeader();
             }));
 
-
+            services.Configure<MailSettingModel>(Configuration.GetSection("MailSetting"));
+            services.Configure<GeneralSettingModel>(Configuration.GetSection("GeneralSetting"));
 
             //Register Database Context
             services.AddDbContext<ServiceFinderDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IServiceManagement, ServiceManagement>();
+            services.AddScoped<IServiceQuestionAnswer, ServiceQuestionAnswer>();
+            services.AddScoped<IServiceCategory, ServiceCategory>();
+      services.AddScoped<IServiceCity, ServiceCity>();
 
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 

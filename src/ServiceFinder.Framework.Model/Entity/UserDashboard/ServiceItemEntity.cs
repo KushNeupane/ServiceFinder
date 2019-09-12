@@ -2,7 +2,7 @@
 using TAM.Framework.Model.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 using TAM.Framework.Model.Models.AccountManagement;
-
+using ServiceFinder.Framework.Model.Entity.UserDashboard;
 
 namespace ServiceFinder.Framework.Model.Models.UserDashboard
 {
@@ -16,12 +16,18 @@ namespace ServiceFinder.Framework.Model.Models.UserDashboard
 		public CategoryEntity Category { get; set; }
 
 		//Including ForeignKey from ApplicationUserEntity table
-
+      
 		public string UserId { get; set; }
 		[ForeignKey("UserId")]
 		public ApplicationUserEntity ApplicationUser { get; set; }
 
-		public string Name { get; set; }
+        //Including ForeignKey from CityTable
+
+        public int? CityId { get; set; }
+        [ForeignKey("CityId")]
+        public CityEntity City { get; set; }
+
+        public string Name { get; set; }
 
 		public string Email { get; set; }
 		public string PhoneNumber { get; set; }

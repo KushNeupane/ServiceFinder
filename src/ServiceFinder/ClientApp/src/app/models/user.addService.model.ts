@@ -1,9 +1,10 @@
 export class AddServiceModel{
   
   categoryId : number;
+  cityId : number;
   name : string;
   description :string;
-  userTypeId : number;
+  userId : string;
   status : boolean;
   email : string;
   phoneNumber : string;
