@@ -1,0 +1,12 @@
+D:\WorkingFolder\sf\servicefinder\src\Servicefinder.Core\bin\Debug\netstandard2.0\Servicefinder.Core.deps.json
+D:\WorkingFolder\sf\servicefinder\src\Servicefinder.Core\bin\Debug\netstandard2.0\Servicefinder.Core.dll
+D:\WorkingFolder\sf\servicefinder\src\Servicefinder.Core\bin\Debug\netstandard2.0\Servicefinder.Core.pdb
+D:\WorkingFolder\sf\servicefinder\src\Servicefinder.Core\bin\Debug\netstandard2.0\ServiceFinder.DI.dll
+D:\WorkingFolder\sf\servicefinder\src\Servicefinder.Core\bin\Debug\netstandard2.0\ServiceFinder.DI.pdb
+D:\WorkingFolder\sf\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.csprojAssemblyReference.cache
+D:\WorkingFolder\sf\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.csproj.CoreCompileInputs.cache
+D:\WorkingFolder\sf\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.AssemblyInfoInputs.cache
+D:\WorkingFolder\sf\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.AssemblyInfo.cs
+D:\WorkingFolder\sf\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.csproj.CopyComplete
+D:\WorkingFolder\sf\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.dll
+D:\WorkingFolder\sf\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.pdb

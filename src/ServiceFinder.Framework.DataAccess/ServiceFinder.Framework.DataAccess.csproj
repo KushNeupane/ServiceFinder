@@ -14,4 +14,8 @@
     <ProjectReference Include="..\ServiceFinder.Framework.Model\ServiceFinder.Framework.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Response\" />
+  </ItemGroup>
+
 </Project>
