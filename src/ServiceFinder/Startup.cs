@@ -49,7 +49,7 @@ namespace ServiceFinder
             services.AddScoped<IServiceManagement, ServiceManagement>();
             services.AddScoped<IServiceQuestionAnswer, ServiceQuestionAnswer>();
             services.AddScoped<IServiceCategory, ServiceCategory>();
-      services.AddScoped<IServiceCity, ServiceCity>();
+            services.AddScoped<IServiceCity, ServiceCity>();
 
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
@@ -80,16 +80,16 @@ namespace ServiceFinder
 
             app.UseStaticFiles();
             app.UseHttpsRedirection();
-            app.UseStaticFiles(new StaticFileOptions()
-            {
-                RequestPath = new PathString("/wwwroot"),
-                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot"))
-            });
+            //app.UseStaticFiles(new StaticFileOptions()
+            //{
+            //    RequestPath = new PathString("/wwwroot"),
+            //    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot"))
+            //});
 
             app.UseSpaStaticFiles();
 
             //Seed default Application User
-            DefaultUserInitializer.SeedInitialUsers(userManager);
+            //  DefaultUserInitializer.SeedInitialUsers(userManager);
             app.UseCors("EnableCORS");
             app.UseMvc();
 
