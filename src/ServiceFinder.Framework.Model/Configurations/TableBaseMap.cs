@@ -1,5 +1,4 @@
-﻿using TAM.Framework.Model.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ServiceFinder.Framework.Model.Configuration;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

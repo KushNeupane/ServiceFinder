@@ -44,6 +44,7 @@ export class SigninComponent implements OnInit {
 
  //For Email SignIn
  onEmailSignIn(form: NgForm) {
+   debugger
    if (form.value.email == null || form.value.password == null) {
      this.toaster.error("please fill up all fields", "", { positionClass: 'toast-top-center' });
    }

@@ -1,25 +1,21 @@
-using Finder.Framework.DataAccess.Contexts.AccountManagement;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.Identity;
+using System;
+using ServiceFinder.DI.Core;
+using ServiceFinder.DI.Backend;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
+using ServiceFinder.Extensions;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Builder;
+using ServiceFinder.Backend.Context;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ServiceFinder.Backend.Service;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
-using ServiceFinder.DependencyInjection.Usability;
-using ServiceFinder.Extensions;
-using ServiceFinder.Framework.DataAccess.Services.AdminDashboard.Category;
-using ServiceFinder.Framework.DataAccess.Services.AdminDashboard.City;
-using ServiceFinder.Framework.DataAccess.Services.Dashboard.ServiceManagement;
-using ServiceFinder.Framework.DataAccess.Services.UserDashboard.QuestionAnswer;
-using System;
-using System.IO;
-using TAM.Framework.DataAccess.Contexts.AccountManagement;
-using TAM.Framework.Model.Models.AccountManagement;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
+using ServiceFinder.FrontEnd.Context;
+using ServiceFinder.Users.DatabaseContext;
+using Servicefinder.Core.DatabaseContext;
 
 namespace ServiceFinder
 {
@@ -41,15 +37,16 @@ namespace ServiceFinder
                        .AllowAnyHeader();
             }));
 
-            services.Configure<MailSettingModel>(Configuration.GetSection("MailSetting"));
-            services.Configure<GeneralSettingModel>(Configuration.GetSection("GeneralSetting"));
+            services.Configure<IMailSettingModel>(Configuration.GetSection("MailSetting"));
+            services.Configure<IGeneralSettingModel>(Configuration.GetSection("GeneralSetting"));
 
             //Register Database Context
-            services.AddDbContext<ServiceFinderDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<UserDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<CommonDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IServiceManagement, ServiceManagement>();
-            services.AddScoped<IServiceQuestionAnswer, ServiceQuestionAnswer>();
-            services.AddScoped<IServiceCategory, ServiceCategory>();
-            services.AddScoped<IServiceCity, ServiceCity>();
+            //services.AddScoped<IServiceQuestionAnswer, ServiceQuestionAnswer>();
+            //services.AddScoped<IServiceCategory, ServiceCategory>();
+            //services.AddScoped<IServiceCity, ServiceCity>();
 
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
@@ -59,16 +56,16 @@ namespace ServiceFinder
             //Configure FacebookAuth
             //services.ConfigureFacebookAuth();
 
-            services.AddDefaultIdentity<ApplicationUserEntity>().AddRoles<IdentityRole>().AddEntityFrameworkStores<ServiceFinderDbContext>();
+            services.AddDefaultIdentity<ApplicationUserModel>().AddRoles<IdentityRole>().AddEntityFrameworkStores<ServiceFinderDbContext>();
 
-            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddSingleton(Configuration);
             services.Configure<FormOptions>(x => { x.MultipartBodyLengthLimit = int.MaxValue; });
-            services.AddTransient<Service.Framework.Core.Helper.IEmailSender, Service.Framework.Core.Helper.AutoMessageSender>();
+            services.AddTransient<ServiceFinder.DI.Users.IEmailSender, ServiceFinder.DI.Users.AutoMessageSender>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, UserManager<ApplicationUserEntity> userManager)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, UserManager<ApplicationUserModel> userManager)
         {
             if (env.IsDevelopment()) { app.UseDeveloperExceptionPage(); }
             else

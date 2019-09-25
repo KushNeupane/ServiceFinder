@@ -7,5 +7,6 @@ namespace ServiceFinder.DI.Core
         bool isSuccess { get; set; }
         List<string> errors { get; set; }
         string successMessage { get; set; }
+        object data { get; set; }
     }
 }

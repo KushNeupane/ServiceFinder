@@ -49,12 +49,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ServiceFinder.DependencyInjection\ServiceFinder.DependencyInjection.csproj" />
-    <ProjectReference Include="..\ServiceFinder.Framework.DataAccess\ServiceFinder.Framework.DataAccess.csproj" />
-    <ProjectReference Include="..\ServiceFinder.Framework.Model\ServiceFinder.Framework.Model.csproj" />
-    <ProjectReference Include="..\ServiceFinder.Module\ServiceFinder.AccountManagement\ServiceFinder.AccountManagement.csproj" />
-    <ProjectReference Include="..\ServiceFinder.Module\ServiceFinder.AdminDashboard\ServiceFinder.AdminDashboard.csproj" />
-    <ProjectReference Include="..\ServiceFinder.Module\ServiceFinder.Dashboard\ServiceFinder.UserDashboard.csproj" />
+    <ProjectReference Include="..\Servicefinder.Core\Servicefinder.Core.csproj" />
+    <ProjectReference Include="..\ServiceFinder.DI\ServiceFinder.DI.csproj" />
+    <ProjectReference Include="..\ServiceFinder.Module\ServiceFinder.Backend\ServiceFinder.Backend.csproj" />
+    <ProjectReference Include="..\ServiceFinder.Module\ServiceFinder.FrontEnd\ServiceFinder.FrontEnd.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

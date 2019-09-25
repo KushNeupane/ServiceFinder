@@ -1,5 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using ServiceFinder.Users.Model;
+using ServiceFinder.DI.Core;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -10,7 +10,7 @@ namespace ServiceFinder.Users.Helper
 {
     public static class AuthHelper
     {
-        public static string GenerateToken(ApplicationUserEntity user, string assignedRole)
+        public static string GenerateToken(ApplicationUserModel user, string assignedRole)
         {
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
             var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);

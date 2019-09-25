@@ -5,9 +5,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Servicefinder.Core.Response;
 using Servicefinder.Core.Setting;
+using ServiceFinder.DI.Core;
 using ServiceFinder.DI.Users;
 using ServiceFinder.Users.Helper;
-using ServiceFinder.Users.Model;
 using ServiceFinder.Users.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -24,8 +24,8 @@ namespace ServiceFinder.Users.Controllers
         private ILogger<AuthController> logger => service.GetService(typeof(ILogger<AuthController>)) as ILogger<AuthController>;
         private IOptions<MailSettingModel> mailSetting => service.GetService(typeof(IOptions<MailSettingModel>)) as IOptions<MailSettingModel>;
         private IOptions<GeneralSettingModel> generalSetting => service.GetService(typeof(IOptions<GeneralSettingModel>)) as IOptions<GeneralSettingModel>;
-        private UserManager<ApplicationUserEntity> userManager => service.GetService(typeof(UserManager<ApplicationUserEntity>)) as UserManager<ApplicationUserEntity>;
-        private SignInManager<ApplicationUserEntity> signInManager => service.GetService(typeof(SignInManager<ApplicationUserEntity>)) as SignInManager<ApplicationUserEntity>;
+        private UserManager<ApplicationUserModel> userManager => service.GetService(typeof(UserManager<ApplicationUserModel>)) as UserManager<ApplicationUserModel>;
+        private SignInManager<ApplicationUserModel> signInManager => service.GetService(typeof(SignInManager<ApplicationUserModel>)) as SignInManager<ApplicationUserModel>;
 
 
         public AuthController(IServiceProvider service)
@@ -38,7 +38,7 @@ namespace ServiceFinder.Users.Controllers
         [Route("login")]
         public async Task<LoginResponseModel> Login([FromBody]LoginViewModel model)
         {
-            ApplicationUserEntity user = new ApplicationUserEntity();
+            ApplicationUserModel user = new ApplicationUserModel();
             Microsoft.AspNetCore.Identity.SignInResult result = null;
             LoginResponseModel response = new LoginResponseModel() { errors = new List<string>() };
 
@@ -106,7 +106,7 @@ namespace ServiceFinder.Users.Controllers
                 //    response.errors.Add("Username or Password doesnot match");
                 //}
             }
-            catch (Exception ex) { response.errors.Add("Something went wrong, Please contact to admin"); }
+            catch (Exception ) { response.errors.Add("Something went wrong, Please contact to admin"); }
             return response;
         }
 
@@ -119,13 +119,13 @@ namespace ServiceFinder.Users.Controllers
 
             if (ModelState.IsValid)
             {
-                ApplicationUserEntity existingUser = await userManager.FindByEmailAsync(formData.email);
+                ApplicationUserModel existingUser = await userManager.FindByEmailAsync(formData.email);
                 if (existingUser != null)
                 {
                     response.errors.Add("Email already exists!");
                     return response;
                 }
-                var user = new ApplicationUserEntity
+                var user = new ApplicationUserModel
                 {
                     IsAdmin = false,
                     Email = formData.email,
@@ -150,7 +150,7 @@ namespace ServiceFinder.Users.Controllers
                         catch (Exception) { };
                     }
                 }
-                catch (Exception ex) { };
+                catch (Exception) { };
             }
             return response;
         }
@@ -201,7 +201,7 @@ namespace ServiceFinder.Users.Controllers
         {
             string AppBaseUrl = this.generalSetting.Value.AppBaseUrl;
 
-            ApplicationUserEntity user = new ApplicationUserEntity();
+            ApplicationUserModel user = new ApplicationUserModel();
             LoginResponseModel response = new LoginResponseModel();
             response.isSuccess = false;
 
@@ -221,13 +221,13 @@ namespace ServiceFinder.Users.Controllers
 
                         await emailSender.SendEmailAsync(this.mailSetting.Value, await userManager.GetEmailAsync(user), "Password Reset Link", "Your PasswordReset Link is:   <a href='" + resetLink + "'>'" + resetLink + "'</a>");
                     }
-                    catch (Exception e) { }
+                    catch (Exception ) { }
                     response.isSuccess = true;
                     response.loginData = user;
                     response.token = token;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
             return response;
@@ -238,7 +238,7 @@ namespace ServiceFinder.Users.Controllers
         [Route("resetpassword")]
         public async Task<ResponseModel> ResetPasswordByEmail([FromBody] ResetPasswordViewModel model)
         {
-            ApplicationUserEntity user = new ApplicationUserEntity();
+            ApplicationUserModel user = new ApplicationUserModel();
             ResponseModel response = new ResponseModel();
             response.isSuccess = false;
 
@@ -257,7 +257,7 @@ namespace ServiceFinder.Users.Controllers
                 }
             }
 
-            catch (Exception ex)
+            catch (Exception )
             {
 
             }

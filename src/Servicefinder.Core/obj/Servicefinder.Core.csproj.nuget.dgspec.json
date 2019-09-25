@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkingFolder\\sf\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj": {}
+    "F:\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj": {}
   },
   "projects": {
-    "D:\\WorkingFolder\\sf\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj": {
+    "F:\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkingFolder\\sf\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj",
+        "projectUniqueName": "F:\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj",
         "projectName": "Servicefinder.Core",
-        "projectPath": "D:\\WorkingFolder\\sf\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj",
-        "packagesPath": "C:\\Users\\Deepcloud\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkingFolder\\sf\\servicefinder\\src\\Servicefinder.Core\\obj\\",
+        "projectPath": "F:\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "F:\\servicefinder\\src\\Servicefinder.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Deepcloud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,8 +30,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "D:\\WorkingFolder\\sf\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj": {
-                "projectPath": "D:\\WorkingFolder\\sf\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj"
+              "F:\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj": {
+                "projectPath": "F:\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj"
               }
             }
           }
@@ -60,20 +60,20 @@
         }
       }
     },
-    "D:\\WorkingFolder\\sf\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj": {
+    "F:\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkingFolder\\sf\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj",
+        "projectUniqueName": "F:\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj",
         "projectName": "ServiceFinder.DI",
-        "projectPath": "D:\\WorkingFolder\\sf\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj",
-        "packagesPath": "C:\\Users\\Deepcloud\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkingFolder\\sf\\servicefinder\\src\\ServiceFinder.DI\\obj\\",
+        "projectPath": "F:\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "F:\\servicefinder\\src\\ServiceFinder.DI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Deepcloud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,6 +97,22 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

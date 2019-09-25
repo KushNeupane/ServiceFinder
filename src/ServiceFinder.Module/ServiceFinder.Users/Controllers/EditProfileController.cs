@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Servicefinder.Core.Response;
-using ServiceFinder.Users.Model;
+using ServiceFinder.DI.Core;
 using ServiceFinder.Users.ViewModel;
 using System;
 using System.IO;
@@ -17,11 +17,11 @@ namespace ServiceFinder.Users.Controllers
     public class EditProfileController : ControllerBase
     {
 
-        private readonly UserManager<ApplicationUserEntity> userManager;
+        private readonly UserManager<ApplicationUserModel> userManager;
         private string currentUserId;
 
         public EditProfileController(
-                UserManager<ApplicationUserEntity> userManager,
+                UserManager<ApplicationUserModel> userManager,
                 IHttpContextAccessor _httpContextAccessor
             )
 
@@ -45,8 +45,8 @@ namespace ServiceFinder.Users.Controllers
             ResponseModel response = new ResponseModel();
             response.isSuccess = false;
             var id = this.currentUserId;
-            ApplicationUserEntity user = await userManager.FindByIdAsync(id);
-            ApplicationUserEntity model = JsonConvert.DeserializeObject<ApplicationUserEntity>(values);
+            ApplicationUserModel user = await userManager.FindByIdAsync(id);
+            ApplicationUserModel model = JsonConvert.DeserializeObject<ApplicationUserModel>(values);
 
             //updating values.
             user.DisplayName = model.DisplayName;
@@ -64,7 +64,7 @@ namespace ServiceFinder.Users.Controllers
                     var stream = new FileStream(path, FileMode.Create);
                     file.CopyTo(stream);
                 }
-                catch (Exception ex) { }
+                catch (Exception ) { }
 
                 user.ImageUrl = path;
                 user.OriginalImageName = file.FileName;
@@ -86,7 +86,7 @@ namespace ServiceFinder.Users.Controllers
             if (ModelState.IsValid)
             {
                 var id = this.currentUserId;
-                ApplicationUserEntity user = await userManager.FindByIdAsync(id);
+                ApplicationUserModel user = await userManager.FindByIdAsync(id);
                 try
                 {
                     //Custome logic to check identity password Pattern
@@ -119,7 +119,7 @@ namespace ServiceFinder.Users.Controllers
                         response.isSuccess = false;
                     }
                 }
-                catch (Exception ex) { };
+                catch (Exception ) { };
             }
             return response;
 
@@ -130,7 +130,7 @@ namespace ServiceFinder.Users.Controllers
         public async Task<EditProfileViewModel> getUserByIdAsync()
         {
             var id = this.currentUserId;
-            ApplicationUserEntity user = await userManager.FindByIdAsync(id);
+            ApplicationUserModel user = await userManager.FindByIdAsync(id);
             EditProfileViewModel model = new EditProfileViewModel();
 
             if (this.currentUserId != null)

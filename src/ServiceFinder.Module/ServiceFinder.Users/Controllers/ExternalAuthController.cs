@@ -4,26 +4,24 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Servicefinder.Core.Response;
+using ServiceFinder.DI.Core;
 using ServiceFinder.Users.Helper;
-using ServiceFinder.Users.Model;
 using ServiceFinder.Users.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ServiceFinder.Users.Controllers
 {
     public class ExternalAuthController : ControllerBase
     {
-        readonly UserManager<ApplicationUserEntity> userManager;
-        readonly SignInManager<ApplicationUserEntity> signInManager;
+        readonly UserManager<ApplicationUserModel> userManager;
+        readonly SignInManager<ApplicationUserModel> signInManager;
         readonly IConfiguration configuration;
 
 
         public ExternalAuthController(
-           UserManager<ApplicationUserEntity> userManager,
-           SignInManager<ApplicationUserEntity> signInManager,
+           UserManager<ApplicationUserModel> userManager,
+           SignInManager<ApplicationUserModel> signInManager,
            IConfiguration configuration)
         {
             this.userManager = userManager;
@@ -46,7 +44,6 @@ namespace ServiceFinder.Users.Controllers
         [Route("api/externalauth/login")]
         public async Task<LoginResponseModel> login([FromBody] ExternalRegistrationViewModel model)
         {
-            int a = 1;
             //a = (model.email == "mrbeankofan@gmail.com") ? 2 : 1;
 
             LoginResponseModel response = new LoginResponseModel()
@@ -57,10 +54,10 @@ namespace ServiceFinder.Users.Controllers
                 twoFactorEnabled = true
             };
 
-            ApplicationUserEntity user = await userManager.FindByEmailAsync(model.email);
+            ApplicationUserModel user = await userManager.FindByEmailAsync(model.email);
             if (user == null)
             {
-                ApplicationUserEntity newUser = new ApplicationUserEntity
+                ApplicationUserModel newUser = new ApplicationUserModel
                 {
                     DisplayName = model.name,
                     Email = model.email,

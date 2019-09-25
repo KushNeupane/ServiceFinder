@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ServiceFinder.DependencyInjection\ServiceFinder.DependencyInjection.csproj" />
+    <ProjectReference Include="..\ServiceFinder.DI\ServiceFinder.DI.csproj" />
     <ProjectReference Include="..\ServiceFinder.Framework.Model\ServiceFinder.Framework.Model.csproj" />
   </ItemGroup>
 

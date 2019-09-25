@@ -8,5 +8,6 @@ namespace Servicefinder.Core.Response
         public bool isSuccess { get; set; }
         public List<string> errors { get; set; }
         public string successMessage { get; set; }
+        public object data { get; set; }
     }
 }

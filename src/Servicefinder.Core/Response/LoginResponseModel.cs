@@ -13,5 +13,6 @@ namespace Servicefinder.Core.Response
         public bool twoFactorEnabled { get; set; }
         public IList<string> role { get; set; }
         public object loginData { get; set; }
+        public object data { get; set; }
     }
 }
