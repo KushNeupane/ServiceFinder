@@ -106,7 +106,7 @@ namespace ServiceFinder.Users.Controllers
                 //    response.errors.Add("Username or Password doesnot match");
                 //}
             }
-            catch (Exception ) { response.errors.Add("Something went wrong, Please contact to admin"); }
+            catch (Exception ex ) { response.errors.Add("Something went wrong, Please contact to admin"); }
             return response;
         }
 

@@ -14,3 +14,4 @@ F:\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.
 F:\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.AssemblyInfo.cs
 F:\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.dll
 F:\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.pdb
+F:\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.csprojAssemblyReference.cache

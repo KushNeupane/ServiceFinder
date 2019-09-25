@@ -56,7 +56,7 @@ namespace ServiceFinder
             //Configure FacebookAuth
             //services.ConfigureFacebookAuth();
 
-            services.AddDefaultIdentity<ApplicationUserModel>().AddRoles<IdentityRole>().AddEntityFrameworkStores<ServiceFinderDbContext>();
+            services.AddDefaultIdentity<ApplicationUserModel>().AddRoles<IdentityRole>().AddEntityFrameworkStores<CommonDbContext>();
 
             services.AddSingleton(Configuration);
             services.Configure<FormOptions>(x => { x.MultipartBodyLengthLimit = int.MaxValue; });
