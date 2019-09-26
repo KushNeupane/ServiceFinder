@@ -5,7 +5,6 @@ namespace ServiceFinder.DI.Core
     public interface IServiceReviewModel : IBaseModel
     {
         string UserId { get; set; }
-        ApplicationUserModel ApplicationUser { get; set; }
         int ServiceItemId { get; set; }
         DateTime ReviewTime { get; set; }
         int OverAllReview { get; set; }

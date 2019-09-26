@@ -19,60 +19,6 @@ namespace Servicefinder.Core.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ServiceFinder.DI.Core.ApplicationUserModel", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AccessFailedCount");
-
-                    b.Property<string>("Address");
-
-                    b.Property<string>("ConcurrencyStamp");
-
-                    b.Property<DateTime?>("CreatedOn");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("DisplayName");
-
-                    b.Property<string>("Email");
-
-                    b.Property<bool>("EmailConfirmed");
-
-                    b.Property<string>("ImageUrl");
-
-                    b.Property<bool>("IsAdmin");
-
-                    b.Property<bool>("LockoutEnabled");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd");
-
-                    b.Property<string>("NormalizedEmail");
-
-                    b.Property<string>("NormalizedUserName");
-
-                    b.Property<string>("OriginalImageName");
-
-                    b.Property<string>("PasswordHash");
-
-                    b.Property<string>("PhoneNumber");
-
-                    b.Property<bool>("PhoneNumberConfirmed");
-
-                    b.Property<string>("SecurityStamp");
-
-                    b.Property<bool>("Status");
-
-                    b.Property<bool>("TwoFactorEnabled");
-
-                    b.Property<string>("UserName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ApplicationUserModel");
-                });
-
             modelBuilder.Entity("Servicefinder.Core.Model.AnswerModel", b =>
                 {
                     b.Property<int>("Id")
@@ -98,8 +44,6 @@ namespace Servicefinder.Core.Migrations
                     b.Property<string>("UserCreatedId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("QuestionId");
 
                     b.ToTable("answer");
                 });
@@ -140,35 +84,35 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 1,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 971, DateTimeKind.Local).AddTicks(1148),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 287, DateTimeKind.Local).AddTicks(8428),
                             Name = "Hospitality",
                             Status = false
                         },
                         new
                         {
                             Id = 2,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 971, DateTimeKind.Local).AddTicks(6195),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(4029),
                             Name = "Travel",
                             Status = false
                         },
                         new
                         {
                             Id = 3,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 971, DateTimeKind.Local).AddTicks(6201),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(4035),
                             Name = "Transportation",
                             Status = false
                         },
                         new
                         {
                             Id = 4,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 971, DateTimeKind.Local).AddTicks(6202),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(4036),
                             Name = "Media",
                             Status = false
                         },
                         new
                         {
                             Id = 5,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 971, DateTimeKind.Local).AddTicks(6204),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(4037),
                             Name = "Entertainment",
                             Status = false
                         });
@@ -210,7 +154,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(189),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8137),
                             Name = "Kathmandu",
                             Province = "3",
                             Status = true
@@ -218,7 +162,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(612),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8604),
                             Name = "Pokhara",
                             Province = "Gandaki",
                             Status = true
@@ -226,7 +170,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(616),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8608),
                             Name = "Lalitpur",
                             Province = "3",
                             Status = true
@@ -234,7 +178,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(618),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8610),
                             Name = "Biratnagar",
                             Province = "1",
                             Status = true
@@ -242,7 +186,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(620),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8612),
                             Name = "Birjung",
                             Province = "2",
                             Status = true
@@ -250,7 +194,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(622),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8613),
                             Name = "Bharatpur",
                             Province = "3",
                             Status = true
@@ -258,7 +202,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(624),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8614),
                             Name = "Dharan",
                             Province = "1",
                             Status = true
@@ -266,7 +210,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(625),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8615),
                             Name = "Butwal",
                             Province = "5",
                             Status = true
@@ -274,7 +218,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(628),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8616),
                             Name = "Janakpur",
                             Province = "2",
                             Status = true
@@ -282,7 +226,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(629),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8617),
                             Name = "Dhangadhi",
                             Province = "Sudurpashchim",
                             Status = true
@@ -290,7 +234,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(631),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8618),
                             Name = "Bhaktapur",
                             Province = "3",
                             Status = true
@@ -298,7 +242,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(633),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8619),
                             Name = "Nepalgunj",
                             Province = "5",
                             Status = true
@@ -306,7 +250,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(635),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8620),
                             Name = "Hetauda",
                             Province = "3",
                             Status = true
@@ -314,7 +258,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(637),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8623),
                             Name = "Itahari",
                             Province = "1",
                             Status = true
@@ -322,7 +266,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(638),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8624),
                             Name = "Banepa",
                             Province = "3",
                             Status = true
@@ -330,7 +274,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(639),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8625),
                             Name = "Dhulikhel",
                             Province = "3",
                             Status = true
@@ -338,7 +282,7 @@ namespace Servicefinder.Core.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedOn = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(642),
+                            CreatedOn = new DateTime(2019, 9, 26, 9, 48, 37, 288, DateTimeKind.Local).AddTicks(8626),
                             Name = "Baglung",
                             Province = "Gandaki",
                             Status = true
@@ -372,10 +316,6 @@ namespace Servicefinder.Core.Migrations
                     b.Property<string>("UserId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ServiceItemId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("question");
                 });
@@ -411,8 +351,6 @@ namespace Servicefinder.Core.Migrations
                     b.Property<string>("UserCreatedId");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ServiceItemId");
 
                     b.ToTable("serviceItemImages");
                 });
@@ -465,12 +403,6 @@ namespace Servicefinder.Core.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("UserId");
-
                     b.ToTable("serviceItems");
 
                     b.HasData(
@@ -479,7 +411,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 1,
                             CategoryId = 1,
                             CityId = 1,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(2852),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1104),
                             Name = "Hospitality Service 1",
                             Status = false
                         },
@@ -488,7 +420,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 2,
                             CategoryId = 1,
                             CityId = 2,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3290),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1600),
                             Name = "Hospitality Service 2",
                             Status = false
                         },
@@ -497,7 +429,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 3,
                             CategoryId = 1,
                             CityId = 3,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3296),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1606),
                             Name = "Hospitality Service 3",
                             Status = false
                         },
@@ -506,7 +438,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 4,
                             CategoryId = 1,
                             CityId = 4,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3297),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1607),
                             Name = "Hospitality Service 4",
                             Status = false
                         },
@@ -515,7 +447,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 5,
                             CategoryId = 1,
                             CityId = 5,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3298),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1609),
                             Name = "Hospitality Service 5",
                             Status = false
                         },
@@ -524,7 +456,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 6,
                             CategoryId = 2,
                             CityId = 6,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3547),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1819),
                             Name = "Travel Service 1",
                             Status = false
                         },
@@ -533,7 +465,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 7,
                             CategoryId = 2,
                             CityId = 7,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3549),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1821),
                             Name = "Travel Service 2",
                             Status = false
                         },
@@ -542,7 +474,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 8,
                             CategoryId = 2,
                             CityId = 8,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3550),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1822),
                             Name = "Travel Service 3",
                             Status = false
                         },
@@ -551,7 +483,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 9,
                             CategoryId = 2,
                             CityId = 9,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3551),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1823),
                             Name = "Travel Service 4",
                             Status = false
                         },
@@ -560,7 +492,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 10,
                             CategoryId = 2,
                             CityId = 10,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3552),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1824),
                             Name = "Travel Service 5",
                             Status = false
                         },
@@ -569,7 +501,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 11,
                             CategoryId = 3,
                             CityId = 11,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3570),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1841),
                             Name = "Transportation Service 1",
                             Status = false
                         },
@@ -578,7 +510,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 12,
                             CategoryId = 3,
                             CityId = 12,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3571),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1843),
                             Name = "Transportation Service 2",
                             Status = false
                         },
@@ -587,7 +519,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 13,
                             CategoryId = 3,
                             CityId = 13,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3572),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1844),
                             Name = "Transportation Service 3",
                             Status = false
                         },
@@ -596,7 +528,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 14,
                             CategoryId = 3,
                             CityId = 14,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3573),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1845),
                             Name = "Transportation Service 4",
                             Status = false
                         },
@@ -605,7 +537,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 15,
                             CategoryId = 3,
                             CityId = 15,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3634),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1846),
                             Name = "Transportation Service 5",
                             Status = false
                         },
@@ -614,7 +546,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 16,
                             CategoryId = 4,
                             CityId = 16,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3649),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1858),
                             Name = "Media Service 1",
                             Status = false
                         },
@@ -623,7 +555,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 17,
                             CategoryId = 4,
                             CityId = 17,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3650),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1859),
                             Name = "Media Service 2",
                             Status = false
                         },
@@ -632,7 +564,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 18,
                             CategoryId = 4,
                             CityId = 1,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3651),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1860),
                             Name = "Media Service 3",
                             Status = false
                         },
@@ -641,7 +573,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 19,
                             CategoryId = 4,
                             CityId = 2,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3651),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1920),
                             Name = "Media Service 4",
                             Status = false
                         },
@@ -650,7 +582,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 20,
                             CategoryId = 4,
                             CityId = 3,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3652),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1923),
                             Name = "Media Service 5",
                             Status = false
                         },
@@ -659,7 +591,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 21,
                             CategoryId = 5,
                             CityId = 4,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3664),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1938),
                             Name = "Entertainment Service 1",
                             Status = false
                         },
@@ -668,7 +600,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 22,
                             CategoryId = 5,
                             CityId = 5,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3665),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1939),
                             Name = "Entertainment Service 2",
                             Status = false
                         },
@@ -677,7 +609,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 23,
                             CategoryId = 5,
                             CityId = 6,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3666),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1940),
                             Name = "Entertainment Service 3",
                             Status = false
                         },
@@ -686,7 +618,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 24,
                             CategoryId = 5,
                             CityId = 7,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3667),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1941),
                             Name = "Entertainment Service 4",
                             Status = false
                         },
@@ -695,7 +627,7 @@ namespace Servicefinder.Core.Migrations
                             Id = 25,
                             CategoryId = 5,
                             CityId = 8,
-                            CreationDate = new DateTime(2019, 9, 25, 13, 35, 27, 972, DateTimeKind.Local).AddTicks(3669),
+                            CreationDate = new DateTime(2019, 9, 26, 9, 48, 37, 289, DateTimeKind.Local).AddTicks(1942),
                             Name = "Entertainment Service 5",
                             Status = false
                         });
@@ -726,10 +658,6 @@ namespace Servicefinder.Core.Migrations
                     b.Property<int>("ViewCount");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ServiceItemId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("ServiceItemViewLogModel");
                 });
@@ -772,10 +700,6 @@ namespace Servicefinder.Core.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ServiceItemId");
-
-                    b.HasIndex("UserId");
-
                     b.ToTable("serviceReview");
                 });
 
@@ -804,73 +728,6 @@ namespace Servicefinder.Core.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("subscriber");
-                });
-
-            modelBuilder.Entity("Servicefinder.Core.Model.AnswerModel", b =>
-                {
-                    b.HasOne("Servicefinder.Core.Model.QuestionModel", "ServiceItem")
-                        .WithMany()
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Servicefinder.Core.Model.QuestionModel", b =>
-                {
-                    b.HasOne("Servicefinder.Core.Model.ServiceItemModel", "ServiceItem")
-                        .WithMany()
-                        .HasForeignKey("ServiceItemId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ServiceFinder.DI.Core.ApplicationUserModel", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("Servicefinder.Core.Model.ServiceItemImageModel", b =>
-                {
-                    b.HasOne("Servicefinder.Core.Model.ServiceItemModel", "ServiceItem")
-                        .WithMany()
-                        .HasForeignKey("ServiceItemId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Servicefinder.Core.Model.ServiceItemModel", b =>
-                {
-                    b.HasOne("Servicefinder.Core.Model.CategoryModel", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("Servicefinder.Core.Model.CityModel", "City")
-                        .WithMany()
-                        .HasForeignKey("CityId");
-
-                    b.HasOne("ServiceFinder.DI.Core.ApplicationUserModel", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("Servicefinder.Core.Model.ServiceItemViewLogModel", b =>
-                {
-                    b.HasOne("Servicefinder.Core.Model.ServiceItemModel", "ServiceItem")
-                        .WithMany()
-                        .HasForeignKey("ServiceItemId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ServiceFinder.DI.Core.ApplicationUserModel", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("Servicefinder.Core.Model.ServiceReviewModel", b =>
-                {
-                    b.HasOne("Servicefinder.Core.Model.ServiceItemModel", "ServiceItem")
-                        .WithMany()
-                        .HasForeignKey("ServiceItemId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ServiceFinder.DI.Core.ApplicationUserModel", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

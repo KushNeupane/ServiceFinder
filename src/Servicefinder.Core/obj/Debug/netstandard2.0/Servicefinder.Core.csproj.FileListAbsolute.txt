@@ -22,3 +22,15 @@ F:\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.C
 F:\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.csproj.CopyComplete
 F:\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.dll
 F:\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.pdb
+D:\WorkingFolder\ServiceFinder\servicefinder\src\Servicefinder.Core\bin\Debug\netstandard2.0\Servicefinder.Core.deps.json
+D:\WorkingFolder\ServiceFinder\servicefinder\src\Servicefinder.Core\bin\Debug\netstandard2.0\Servicefinder.Core.dll
+D:\WorkingFolder\ServiceFinder\servicefinder\src\Servicefinder.Core\bin\Debug\netstandard2.0\Servicefinder.Core.pdb
+D:\WorkingFolder\ServiceFinder\servicefinder\src\Servicefinder.Core\bin\Debug\netstandard2.0\ServiceFinder.DI.dll
+D:\WorkingFolder\ServiceFinder\servicefinder\src\Servicefinder.Core\bin\Debug\netstandard2.0\ServiceFinder.DI.pdb
+D:\WorkingFolder\ServiceFinder\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.csprojAssemblyReference.cache
+D:\WorkingFolder\ServiceFinder\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.csproj.CoreCompileInputs.cache
+D:\WorkingFolder\ServiceFinder\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.AssemblyInfoInputs.cache
+D:\WorkingFolder\ServiceFinder\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.AssemblyInfo.cs
+D:\WorkingFolder\ServiceFinder\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.csproj.CopyComplete
+D:\WorkingFolder\ServiceFinder\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.dll
+D:\WorkingFolder\ServiceFinder\servicefinder\src\Servicefinder.Core\obj\Debug\netstandard2.0\Servicefinder.Core.pdb

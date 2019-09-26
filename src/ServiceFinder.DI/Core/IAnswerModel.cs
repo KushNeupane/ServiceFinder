@@ -7,6 +7,5 @@ namespace ServiceFinder.DI.Core
         int QuestionId { get; set; }
         string AnswerText { get; set; }
         DateTime DateTime { get; set; }
-
     }
 }

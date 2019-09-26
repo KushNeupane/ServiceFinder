@@ -1,29 +1,14 @@
 ﻿using ServiceFinder.DI.Core;
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Servicefinder.Core.Model
 {
     public class ServiceItemModel : IServiceItemModel
     {
         public int Id { get; set; }
-
-        //Including ForeignKey form CategoryTable
         public int? CategoryId { get; set; }
-        [ForeignKey("CategoryId")]
-        public CategoryModel Category { get; set; }
-
-        //Including ForeignKey from ApplicationUserEntity table
-
         public string UserId { get; set; }
-        [ForeignKey("UserId")]
-        public ApplicationUserModel ApplicationUser { get; set; }
-
-        //Including ForeignKey from CityTable
-
         public int? CityId { get; set; }
-        [ForeignKey("CityId")]
-        public CityModel City { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }

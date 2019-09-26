@@ -1,21 +1,19 @@
-using System;
-using ServiceFinder.DI.Core;
-using ServiceFinder.DI.Backend;
-using Microsoft.AspNetCore.Mvc;
-using ServiceFinder.Extensions;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
-using ServiceFinder.Backend.Context;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using ServiceFinder.Backend.Service;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
-using ServiceFinder.FrontEnd.Context;
-using ServiceFinder.Users.DatabaseContext;
 using Servicefinder.Core.DatabaseContext;
+using ServiceFinder.Backend.Service;
+using ServiceFinder.DI.Backend;
+using ServiceFinder.DI.Core;
+using ServiceFinder.Extensions;
+using ServiceFinder.Users.DatabaseContext;
+using System;
 
 namespace ServiceFinder
 {
@@ -56,7 +54,7 @@ namespace ServiceFinder
             //Configure FacebookAuth
             //services.ConfigureFacebookAuth();
 
-            services.AddDefaultIdentity<ApplicationUserModel>().AddRoles<IdentityRole>().AddEntityFrameworkStores<CommonDbContext>();
+            services.AddDefaultIdentity<ApplicationUserModel>().AddRoles<IdentityRole>().AddEntityFrameworkStores<UserDbContext>();
 
             services.AddSingleton(Configuration);
             services.Configure<FormOptions>(x => { x.MultipartBodyLengthLimit = int.MaxValue; });

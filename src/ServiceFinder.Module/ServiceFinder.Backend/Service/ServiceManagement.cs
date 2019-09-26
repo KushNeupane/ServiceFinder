@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Servicefinder.Core.Model;
 using Servicefinder.Core.Response;
 using ServiceFinder.Backend.Context;
-using ServiceFinder.Backend.ViewModel;
 using ServiceFinder.DI.Backend;
 using ServiceFinder.DI.Core;
 using System;
@@ -76,7 +75,7 @@ namespace ServiceFinder.Backend.Service
                 {
                     if (user.Id == service.UserId)
                     {
-                        service.ApplicationUser.DisplayName = user.DisplayName;
+                       // service.ApplicationUser.DisplayName = user.DisplayName;
                     }
                 }
             }
@@ -239,7 +238,7 @@ namespace ServiceFinder.Backend.Service
                 if (model.ServiceItemId == serviceItemId)
                 {
                     ApplicationUserModel user = serviceFinderContext.applicationUsers.Find(model.UserId);
-                    model.ApplicationUser = user;
+                    //model.ApplicationUser = user;
                     if (model.UserId == currentUserId)
                     {
                         model.ShowOptions = true;

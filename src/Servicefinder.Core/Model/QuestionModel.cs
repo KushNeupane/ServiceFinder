@@ -1,6 +1,5 @@
 ﻿using ServiceFinder.DI.Core;
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Servicefinder.Core.Model
 {
@@ -8,11 +7,7 @@ namespace Servicefinder.Core.Model
     {
         public int Id { get; set; }
         public string UserId { get; set; }
-        [ForeignKey("UserId")]
-        public ApplicationUserModel ApplicationUser { get; set; }
         public int ServiceItemId { get; set; }
-        [ForeignKey("ServiceItemId")]
-        public ServiceItemModel ServiceItem { get; set; }
         public string QuestionText { get; set; }
         public DateTime DateTime { get; set; }
         public string UserCreatedId { get; set; }

@@ -1,16 +1,12 @@
 ﻿using ServiceFinder.DI.Core;
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Servicefinder.Core.Model
 {
     public class ServiceItemImageModel : IServiceItemImageModel
     {
         public int Id { get; set; }
-        //Including foreignKey form serviceItem
         public int ServiceItemId { get; set; }
-        [ForeignKey("ServiceItemId")]
-        public ServiceItemModel ServiceItem { get; set; }
         public string ImageURL { get; set; }
         public string OriginalImageName { get; set; }
         public string SystemDefinedImageName { get; set; }

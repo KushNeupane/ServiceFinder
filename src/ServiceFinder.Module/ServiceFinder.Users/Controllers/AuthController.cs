@@ -64,9 +64,7 @@ namespace ServiceFinder.Users.Controllers
                             response.errors.Add("Email not registered yet");
                             return response;
                         }
-
                     }
-
                 }
                 else
                 {
@@ -100,13 +98,8 @@ namespace ServiceFinder.Users.Controllers
                     }
                     await emailSender.SendEmailAsync(this.mailSetting.Value, await userManager.GetEmailAsync(user), "Security Code", "Your security code is: " + await userManager.GenerateTwoFactorTokenAsync(user, "Email"));
                 }
-
-                //if (result.IsLockedOut)
-                //{
-                //    response.errors.Add("Username or Password doesnot match");
-                //}
             }
-            catch (Exception ex ) { response.errors.Add("Something went wrong, Please contact to admin"); }
+            catch (Exception ex) { response.errors.Add("Something went wrong, Please contact to admin"); }
             return response;
         }
 
@@ -119,38 +112,35 @@ namespace ServiceFinder.Users.Controllers
 
             if (ModelState.IsValid)
             {
-                ApplicationUserModel existingUser = await userManager.FindByEmailAsync(formData.email);
-                if (existingUser != null)
-                {
-                    response.errors.Add("Email already exists!");
-                    return response;
-                }
-                var user = new ApplicationUserModel
-                {
-                    IsAdmin = false,
-                    Email = formData.email,
-                    CreatedOn = DateTime.Now,
-                    UserName = formData.email,
-                    DisplayName = formData.displayName,
-                    Address = formData.address,
-                    PhoneNumber = formData.phoneNumber
-                };
-
                 try
                 {
+                    ApplicationUserModel existingUser = await userManager.FindByEmailAsync(formData.email);
+                    if (existingUser != null)
+                    {
+                        response.errors.Add("Email already exists!");
+                        return response;
+                    }
+                    var user = new ApplicationUserModel
+                    {
+                        IsAdmin = false,
+                        Email = formData.email,
+                        CreatedOn = DateTime.Now,
+                        UserName = formData.email,
+                        DisplayName = formData.displayName,
+                        Address = formData.address,
+                        PhoneNumber = formData.phoneNumber
+                    };
+
+
                     var identityResult = await userManager.CreateAsync(user, formData.password);
                     if (identityResult.Succeeded)
                     {
                         response.isSuccess = true;
-                        try
-                        {
-                            await signInManager.SignInAsync(user, isPersistent: false);
-                            userManager.AddToRoleAsync(user, "user").Wait();
-                        }
-                        catch (Exception) { };
+                        await signInManager.SignInAsync(user, isPersistent: false);
+                        userManager.AddToRoleAsync(user, "user").Wait();
                     }
                 }
-                catch (Exception) { };
+                catch (Exception ex) { };
             }
             return response;
         }
@@ -221,15 +211,13 @@ namespace ServiceFinder.Users.Controllers
 
                         await emailSender.SendEmailAsync(this.mailSetting.Value, await userManager.GetEmailAsync(user), "Password Reset Link", "Your PasswordReset Link is:   <a href='" + resetLink + "'>'" + resetLink + "'</a>");
                     }
-                    catch (Exception ) { }
+                    catch (Exception) { }
                     response.isSuccess = true;
                     response.loginData = user;
                     response.token = token;
                 }
             }
-            catch (Exception)
-            {
-            }
+            catch (Exception) { }
             return response;
         }
 
@@ -256,11 +244,7 @@ namespace ServiceFinder.Users.Controllers
                         response.isSuccess = true;
                 }
             }
-
-            catch (Exception )
-            {
-
-            }
+            catch (Exception) { }
             return response;
 
         }
