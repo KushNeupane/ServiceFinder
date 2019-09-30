@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Servicefinder.Core.Response;
-using ServiceFinder.DI.Core;
+using ServiceFinder.Users.Model;
 using ServiceFinder.Users.ViewModel;
 using System;
 using System.IO;
@@ -64,10 +64,10 @@ namespace ServiceFinder.Users.Controllers
                     var stream = new FileStream(path, FileMode.Create);
                     file.CopyTo(stream);
                 }
-                catch (Exception ) { }
+                catch (Exception) { }
 
-                user.ImageUrl = path;
-                user.OriginalImageName = file.FileName;
+                //  user.ImageUrl = path;
+                // user.OriginalImageName = file.FileName;
             }
             await userManager.UpdateAsync(user);
             response.isSuccess = true;
@@ -119,7 +119,7 @@ namespace ServiceFinder.Users.Controllers
                         response.isSuccess = false;
                     }
                 }
-                catch (Exception ) { };
+                catch (Exception) { };
             }
             return response;
 
@@ -139,7 +139,7 @@ namespace ServiceFinder.Users.Controllers
                 model.address = user.Address;
                 model.email = user.Email;
                 model.phoneNumber = user.PhoneNumber;
-                model.originalImageName = user.OriginalImageName;
+                model.originalImageName = null;// user.OriginalImageName;
             }
             return model;
         }

@@ -1,8 +1,6 @@
-﻿using ServiceFinder.DI.Core;
-
-namespace Servicefinder.Core.Setting
+﻿namespace Servicefinder.Core.Setting
 {
-    public class MailSettingModel : IMailSettingModel
+    public class MailSettingModel
     {
         public string SmtpHostName { get; set; }
         public string SmtpUserName { get; set; }

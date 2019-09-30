@@ -1,8 +1,6 @@
-﻿using ServiceFinder.DI.Core;
-
-namespace Servicefinder.Core.Setting
+﻿namespace Servicefinder.Core.Setting
 {
-    public class GeneralSettingModel : IGeneralSettingModel
+    public class GeneralSettingModel 
     {
         public string AppBaseUrl { get; set; }
     }

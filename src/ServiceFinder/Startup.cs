@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Servicefinder.Core.DatabaseContext;
-using ServiceFinder.Backend.Service;
-using ServiceFinder.DI.Backend;
-using ServiceFinder.DI.Core;
+using ServiceFinder.Backend.Context;
+using ServiceFinder.DI.Setting;
 using ServiceFinder.Extensions;
 using ServiceFinder.Users.DatabaseContext;
+using ServiceFinder.Users.Model;
+using ServiceFinder.Backend.Extension;
 using System;
 
 namespace ServiceFinder
@@ -27,28 +27,19 @@ namespace ServiceFinder
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            //Configure CORS
-            services.AddCors(o => o.AddPolicy("EnableCORS", builder =>
-            {
-                builder.AllowAnyOrigin()
-                       .AllowAnyMethod()
-                       .AllowAnyHeader();
-            }));
+            services.ConfigureCors();
+            services.AddAutoMapperAssemblies();
 
             services.Configure<IMailSettingModel>(Configuration.GetSection("MailSetting"));
             services.Configure<IGeneralSettingModel>(Configuration.GetSection("GeneralSetting"));
 
-            //Register Database Context
             services.AddDbContext<UserDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<CommonDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<IServiceManagement, ServiceManagement>();
-            //services.AddScoped<IServiceQuestionAnswer, ServiceQuestionAnswer>();
-            //services.AddScoped<IServiceCategory, ServiceCategory>();
-            //services.AddScoped<IServiceCity, ServiceCity>();
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddBackendServices();
 
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
-            //Configure JWT
             services.ConfigureJWT();
 
             //Configure FacebookAuth
@@ -59,7 +50,6 @@ namespace ServiceFinder
             services.AddSingleton(Configuration);
             services.Configure<FormOptions>(x => { x.MultipartBodyLengthLimit = int.MaxValue; });
             services.AddTransient<ServiceFinder.DI.Users.IEmailSender, ServiceFinder.DI.Users.AutoMessageSender>();
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

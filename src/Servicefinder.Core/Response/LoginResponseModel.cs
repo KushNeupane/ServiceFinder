@@ -1,4 +1,4 @@
-﻿using ServiceFinder.DI.Core;
+﻿using ServiceFinder.DI.Response.Core;
 using System.Collections.Generic;
 
 namespace Servicefinder.Core.Response

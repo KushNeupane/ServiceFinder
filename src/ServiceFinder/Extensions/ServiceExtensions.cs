@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -7,6 +8,19 @@ namespace ServiceFinder.Extensions
 {
     public static class ServiceExtensions
     {
+        public static IServiceCollection AddAutoMapperAssemblies(this IServiceCollection services)
+        {
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                //mc.AddProfile(new ArticleMgmtModelMap());
+                //mc.AddProfile(new ArticleModelMap());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+            return services;
+        }
+
         //configure cors
         public static void ConfigureCors(this IServiceCollection services)
         {

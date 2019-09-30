@@ -1,5 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using ServiceFinder.DI.Core;
+using ServiceFinder.Users.Model;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;

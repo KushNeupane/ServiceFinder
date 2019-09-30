@@ -51,8 +51,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Servicefinder.Core\Servicefinder.Core.csproj" />
     <ProjectReference Include="..\ServiceFinder.DI\ServiceFinder.DI.csproj" />
-    <ProjectReference Include="..\ServiceFinder.Module\ServiceFinder.Backend\ServiceFinder.Backend.csproj" />
-    <ProjectReference Include="..\ServiceFinder.Module\ServiceFinder.FrontEnd\ServiceFinder.FrontEnd.csproj" />
+    <ProjectReference Include="..\ServiceFinder.Module\ServiceFinder.App\ServiceFinder.App.csproj" />
+    <ProjectReference Include="..\ServiceFinder.Module\ServiceFinder.Users\ServiceFinder.Users.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
