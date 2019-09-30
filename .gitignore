@@ -31,3 +31,11 @@
 /src/ServiceFinder.DependencyInjection/obj
 /src/ServiceFinder/*
 /src/ServiceFinder.Infrastructure/obj
+/src/Servicefinder.Core/obj
+/src/Servicefinder.Core/bin
+/src/ServiceFinder.DI/obj
+/src/ServiceFinder.DI/bin
+/src/ServiceFinder.Module/ServiceFinder.App/obj
+/src/ServiceFinder.Module/ServiceFinder.App/bin
+/src/ServiceFinder.Module/ServiceFinder.Users/obj
+/src/ServiceFinder.Module/ServiceFinder.Users/bin

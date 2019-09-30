@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using ServiceFinder.DI.ViewModel.App;
+using ServiceFinder.Main.Model;
 
 namespace ServiceFinder.Backend.ModelMap
 {
@@ -6,7 +8,7 @@ namespace ServiceFinder.Backend.ModelMap
     {
         public AppModelMap()
         {
-            //CreateMap<ServiceItemModel, IServiceItemViewModel>().ReverseMap();
+            CreateMap<ICategoryViewModel, CategoryModel>().ReverseMap();
         }
     }
 }
