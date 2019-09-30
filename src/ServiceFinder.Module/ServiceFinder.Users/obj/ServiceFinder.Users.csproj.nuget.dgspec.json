@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\ServiceFinder.Module\\ServiceFinder.Users\\ServiceFinder.Users.csproj": {}
+    "D:\\InHouseProject\\servicefinder\\src\\ServiceFinder.Module\\ServiceFinder.Users\\ServiceFinder.Users.csproj": {}
   },
   "projects": {
-    "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj": {
+    "D:\\InHouseProject\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj",
+        "projectUniqueName": "D:\\InHouseProject\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj",
         "projectName": "Servicefinder.Core",
-        "projectPath": "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj",
-        "packagesPath": "C:\\Users\\Deepcloud\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\Servicefinder.Core\\obj\\",
+        "projectPath": "D:\\InHouseProject\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\InHouseProject\\servicefinder\\src\\Servicefinder.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Deepcloud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,8 +30,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj": {
-                "projectPath": "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj"
+              "D:\\InHouseProject\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj": {
+                "projectPath": "D:\\InHouseProject\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj"
               }
             }
           }
@@ -60,20 +60,20 @@
         }
       }
     },
-    "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj": {
+    "D:\\InHouseProject\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj",
+        "projectUniqueName": "D:\\InHouseProject\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj",
         "projectName": "ServiceFinder.DI",
-        "projectPath": "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj",
-        "packagesPath": "C:\\Users\\Deepcloud\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\ServiceFinder.DI\\obj\\",
+        "projectPath": "D:\\InHouseProject\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\InHouseProject\\servicefinder\\src\\ServiceFinder.DI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Deepcloud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -128,20 +128,20 @@
         }
       }
     },
-    "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\ServiceFinder.Module\\ServiceFinder.Users\\ServiceFinder.Users.csproj": {
+    "D:\\InHouseProject\\servicefinder\\src\\ServiceFinder.Module\\ServiceFinder.Users\\ServiceFinder.Users.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\ServiceFinder.Module\\ServiceFinder.Users\\ServiceFinder.Users.csproj",
+        "projectUniqueName": "D:\\InHouseProject\\servicefinder\\src\\ServiceFinder.Module\\ServiceFinder.Users\\ServiceFinder.Users.csproj",
         "projectName": "ServiceFinder.Users",
-        "projectPath": "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\ServiceFinder.Module\\ServiceFinder.Users\\ServiceFinder.Users.csproj",
-        "packagesPath": "C:\\Users\\Deepcloud\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\ServiceFinder.Module\\ServiceFinder.Users\\obj\\",
+        "projectPath": "D:\\InHouseProject\\servicefinder\\src\\ServiceFinder.Module\\ServiceFinder.Users\\ServiceFinder.Users.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\InHouseProject\\servicefinder\\src\\ServiceFinder.Module\\ServiceFinder.Users\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Deepcloud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -154,11 +154,11 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj": {
-                "projectPath": "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj"
+              "D:\\InHouseProject\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj": {
+                "projectPath": "D:\\InHouseProject\\servicefinder\\src\\Servicefinder.Core\\Servicefinder.Core.csproj"
               },
-              "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj": {
-                "projectPath": "D:\\WorkingFolder\\ServiceFinder\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj"
+              "D:\\InHouseProject\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj": {
+                "projectPath": "D:\\InHouseProject\\servicefinder\\src\\ServiceFinder.DI\\ServiceFinder.DI.csproj"
               }
             }
           }

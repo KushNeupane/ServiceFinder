@@ -24,3 +24,11 @@ D:\WorkingFolder\ServiceFinder\servicefinder\src\ServiceFinder.DI\obj\Debug\nets
 D:\WorkingFolder\ServiceFinder\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.dll
 D:\WorkingFolder\ServiceFinder\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.pdb
 D:\WorkingFolder\ServiceFinder\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.csprojAssemblyReference.cache
+D:\InHouseProject\servicefinder\src\ServiceFinder.DI\bin\Debug\netstandard2.0\ServiceFinder.DI.deps.json
+D:\InHouseProject\servicefinder\src\ServiceFinder.DI\bin\Debug\netstandard2.0\ServiceFinder.DI.dll
+D:\InHouseProject\servicefinder\src\ServiceFinder.DI\bin\Debug\netstandard2.0\ServiceFinder.DI.pdb
+D:\InHouseProject\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.csproj.CoreCompileInputs.cache
+D:\InHouseProject\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.AssemblyInfoInputs.cache
+D:\InHouseProject\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.AssemblyInfo.cs
+D:\InHouseProject\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.dll
+D:\InHouseProject\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.pdb

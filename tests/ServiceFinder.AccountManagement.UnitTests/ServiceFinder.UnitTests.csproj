@@ -15,9 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\ServiceFinder.Framework.DataAccess\ServiceFinder.Framework.DataAccess.csproj" />
+    <!--<ProjectReference Include="..\..\src\ServiceFinder.Framework.DataAccess\ServiceFinder.Framework.DataAccess.csproj" />
     <ProjectReference Include="..\..\src\ServiceFinder.Framework.Model\ServiceFinder.Framework.Model.csproj" />
-    <ProjectReference Include="..\..\src\ServiceFinder.Module\ServiceFinder.Dashboard\ServiceFinder.UserDashboard.csproj" />
+    <ProjectReference Include="..\..\src\ServiceFinder.Module\ServiceFinder.Dashboard\ServiceFinder.UserDashboard.csproj" />-->
   </ItemGroup>
 
 </Project>
