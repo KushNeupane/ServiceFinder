@@ -24,7 +24,7 @@ export class AddserviceService {
   }
 
   GetCategories() {
-    return this.http.get<CategoryModel[]>(this.baseurl + 'api/service/getCategories')
+    return this.http.get<CategoryModel[]>(this.baseurl + 'category/all-category')
   }
 
 
