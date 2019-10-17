@@ -1,0 +1,8 @@
+D:\WorkingFolder\ServiceFinder\servicefinder\src\ServiceFinder.DI\bin\Debug\netstandard2.0\ServiceFinder.DI.deps.json
+D:\WorkingFolder\ServiceFinder\servicefinder\src\ServiceFinder.DI\bin\Debug\netstandard2.0\ServiceFinder.DI.dll
+D:\WorkingFolder\ServiceFinder\servicefinder\src\ServiceFinder.DI\bin\Debug\netstandard2.0\ServiceFinder.DI.pdb
+D:\WorkingFolder\ServiceFinder\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.csprojAssemblyReference.cache
+D:\WorkingFolder\ServiceFinder\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.AssemblyInfoInputs.cache
+D:\WorkingFolder\ServiceFinder\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.AssemblyInfo.cs
+D:\WorkingFolder\ServiceFinder\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.dll
+D:\WorkingFolder\ServiceFinder\servicefinder\src\ServiceFinder.DI\obj\Debug\netstandard2.0\ServiceFinder.DI.pdb
