@@ -8,5 +8,6 @@ namespace ServiceFinder.DI.Model.App
         string Name { get; set; }
         bool IsActive { get; set; }
         DateTime? CreatedOn { get; set; }
+        string ImageUrl { get; set; }
     }
 }

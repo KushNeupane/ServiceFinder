@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using ServiceFinder.Backend.Context;
 using ServiceFinder.DI.Services.App;
 using ServiceFinder.DI.ViewModel.App;
 using ServiceFinder.Main.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ServiceFinder.Main.Service
 {
@@ -33,7 +33,7 @@ namespace ServiceFinder.Main.Service
         public async Task<ICategoryViewModel> DeleteAsync(int id)
         {
             CategoryModel model = new CategoryModel();
-            model =  await appDbContext.categories.FindAsync(id);
+            model = await appDbContext.categories.FindAsync(id);
             appDbContext.Remove(model);
             await appDbContext.SaveChangesAsync();
             return mapper.Map<ICategoryViewModel>(model);
@@ -53,9 +53,15 @@ namespace ServiceFinder.Main.Service
             return mapper.Map<ICategoryViewModel>(model);
         }
 
-        public Task<ICategoryViewModel> UpdateAsync(int id)
+        public async Task<ICategoryViewModel> UpdateAsync(ICategoryViewModel viewModel, int id)
         {
-            throw new System.NotImplementedException();
+            CategoryModel model = mapper.Map<CategoryModel>(viewModel);
+            model = await appDbContext.categories.FindAsync(id);
+            model.Name = viewModel.Name;
+            model.ImageUrl = viewModel.ImageUrl;
+            appDbContext.Update(model);
+            await appDbContext.SaveChangesAsync();
+            return mapper.Map<ICategoryViewModel>(model);
         }
     }
 }

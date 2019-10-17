@@ -66,7 +66,7 @@ export class HomepageBannerComponent implements OnInit {
   getCities() {
     this.service.getCities().subscribe(res => {
       let result = <any>res;
-      this.cityList = result;
+      this.cityList = result.data;
     });
   }
 

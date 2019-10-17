@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using ServiceFinder.Backend.ModelMap;
 using System.Text;
 
 namespace ServiceFinder.Extensions
@@ -12,8 +13,7 @@ namespace ServiceFinder.Extensions
         {
             var mappingConfig = new MapperConfiguration(mc =>
             {
-                //mc.AddProfile(new ArticleMgmtModelMap());
-                //mc.AddProfile(new ArticleModelMap());
+                mc.AddProfile(new AppModelMap());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
