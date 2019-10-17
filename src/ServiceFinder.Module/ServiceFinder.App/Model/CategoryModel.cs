@@ -9,5 +9,6 @@ namespace ServiceFinder.Main.Model
         public string Name { get; set; }
         public bool IsActive { get; set; }
         public DateTime? CreatedOn { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

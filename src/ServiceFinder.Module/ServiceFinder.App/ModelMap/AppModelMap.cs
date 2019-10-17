@@ -9,6 +9,7 @@ namespace ServiceFinder.Backend.ModelMap
         public AppModelMap()
         {
             CreateMap<ICategoryViewModel, CategoryModel>().ReverseMap();
+            CreateMap<ICityViewModel, CityModel>().ReverseMap();
         }
     }
 }

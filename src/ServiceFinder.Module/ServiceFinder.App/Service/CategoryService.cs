@@ -53,9 +53,15 @@ namespace ServiceFinder.Main.Service
             return mapper.Map<ICategoryViewModel>(model);
         }
 
-        public Task<ICategoryViewModel> UpdateAsync(int id)
+        public async Task<ICategoryViewModel> UpdateAsync(ICategoryViewModel viewModel, int id)
         {
-            throw new System.NotImplementedException();
+            CategoryModel model = mapper.Map<CategoryModel>(viewModel);
+            model = await appDbContext.categories.FindAsync(id);
+            model.Name = viewModel.Name;
+            model.ImageUrl = viewModel.ImageUrl;
+            appDbContext.Update(model);
+            await appDbContext.SaveChangesAsync();
+            return mapper.Map<ICategoryViewModel>(model);
         }
     }
 }

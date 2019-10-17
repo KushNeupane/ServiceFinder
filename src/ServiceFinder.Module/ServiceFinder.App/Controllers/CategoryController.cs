@@ -5,6 +5,7 @@ using ServiceFinder.DI.Services.App;
 using ServiceFinder.DI.ViewModel.App;
 using System.Threading.Tasks;
 
+
 namespace ServiceFinder.App.Controllers
 {
     [Route("category")]
@@ -61,6 +62,20 @@ namespace ServiceFinder.App.Controllers
             try
             {
                 response.data = await categoryService.GetByIdAsync(id);
+                response.isSuccess = true;
+            }
+            catch (Exception ex) { }
+            return response;
+
+        }
+
+        [Route("update-category/{id}")]
+        public async Task<ResponseModel> GetCategory(ICategoryViewModel viewModel, int id)
+        {
+            ResponseModel response = new ResponseModel();
+            try
+            {
+                response.data = await categoryService.UpdateAsync(viewModel, id);
                 response.isSuccess = true;
             }
             catch (Exception ex) { }

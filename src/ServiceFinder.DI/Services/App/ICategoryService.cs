@@ -9,7 +9,7 @@ namespace ServiceFinder.DI.Services.App
         Task<List<ICategoryViewModel>> GetAllAsync();
         Task<ICategoryViewModel> AddAsync(ICategoryViewModel viewModel);
         Task<ICategoryViewModel> GetByIdAsync(int id);
-        Task<ICategoryViewModel> UpdateAsync(ICategoryViewModel viewModel);
+        Task<ICategoryViewModel> UpdateAsync(ICategoryViewModel viewModel, int id);
         Task<ICategoryViewModel> DeleteAsync(int id);
 
     }
