@@ -1,12 +1,12 @@
-import { ViewService } from './../../../models/user.viewService.model';
-import { CategoryModel } from './../../../models/user.category.model';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AddserviceService } from 'src/app/services/Dashboard/AddService/addservice.service';
+import { ViewService } from "./../../../models/user.viewService.model";
+import { CategoryModel } from "./../../../models/user.category.model";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { AddserviceService } from "src/app/services/Dashboard/AddService/addservice.service";
 
 @Component({
-  selector: 'app-our-services',
-  templateUrl: './our-services.component.html',
-  styleUrls: ['./our-services.component.scss']
+  selector: "app-our-services",
+  templateUrl: "./our-services.component.html",
+  styleUrls: ["./our-services.component.scss"]
 })
 export class OurServicesComponent implements OnInit {
   public categoryList: any = [];
@@ -16,27 +16,31 @@ export class OurServicesComponent implements OnInit {
   public servicenames: string[] = [];
   public count: number;
   public showServices: boolean = false;
-  public loadMoreCount: number = 0;
+  public Count: number = 0;
+  public loadMoreButton: boolean = true;
 
-  constructor(private service: AddserviceService) { }
+  constructor(private service: AddserviceService) {}
 
   ngOnInit() {
     this.getCategory();
   }
 
   getCategory() {
-
-    this.service.getCategoriesWithServiceCount(this.loadMoreCount).subscribe(res => {   
-      this.categoryList = res;
-
-    })
+    this.service.getCategoriesWithServiceCount(this.Count).subscribe(res => {
+      let result = <any>res;
+      this.categoryList = result.data;
+    });
   }
   loadMore() {
-    this.loadMoreCount += 4;
-    this.service.getCategoriesWithServiceCount(this.loadMoreCount).subscribe(res => {
-      for (let i = 0; i < res.length; i++) {
-        this.categoryList.push(res[i])
+    this.Count += 4;
+    this.service.getCategoriesWithServiceCount(this.Count).subscribe(res => {
+      let result = <any>res;
+      for (let i = 0; i < result.data.length; i++) {
+        this.categoryList.push(result.data[i]);
       }
-    })
+      if (this.categoryList.length == result.data[0].totalCategory) {
+        this.loadMoreButton = false;
+      }
+    });
   }
 }

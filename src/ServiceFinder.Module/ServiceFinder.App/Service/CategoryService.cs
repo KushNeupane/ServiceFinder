@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using ServiceFinder.Backend.Context;
 using ServiceFinder.DI.Services.App;
 using ServiceFinder.DI.ViewModel.App;
 using ServiceFinder.Main.Model;
+using ServiceFinder.Main.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,6 +64,19 @@ namespace ServiceFinder.Main.Service
             appDbContext.Update(model);
             await appDbContext.SaveChangesAsync();
             return mapper.Map<ICategoryViewModel>(model);
+        }
+        public List<ICategoryViewModel> GetCatergoryAndServices(int? Count)
+        {
+
+            List<CategoryViewModel> model = appDbContext.categoriesView.
+                FromSql($@"DECLARE @TotalCategoryCount INT =
+                (
+                SELECT  COUNT( DISTINCT s.CategoryId) FROM dbo.objects AS s);
+
+                SELECT c.Name, COUNT(s.Name) AS TotalService,  c.IsActive, c.CreatedOn, c.ImageUrl, c.Id, @TotalCategoryCount AS TotalCategory FROM dbo.categories c 
+                INNER JOIN dbo.objects s ON c.Id = s.CategoryId GROUP BY c.Name, c.IsActive, c.CreatedOn, c.ImageUrl, c.Id ORDER BY c.Id OFFSET
+                " + Count + " ROWS FETCH NEXT 4 ROWS ONLY").ToList();
+            return mapper.Map<List<ICategoryViewModel>>(model);
         }
     }
 }

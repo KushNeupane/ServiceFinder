@@ -31,11 +31,9 @@ export class AddserviceService {
     );
   }
 
-  getCategoriesWithServiceCount(loadMoreCount) {
+  getCategoriesWithServiceCount(Count) {
     return this.http.get<CategoryModel[]>(
-      this.baseurl +
-        "api/service/getCategoriesWithServiceCount/" +
-        loadMoreCount
+      this.baseurl + "category/category-services/" + Count
     );
   }
 
@@ -46,9 +44,7 @@ export class AddserviceService {
   }
 
   GetServicesByCategoryId(id) {
-    return this.http.get<ViewService[]>(
-      this.baseurl + "api/service/getServicesByCategoryId/" + id
-    );
+    return this.http.get<ViewService[]>(this.baseurl + "object/category/" + id);
   }
 
   GetServiceByServiceItemId(id) {
