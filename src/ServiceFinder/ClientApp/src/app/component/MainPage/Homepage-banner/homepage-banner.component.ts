@@ -71,8 +71,9 @@ export class HomepageBannerComponent implements OnInit {
   }
 
   getServiceNames() {
-    this.service.GetServices().subscribe(result => {
-      this.serviceList = result;
+    this.service.GetServices().subscribe(res => {
+      let result = <any>res;
+      this.serviceList = result.data;
     });
   }
 
@@ -95,7 +96,7 @@ export class HomepageBannerComponent implements OnInit {
     this.values = JSON.stringify(this.provider);
     this.service.getFilteredSearch(this.values).subscribe(res => {
       let result = <any>res;
-      this.filterServices = result;
+      this.filterServices = result.data;
       this.count = this.filterServices.length;
 
       let navigationExtras: NavigationExtras = {
@@ -106,7 +107,7 @@ export class HomepageBannerComponent implements OnInit {
           loadMoreCount: this.provider.loadMoreCount
         }
       };
-      this.route.navigate(["serviceList"], navigationExtras);
+      this.route.navigate(["object/search"], navigationExtras);
     });
   }
 }

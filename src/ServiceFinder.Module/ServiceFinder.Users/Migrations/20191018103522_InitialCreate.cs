@@ -160,12 +160,12 @@ namespace ServiceFinder.Users.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "a51c9d93-77e5-476f-a57a-0f0abd64e077", "0981a576-ec8e-4e1b-97f7-ca88d33f5af4", "admin", "ADMIN" });
+                values: new object[] { "dddccc8c-0a94-4e8c-9a11-e17eeedb5cc5", "218a3ff1-f14c-4ccb-9c56-1b22f3ce4373", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "7f25d7eb-ae11-45ef-8015-75da63ac3a7d", "5e9b3440-7358-4ac2-a986-637555955c15", "user", "USER" });
+                values: new object[] { "62253d3f-f629-442b-8da7-b9a15b7e8312", "1840892f-633e-4f8a-9dc6-81204de92735", "user", "USER" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

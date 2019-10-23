@@ -14,6 +14,7 @@ using ServiceFinder.Users.DatabaseContext;
 using ServiceFinder.Users.Model;
 using ServiceFinder.Backend.Extension;
 using System;
+using Finder.Framework.DataAccess.Contexts.AccountManagement;
 
 namespace ServiceFinder
 {
@@ -74,7 +75,7 @@ namespace ServiceFinder
             app.UseSpaStaticFiles();
 
             //Seed default Application User
-            //  DefaultUserInitializer.SeedInitialUsers(userManager);
+            DefaultUserInitializer.SeedInitialUsers(userManager);
             app.UseCors("EnableCORS");
             app.UseMvc();
 
