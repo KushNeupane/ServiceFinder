@@ -39,3 +39,7 @@
 /src/ServiceFinder.Module/ServiceFinder.App/bin
 /src/ServiceFinder.Module/ServiceFinder.Users/obj
 /src/ServiceFinder.Module/ServiceFinder.Users/bin
+/tests/UnitTests/ServiceFinder.App.UnitTests/obj
+/tests/UnitTests/ServiceFinder.App.UnitTests/bin
+/tests/UnitTests/ServiceFinder.Users.UnitTests/obj
+/tests/UnitTests/ServiceFinder.Users.UnitTests/bin
