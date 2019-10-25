@@ -48,7 +48,7 @@ namespace ServiceFinder.App.Controllers
         public async Task<ResponseModel> GetServiceByCategoryId(string value)
         {
             ResponseModel response = new ResponseModel();
-            var data = JsonConvert.DeserializeObject<SearchResultViewModel>(value);
+            var data = JsonConvert.DeserializeObject<SearchInputViewModel>(value);
             try
             {
                 response.data = await objectService.GetServicesByCategoryId(data.CategoryId, data.LoadMoreCount);

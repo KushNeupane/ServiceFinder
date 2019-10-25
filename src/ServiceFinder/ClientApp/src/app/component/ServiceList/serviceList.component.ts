@@ -91,11 +91,11 @@ export class ServiceListComponent implements OnInit {
   }
 
   loadMore() {
-    debugger;
     this.provider.loadMoreCount += 2;
     let values = JSON.stringify(this.provider);
 
     this.service.getFilteredSearch(values).subscribe(res => {
+      debugger;
       let result = <any>res;
       for (let i = 0; i < result.data.length; i++) {
         this.searchList.push(result.data[i]);
