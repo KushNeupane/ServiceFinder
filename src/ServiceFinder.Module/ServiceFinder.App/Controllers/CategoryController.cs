@@ -82,6 +82,19 @@ namespace ServiceFinder.App.Controllers
             return response;
 
         }
+        
+        [Route("category-services/{Count}")]
+        public ResponseModel GetCategoryAndServices(int? Count)
+        {
+            ResponseModel response = new ResponseModel();
+            try
+            {
+                response.data =  categoryService.GetCatergoryAndServices(Count);
+                response.isSuccess = true;
+            }
+            catch (Exception ex) { }
+            return response;
+        }
 
     }
 }

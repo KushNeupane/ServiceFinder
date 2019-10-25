@@ -25,17 +25,29 @@
 <section class="our-services">
   <h2 class="section-title">Categories</h2>
   <div class="container-lg">
-    <ul class="services-wrapper" >
+    <ul class="services-wrapper">
       <li class="category" *ngFor="let item of categoryList">
-          <a [routerLink]="['/categoryDetails', item.id]">
-            <span class="mx-auto"><b>{{item.totalService}}</b><img  src="../../../../../../wwwroot/Images/CategoryIcon/{{item.systemDefinedImageName}}" alt=""></span>
-            <h4 class="name">{{item.name}}</h4>
-          </a>
+        <a [routerLink]="['/Objects', item.id]">
+          <span class="mx-auto"
+            ><b>{{ item.totalService }}</b
+            ><img
+              src="../../../../../../wwwroot/Images/CategoryIcon/{{
+                item.imageUrl
+              }}"
+              alt=""
+          /></span>
+          <h4 class="name">{{ item.name }}</h4>
+        </a>
       </li>
     </ul>
     <div class="col-md-12">
       <div class="text-center mb-5">
-        <a (click)="loadMore()" class="btn btn-primary text-white">Load More <span class="fa fa-plus ml-2"></span> </a>
+        <a
+          *ngIf="loadMoreButton === true"
+          (click)="loadMore()"
+          class="btn btn-primary text-white"
+          >Load More <span class="fa fa-plus ml-2"></span>
+        </a>
       </div>
     </div>
   </div>

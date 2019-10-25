@@ -11,8 +11,11 @@ namespace ServiceFinder.Main.Model
         [Key]
         public int Id { get; set; }
         public string UserId { get; set; }
+       
         public int CityId { get; set; }
+       
         public int CategoryId { get; set; }
+        
         public string Name { get; set; }
         public string CompanyName { get; set; }
         public string WebLink { get; set; }

@@ -2,13 +2,13 @@
 using ServiceFinder.Backend.Context;
 using ServiceFinder.DI.ViewModel.App;
 using ServiceFinder.DI.Services.App;
+using ServiceFinder.DI.ViewModel.App;
+using ServiceFinder.DI.ViewModels.App;
 using ServiceFinder.Main.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ServiceFinder.App.ViewModel;
-using Microsoft.EntityFrameworkCore;
 
 namespace ServiceFinder.Main.Service
 {
@@ -17,7 +17,7 @@ namespace ServiceFinder.Main.Service
         IServiceProvider service = null;
         AppDbContext appDbContext = null;
         IMapper mapper => service.GetService(typeof(IMapper)) as IMapper;
-        public ObjectService(IServiceProvider _service,AppDbContext _appDbContext)
+        public ObjectService(IServiceProvider _service, AppDbContext _appDbContext)
         {
             service = _service;
             appDbContext = _appDbContext;
@@ -32,7 +32,7 @@ namespace ServiceFinder.Main.Service
         {
             ObjectModel model = await appDbContext.objects.FindAsync(id);
             appDbContext.Remove(model);
-            await  appDbContext.SaveChangesAsync();
+            await appDbContext.SaveChangesAsync();
             return mapper.Map<IObjectViewModel>(model);
         }
 
@@ -45,13 +45,19 @@ namespace ServiceFinder.Main.Service
 
         public async Task<IObjectViewModel> GetByIdAsync(int id)
         {
-            ObjectModel model =await appDbContext.objects.FindAsync(id);
+            ObjectModel model = await appDbContext.objects.FindAsync(id);
             return mapper.Map<IObjectViewModel>(model);
         }
 
         public async Task<IObjectViewModel> UpdateAsync(IObjectViewModel model, int id)
         {
             throw new System.NotImplementedException();
+        }
+        public async Task<List<ICategoryServicesViewModel>> GetServicesByCategoryId(int? id, int? LoadMoreCount)
+        {
+            List<CategoryServicesViewModel> model = new List<CategoryServicesViewModel>();
+            model = appDbContext.categoryServices.FromSql("EXEC dbo.SpGetServicesByCategoryIdSel @CategoryId = " + id + ", @loadMoreCount = "+LoadMoreCount+"").ToList();
+            return mapper.Map<List<ICategoryServicesViewModel>>(model);
         }
         public async Task<List<ISearchResultViewModel>> GetFilteredObject(int? categoryId, int? cityId, string searchTerm, int LoadMoreCount)
         {

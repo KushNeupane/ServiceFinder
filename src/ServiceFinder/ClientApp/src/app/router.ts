@@ -71,7 +71,7 @@ export const appRoutes: Routes = [
     pathMatch: "full"
   },
   {
-    path: "categoryDetails/:categoryId",
+    path: "Objects/:categoryId",
     component: CategoryDetailsComponent,
     pathMatch: "full"
   },
