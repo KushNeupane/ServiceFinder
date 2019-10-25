@@ -11,3 +11,10 @@ D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests
 D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\obj\Debug\netcoreapp2.2\ServiceFinder.Users.UnitTests.AssemblyInfo.cs
 D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\obj\Debug\netcoreapp2.2\ServiceFinder.Users.UnitTests.dll
 D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\obj\Debug\netcoreapp2.2\ServiceFinder.Users.UnitTests.pdb
+D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\bin\Debug\netcoreapp2.2\ServiceFinder.Users.dll
+D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\bin\Debug\netcoreapp2.2\ServiceFinder.DI.dll
+D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\bin\Debug\netcoreapp2.2\Servicefinder.Core.dll
+D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\bin\Debug\netcoreapp2.2\ServiceFinder.Users.pdb
+D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\bin\Debug\netcoreapp2.2\ServiceFinder.DI.pdb
+D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\bin\Debug\netcoreapp2.2\Servicefinder.Core.pdb
+D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\obj\Debug\netcoreapp2.2\ServiceFinder.Users.UnitTests.csproj.CopyComplete
