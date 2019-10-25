@@ -16,19 +16,14 @@ namespace ServiceFinder.Users.Controllers
     [ApiController]
     public class EditProfileController : ControllerBase
     {
-
+        private readonly IHttpContextAccessor httpContextAccessor;
         private readonly UserManager<ApplicationUserModel> userManager;
-        private string currentUserId;
 
-        public EditProfileController(
-                UserManager<ApplicationUserModel> userManager,
-                IHttpContextAccessor _httpContextAccessor
-            )
-
+        public EditProfileController(UserManager<ApplicationUserModel> userManager,
+                IHttpContextAccessor httpContextAccessor)
         {
-            this.currentUserId = _httpContextAccessor.HttpContext.Request.Cookies["UserId"];
             this.userManager = userManager;
-
+            this.httpContextAccessor = httpContextAccessor;
         }
 
 
@@ -44,7 +39,7 @@ namespace ServiceFinder.Users.Controllers
 
             ResponseModel response = new ResponseModel();
             response.isSuccess = false;
-            var id = this.currentUserId;
+            var id = httpContextAccessor.HttpContext.Request.Cookies["UserId"];
             ApplicationUserModel user = await userManager.FindByIdAsync(id);
             ApplicationUserModel model = JsonConvert.DeserializeObject<ApplicationUserModel>(values);
 
@@ -85,7 +80,7 @@ namespace ServiceFinder.Users.Controllers
             int passDefLength = 6;
             if (ModelState.IsValid)
             {
-                var id = this.currentUserId;
+                var id = httpContextAccessor.HttpContext.Request.Cookies["UserId"];
                 ApplicationUserModel user = await userManager.FindByIdAsync(id);
                 try
                 {
@@ -115,9 +110,7 @@ namespace ServiceFinder.Users.Controllers
                         }
                     }
                     else
-                    {
                         response.isSuccess = false;
-                    }
                 }
                 catch (Exception) { };
             }
@@ -129,11 +122,11 @@ namespace ServiceFinder.Users.Controllers
         [Route("getUserByID")]
         public async Task<EditProfileViewModel> getUserByIdAsync()
         {
-            var id = this.currentUserId;
+            var id = httpContextAccessor.HttpContext.Request.Cookies["UserId"];
             ApplicationUserModel user = await userManager.FindByIdAsync(id);
             EditProfileViewModel model = new EditProfileViewModel();
 
-            if (this.currentUserId != null)
+            if (id != null)
             {
                 model.displayName = user.DisplayName;
                 model.address = user.Address;
