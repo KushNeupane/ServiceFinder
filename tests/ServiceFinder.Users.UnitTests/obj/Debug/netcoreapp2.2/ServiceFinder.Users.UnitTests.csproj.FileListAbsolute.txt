@@ -6,7 +6,6 @@ D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests
 D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\bin\Debug\netcoreapp2.2\ServiceFinder.Users.UnitTests.runtimeconfig.dev.json
 D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\bin\Debug\netcoreapp2.2\ServiceFinder.Users.UnitTests.dll
 D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\bin\Debug\netcoreapp2.2\ServiceFinder.Users.UnitTests.pdb
-D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\obj\Debug\netcoreapp2.2\ServiceFinder.Users.UnitTests.csprojAssemblyReference.cache
 D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\obj\Debug\netcoreapp2.2\ServiceFinder.Users.UnitTests.AssemblyInfoInputs.cache
 D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\obj\Debug\netcoreapp2.2\ServiceFinder.Users.UnitTests.AssemblyInfo.cs
 D:\WorkingFolder\ServiceFinder\servicefinder\tests\ServiceFinder.Users.UnitTests\obj\Debug\netcoreapp2.2\ServiceFinder.Users.UnitTests.dll

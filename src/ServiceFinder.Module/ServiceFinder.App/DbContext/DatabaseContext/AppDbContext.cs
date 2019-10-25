@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ServiceFinder.App.Model;
 using ServiceFinder.App.ViewModel;
-using ServiceFinder.DI.ViewModel.App;
 using ServiceFinder.Main.Model;
 using ServiceFinder.Main.ViewModel;
 using System;

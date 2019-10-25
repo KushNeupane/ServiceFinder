@@ -11,6 +11,7 @@ namespace ServiceFinder.App.ViewModel
         public double AverageRating { get; set; }
         public int CategoryId { get; set; }
         public string Description { get; set; }
+        public int LoadMoreCount { get; set; }
         //public int TotalCount { get; set; }
     }
 }
