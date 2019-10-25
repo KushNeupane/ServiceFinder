@@ -10,7 +10,7 @@ using ServiceFinder.Users.DatabaseContext;
 namespace ServiceFinder.Users.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20190930041310_InitialCreate")]
+    [Migration("20191018103522_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -47,15 +47,15 @@ namespace ServiceFinder.Users.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a51c9d93-77e5-476f-a57a-0f0abd64e077",
-                            ConcurrencyStamp = "0981a576-ec8e-4e1b-97f7-ca88d33f5af4",
+                            Id = "dddccc8c-0a94-4e8c-9a11-e17eeedb5cc5",
+                            ConcurrencyStamp = "218a3ff1-f14c-4ccb-9c56-1b22f3ce4373",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "7f25d7eb-ae11-45ef-8015-75da63ac3a7d",
-                            ConcurrencyStamp = "5e9b3440-7358-4ac2-a986-637555955c15",
+                            Id = "62253d3f-f629-442b-8da7-b9a15b7e8312",
+                            ConcurrencyStamp = "1840892f-633e-4f8a-9dc6-81204de92735",
                             Name = "user",
                             NormalizedName = "USER"
                         });

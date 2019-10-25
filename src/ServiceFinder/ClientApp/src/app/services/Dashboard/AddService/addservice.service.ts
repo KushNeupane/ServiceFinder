@@ -40,9 +40,7 @@ export class AddserviceService {
   }
 
   GetServices() {
-    return this.http.get<ViewService[]>(
-      this.baseurl + "api/service/getServices"
-    );
+    return this.http.get<ViewService[]>(this.baseurl + "object/all-object");
   }
 
   GetServicesByCategoryId(id) {
@@ -155,9 +153,7 @@ export class AddserviceService {
   }
 
   getFilteredSearch(value: string) {
-    return this.http.get(
-      this.baseurl + "api/service/getFilteredService/" + value
-    );
+    return this.http.get(this.baseurl + "object/search/" + value);
   }
 
   askQuestions(data) {

@@ -13,8 +13,9 @@ namespace ServiceFinder.App.Controllers
         IServiceProvider service = null;
         ICityService cityService => service.GetService(typeof(ICityService)) as ICityService;
         public CityController(IServiceProvider _service) => service = _service;
+
         [Route("add-city")]
-        public async Task<ResponseModel> AddCategory(ICityViewModel viewModel)
+        public async Task<ResponseModel> AddCity(ICityViewModel viewModel)
         {
             ResponseModel response = new ResponseModel();
             try
@@ -27,7 +28,7 @@ namespace ServiceFinder.App.Controllers
         }
 
         [Route("delete-city/{id}")]
-        public async Task<ResponseModel> DeleteCategory(int id)
+        public async Task<ResponseModel> DeleteCity(int id)
         {
             ResponseModel response = new ResponseModel();
             try
@@ -40,7 +41,7 @@ namespace ServiceFinder.App.Controllers
         }
 
         [Route("all-city")]
-        public async Task<ResponseModel> GetAllCategory()
+        public async Task<ResponseModel> GetAllCity()
         {
             ResponseModel response = new ResponseModel();
             try
@@ -53,7 +54,7 @@ namespace ServiceFinder.App.Controllers
         }
 
         [Route("get-city/{id}")]
-        public async Task<ResponseModel> GetCategory(int id)
+        public async Task<ResponseModel> GetCity(int id)
         {
             ResponseModel response = new ResponseModel();
             try
@@ -67,7 +68,7 @@ namespace ServiceFinder.App.Controllers
         }
 
         [Route("update-city/{id}")]
-        public async Task<ResponseModel> GetCategory(ICityViewModel viewModel, int id)
+        public async Task<ResponseModel> GetCity(ICityViewModel viewModel, int id)
         {
             ResponseModel response = new ResponseModel();
             try
