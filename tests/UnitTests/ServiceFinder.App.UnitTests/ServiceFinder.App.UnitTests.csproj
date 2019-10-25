@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\ServiceFinder.Module\ServiceFinder.App\ServiceFinder.App.csproj" />
+    <ProjectReference Include="..\..\..\src\ServiceFinder.Module\ServiceFinder.App\ServiceFinder.App.csproj" />
   </ItemGroup>
 
 </Project>
