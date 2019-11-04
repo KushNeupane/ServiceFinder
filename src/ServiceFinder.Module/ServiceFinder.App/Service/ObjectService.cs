@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ServiceFinder.Main.ViewModel;
 
 namespace ServiceFinder.Main.Service
 {
@@ -40,7 +41,10 @@ namespace ServiceFinder.Main.Service
 
         public async Task<IObjectViewModel> AddAsync(IObjectViewModel model)
         {
-            throw new System.NotImplementedException();
+            ObjectModel objectModel = mapper.Map<ObjectModel>(model);
+            await appDbContext.objects.AddAsync(objectModel);
+            await appDbContext.SaveChangesAsync();
+            return model;
         }
 
         public async Task<IObjectViewModel> DeleteAsync(int id)

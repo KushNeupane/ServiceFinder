@@ -46,7 +46,9 @@ export class AddserviceService {
   }
 
   GetServiceByServiceItemId(id) {
-    return this.http.get<ViewServiceById>(this.baseurl + "object/object/" + id);
+    return this.http.get<ViewServiceById>(
+      this.baseurl + "object/get-object/" + id
+    );
   }
 
   GetImages(id) {
