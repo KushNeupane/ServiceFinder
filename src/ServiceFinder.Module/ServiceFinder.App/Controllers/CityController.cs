@@ -54,7 +54,7 @@ namespace ServiceFinder.App.Controllers
         }
 
         [Route("get-city/{id}")]
-        public async Task<ResponseModel> GetCity(int id)
+        public async Task<ResponseModel> GetCityById(int id)
         {
             ResponseModel response = new ResponseModel();
             try
@@ -68,7 +68,7 @@ namespace ServiceFinder.App.Controllers
         }
 
         [Route("update-city/{id}")]
-        public async Task<ResponseModel> GetCity(ICityViewModel viewModel, int id)
+        public async Task<ResponseModel> UpdateCity(ICityViewModel viewModel, int id)
         {
             ResponseModel response = new ResponseModel();
             try
