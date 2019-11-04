@@ -17,7 +17,9 @@ namespace ServiceFinder.Backend.ModelMap
             CreateMap<ISearchResultViewModel, SearchResultViewModel>().ReverseMap();
             CreateMap<IObjectViewModel, ObjectModel>().ReverseMap();
             CreateMap<ICategoryServicesViewModel, CategoryServicesViewModel>().ReverseMap();
-
+            CreateMap<ObjectViewModel, ObjectModel>().ReverseMap();
+            CreateMap<IObjectViewModel, ObjectViewModel>().ReverseMap();
+            CreateMap<IObjectVisitViewModel, ObjectVisitViewModel>().ReverseMap();
         }
     }
 }

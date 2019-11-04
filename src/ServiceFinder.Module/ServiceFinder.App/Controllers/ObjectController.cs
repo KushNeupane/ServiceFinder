@@ -44,19 +44,72 @@ namespace ServiceFinder.App.Controllers
             return response;
         }
 
+        //Getting services under specific Category
         [Route("category/{value}")]
-        public async Task<ResponseModel> GetServiceByCategoryId(string value)
+        public async Task<ResponseModel> GetObjectByCategoryId(string value)
         {
             ResponseModel response = new ResponseModel();
             var data = JsonConvert.DeserializeObject<SearchInputViewModel>(value);
             try
             {
-                response.data = await objectService.GetServicesByCategoryId(data.CategoryId, data.LoadMoreCount);
+                response.data = await objectService.GetObjectByCategoryId(data.CategoryId, data.LoadMoreCount);
                 response.isSuccess = true;
             }
             catch (Exception ex) { }
             return response;
         }
+
+        //Getting Specific Object by ObjectId
+        [Route ("object/{id}")]
+        public async Task<ResponseModel> GetObjectById(int id)
+        {
+            ResponseModel response = new ResponseModel();
+            if(id == null)
+            {
+                throw new ArgumentNullException("id is null");
+            }
+            try
+            {
+                response.data = await objectService.GetObjectById(id);
+                response.isSuccess = true;
+            }
+            catch (Exception ex) { }
+            return response;
+        }
+
+        //Post Log about the service visit
+        [HttpPost]
+        [Route("addObjectLog")]
+        public async Task<ResponseModel> AddObjectVisitLog([FromBody] ObjectLogViewModel model)
+        {
+            
+            ResponseModel response = new ResponseModel();
+            if (model == null)
+            {
+                throw new ArgumentNullException("ObjectId is null");
+            }
+            try
+            {
+                objectService.AddObjectVisitLog(model);
+                response.isSuccess = true;
+            }
+            catch (Exception ex) { }
+            return response;
+        }
+
+        //Get the list of most visited services
+        [Route("getMostVisitedObjects")]
+        public async Task<ResponseModel> GetMostVisitedObjects()
+        {
+            ResponseModel response = new ResponseModel();
+            try
+            {
+                response.data = objectService.GetMostVisitedObjects();
+                response.isSuccess = true;
+            }catch(Exception ex){ }
+            return response;
+        }
+
 
     }
 }

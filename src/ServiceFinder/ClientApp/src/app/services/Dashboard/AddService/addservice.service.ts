@@ -46,9 +46,7 @@ export class AddserviceService {
   }
 
   GetServiceByServiceItemId(id) {
-    return this.http.get<ViewServiceById>(
-      this.baseurl + "api/service/getService/" + id
-    );
+    return this.http.get<ViewServiceById>(this.baseurl + "object/object/" + id);
   }
 
   GetImages(id) {
@@ -117,10 +115,8 @@ export class AddserviceService {
   }
 
   postServiceVisitLog(model) {
-    return this.http.post(
-      this.baseurl + "api/service/addServiceVisitLog/",
-      model
-    );
+    debugger;
+    return this.http.post(this.baseurl + "object/addObjectLog/", model);
   }
 
   getTotalViewCount() {

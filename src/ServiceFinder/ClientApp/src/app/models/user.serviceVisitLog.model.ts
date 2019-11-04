@@ -1,4 +1,4 @@
-export class ServiceVisitLogModel{
-    userId: string;
-    serviceItemId: number;
+export class ServiceVisitLogModel {
+  UserId: string;
+  ObjectId: number;
 }

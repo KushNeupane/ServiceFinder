@@ -8,7 +8,7 @@ namespace ServiceFinder.Users.DatabaseContext
     public class UserDbContext : IdentityDbContext<ApplicationUserModel>
     {
         public UserDbContext(DbContextOptions<UserDbContext> options) : base(options) { }
-
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             //Seed default User Roles

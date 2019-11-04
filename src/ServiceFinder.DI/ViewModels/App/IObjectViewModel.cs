@@ -25,6 +25,10 @@ namespace ServiceFinder.DI.ViewModel.App
         string CoverImageUrl { get; set; }
         string OriginalCoverImageName { get; set; }
         bool IsActive { get; set; }
+        bool LoggedIn { get; set; }
+        bool ShowReview { get; set; }
+        object AppUser { get; set; }
+        object City { get; set; }
         DateTime? CreatedOn { get; set; }
     }
 }

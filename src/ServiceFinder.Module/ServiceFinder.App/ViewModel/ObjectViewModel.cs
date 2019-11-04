@@ -1,4 +1,6 @@
 ﻿using ServiceFinder.DI.ViewModel.App;
+using ServiceFinder.Main.Model;
+using ServiceFinder.Users.Model;
 using System;
 
 namespace ServiceFinder.Main.ViewModel
@@ -26,6 +28,10 @@ namespace ServiceFinder.Main.ViewModel
         public string CoverImageUrl { get; set; }
         public string OriginalCoverImageName { get; set; }
         public bool IsActive { get; set; }
+        public bool LoggedIn { get; set; }
+        public bool ShowReview { get; set; }
+        public object AppUser { get; set; }
+        public object  City { get; set; }
         public DateTime? CreatedOn { get; set; }
     }
 }

@@ -1,16 +1,20 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using ServiceFinder.App.ViewModel;
 using ServiceFinder.Backend.Context;
-using ServiceFinder.DI.ViewModel.App;
 using ServiceFinder.DI.Services.App;
 using ServiceFinder.DI.ViewModel.App;
 using ServiceFinder.DI.ViewModels.App;
 using ServiceFinder.Main.Model;
+using ServiceFinder.Main.ViewModel;
+using ServiceFinder.Users.DatabaseContext;
+using ServiceFinder.Users.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ServiceFinder.App.ViewModel;
-using Microsoft.EntityFrameworkCore;
 
 namespace ServiceFinder.Main.Service
 {
@@ -18,11 +22,20 @@ namespace ServiceFinder.Main.Service
     {
         IServiceProvider service = null;
         AppDbContext appDbContext = null;
+        UserDbContext userDbContext = null;
+        private string currentUserId;
         IMapper mapper => service.GetService(typeof(IMapper)) as IMapper;
-        public ObjectService(IServiceProvider _service, AppDbContext _appDbContext)
+        IHttpContextAccessor httpContextAccessor => service.GetService(typeof(IHttpContextAccessor)) as IHttpContextAccessor;
+        private UserManager<ApplicationUserModel> userManager => service.GetService(typeof(UserManager<ApplicationUserModel>)) as UserManager<ApplicationUserModel>;
+        private SignInManager<ApplicationUserModel> signInManager => service.GetService(typeof(SignInManager<ApplicationUserModel>)) as SignInManager<ApplicationUserModel>;
+
+
+        public ObjectService(IServiceProvider _service, AppDbContext _appDbContext, UserDbContext _userDbcontext)
         {
             service = _service;
             appDbContext = _appDbContext;
+            userDbContext = _userDbcontext;
+            this.currentUserId = httpContextAccessor.HttpContext.Request.Cookies["UserId"];
         }
 
         public async Task<IObjectViewModel> AddAsync(IObjectViewModel model)
@@ -55,10 +68,10 @@ namespace ServiceFinder.Main.Service
         {
             throw new System.NotImplementedException();
         }
-        public async Task<List<ICategoryServicesViewModel>> GetServicesByCategoryId(int? id, int? LoadMoreCount)
+        public async Task<List<ICategoryServicesViewModel>> GetObjectByCategoryId(int? id, int? LoadMoreCount)
         {
             List<CategoryServicesViewModel> model = new List<CategoryServicesViewModel>();
-            model = appDbContext.categoryServices.FromSql("EXEC dbo.SpGetServicesByCategoryIdSel @CategoryId = " + id + ", @loadMoreCount = "+LoadMoreCount+"").ToList();
+            model = appDbContext.categoryServices.FromSql("EXEC dbo.SpGetServicesByCategoryIdSel @CategoryId = " + id + ", @loadMoreCount = " + LoadMoreCount + "").ToList();
             return mapper.Map<List<ICategoryServicesViewModel>>(model);
         }
         public async Task<List<ISearchResultViewModel>> GetFilteredObject(int? categoryId, int? cityId, string searchTerm, int LoadMoreCount)
@@ -68,5 +81,47 @@ namespace ServiceFinder.Main.Service
             List<SearchResultViewModel> objects = appDbContext.searchResult.FromSql(sql, categoryId, cityId, searchTerm, LoadMoreCount).ToList();
             return mapper.Map<List<ISearchResultViewModel>>(objects);
         }
+
+        public async Task<IObjectViewModel> GetObjectById(int id)
+        {
+            ObjectModel serviceObject = await appDbContext.objects.FindAsync(id);
+            ObjectViewModel objectView = new ObjectViewModel();
+            objectView = mapper.Map<ObjectViewModel>(serviceObject);
+            ApplicationUserModel appUser = await userManager.FindByIdAsync(serviceObject.UserId);
+            CityModel city = await appDbContext.cities.FindAsync(serviceObject.CityId);
+
+            objectView.City = city;
+            objectView.AppUser = appUser;
+
+            if (this.currentUserId != null)
+            {
+                objectView.LoggedIn = true;
+                if (serviceObject.UserId == this.currentUserId)
+                {
+                    objectView.ShowReview = false;
+                }
+            }
+            return mapper.Map<IObjectViewModel>(objectView); 
+        }
+
+        public void AddObjectVisitLog(IObjectLogViewModel model)
+        {
+            
+            var sql = "EXEC dbo.SpObjectViewLog @UserId = {0}, @ObjectId = {1}";
+            var res = appDbContext.Database.ExecuteSqlCommand(sql, currentUserId, model.ObjectId);
+        }
+
+        public  async Task<IEnumerable<IObjectVisitViewModel>> GetMostVisitedObjects()
+        {
+            //if(appDbContext != null)
+            //{
+            //    IObjectVisitViewModel totalVisitedObjects = appDbContext.objectVisitView.FromSql($@"EXEC dbo.SpServiceVisitCountSel").ToList();
+            //    ObjectVisitViewModel objectVisitModel = new ObjectVisitViewModel()
+            //    return totalVisitedObjects;
+            //}
+
+            return null;
+        }
+
     }
 }

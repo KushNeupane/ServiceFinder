@@ -19,33 +19,21 @@ namespace ServiceFinder.App.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ServiceFinder.App.Model.ReviewModel", b =>
+            modelBuilder.Entity("ServiceFinder.App.Model.ObjectVisitModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreatedOn");
-
-                    b.Property<bool>("EverUsed");
-
-                    b.Property<bool>("IsDeleted");
-
                     b.Property<int>("ObjectId");
-
-                    b.Property<int>("OverAllReview");
-
-                    b.Property<string>("ReviewTest");
-
-                    b.Property<DateTime>("ReviewTime");
-
-                    b.Property<bool>("ShowOptions");
 
                     b.Property<string>("UserId");
 
+                    b.Property<int>("ViewCount");
+
                     b.HasKey("Id");
 
-                    b.ToTable("reviews");
+                    b.ToTable("objectVisit");
                 });
 
             modelBuilder.Entity("ServiceFinder.Main.Model.CategoryModel", b =>
@@ -70,35 +58,35 @@ namespace ServiceFinder.App.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 433, DateTimeKind.Local).AddTicks(7215),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 4, DateTimeKind.Local).AddTicks(1682),
                             IsActive = false,
                             Name = "Hospitality"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(2808),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 4, DateTimeKind.Local).AddTicks(6887),
                             IsActive = false,
                             Name = "Travel"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(2814),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 4, DateTimeKind.Local).AddTicks(6892),
                             IsActive = false,
                             Name = "Transportation"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(2815),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 4, DateTimeKind.Local).AddTicks(6893),
                             IsActive = false,
                             Name = "Media"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(2816),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 4, DateTimeKind.Local).AddTicks(6894),
                             IsActive = false,
                             Name = "Entertainment"
                         });
@@ -124,119 +112,119 @@ namespace ServiceFinder.App.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(5696),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 4, DateTimeKind.Local).AddTicks(9646),
                             IsActive = false,
                             Name = "Kathmandu"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6160),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(100),
                             IsActive = false,
                             Name = "Pokhara"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6164),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(105),
                             IsActive = false,
                             Name = "Lalitpur"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6165),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(106),
                             IsActive = false,
                             Name = "Biratnagar"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6167),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(106),
                             IsActive = false,
                             Name = "Birjung"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6168),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(107),
                             IsActive = false,
                             Name = "Bharatpur"
                         },
                         new
                         {
                             Id = 7,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6169),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(108),
                             IsActive = false,
                             Name = "Dharan"
                         },
                         new
                         {
                             Id = 8,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6171),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(109),
                             IsActive = false,
                             Name = "Butwal"
                         },
                         new
                         {
                             Id = 9,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6173),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(109),
                             IsActive = false,
                             Name = "Janakpur"
                         },
                         new
                         {
                             Id = 10,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6175),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(110),
                             IsActive = false,
                             Name = "Dhangadhi"
                         },
                         new
                         {
                             Id = 11,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6177),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(111),
                             IsActive = false,
                             Name = "Bhaktapur"
                         },
                         new
                         {
                             Id = 12,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6178),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(112),
                             IsActive = false,
                             Name = "Nepalgunj"
                         },
                         new
                         {
                             Id = 13,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6178),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(113),
                             IsActive = false,
                             Name = "Hetauda"
                         },
                         new
                         {
                             Id = 14,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6179),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(113),
                             IsActive = false,
                             Name = "Itahari"
                         },
                         new
                         {
                             Id = 15,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6180),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(114),
                             IsActive = false,
                             Name = "Banepa"
                         },
                         new
                         {
                             Id = 16,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6181),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(115),
                             IsActive = false,
                             Name = "Dhulikhel"
                         },
                         new
                         {
                             Id = 17,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(6181),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(116),
                             IsActive = false,
                             Name = "Baglung"
                         });
@@ -300,7 +288,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 1,
                             CategoryId = 1,
                             CityId = 1,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(8304),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2180),
                             IsActive = false,
                             Name = "Hospitality Service 1",
                             Status = false
@@ -310,7 +298,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 2,
                             CategoryId = 1,
                             CityId = 2,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(8744),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2610),
                             IsActive = false,
                             Name = "Hospitality Service 2",
                             Status = false
@@ -320,7 +308,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 3,
                             CategoryId = 1,
                             CityId = 3,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(8750),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2615),
                             IsActive = false,
                             Name = "Hospitality Service 3",
                             Status = false
@@ -330,7 +318,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 4,
                             CategoryId = 1,
                             CityId = 4,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(8752),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2616),
                             IsActive = false,
                             Name = "Hospitality Service 4",
                             Status = false
@@ -340,7 +328,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 5,
                             CategoryId = 1,
                             CityId = 5,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(8753),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2616),
                             IsActive = false,
                             Name = "Hospitality Service 5",
                             Status = false
@@ -350,7 +338,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 6,
                             CategoryId = 2,
                             CityId = 6,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(8955),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2808),
                             IsActive = false,
                             Name = "Travel Service 1",
                             Status = false
@@ -360,7 +348,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 7,
                             CategoryId = 2,
                             CityId = 7,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(8957),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2810),
                             IsActive = false,
                             Name = "Travel Service 2",
                             Status = false
@@ -370,7 +358,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 8,
                             CategoryId = 2,
                             CityId = 8,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(8957),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2811),
                             IsActive = false,
                             Name = "Travel Service 3",
                             Status = false
@@ -380,7 +368,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 9,
                             CategoryId = 2,
                             CityId = 9,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(8958),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2811),
                             IsActive = false,
                             Name = "Travel Service 4",
                             Status = false
@@ -390,7 +378,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 10,
                             CategoryId = 2,
                             CityId = 10,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(8959),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2812),
                             IsActive = false,
                             Name = "Travel Service 5",
                             Status = false
@@ -400,7 +388,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 11,
                             CategoryId = 3,
                             CityId = 11,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9013),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2827),
                             IsActive = false,
                             Name = "Transportation Service 1",
                             Status = false
@@ -410,7 +398,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 12,
                             CategoryId = 3,
                             CityId = 12,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9014),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2828),
                             IsActive = false,
                             Name = "Transportation Service 2",
                             Status = false
@@ -420,7 +408,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 13,
                             CategoryId = 3,
                             CityId = 13,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9017),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2829),
                             IsActive = false,
                             Name = "Transportation Service 3",
                             Status = false
@@ -430,7 +418,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 14,
                             CategoryId = 3,
                             CityId = 14,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9018),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2830),
                             IsActive = false,
                             Name = "Transportation Service 4",
                             Status = false
@@ -440,7 +428,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 15,
                             CategoryId = 3,
                             CityId = 15,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9019),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2830),
                             IsActive = false,
                             Name = "Transportation Service 5",
                             Status = false
@@ -450,7 +438,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 16,
                             CategoryId = 4,
                             CityId = 16,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9030),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2841),
                             IsActive = false,
                             Name = "Media Service 1",
                             Status = false
@@ -460,7 +448,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 17,
                             CategoryId = 4,
                             CityId = 17,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9033),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2842),
                             IsActive = false,
                             Name = "Media Service 2",
                             Status = false
@@ -470,7 +458,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 18,
                             CategoryId = 4,
                             CityId = 1,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9033),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2843),
                             IsActive = false,
                             Name = "Media Service 3",
                             Status = false
@@ -480,7 +468,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 19,
                             CategoryId = 4,
                             CityId = 2,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9034),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2844),
                             IsActive = false,
                             Name = "Media Service 4",
                             Status = false
@@ -490,7 +478,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 20,
                             CategoryId = 4,
                             CityId = 3,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9036),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2845),
                             IsActive = false,
                             Name = "Media Service 5",
                             Status = false
@@ -500,7 +488,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 21,
                             CategoryId = 5,
                             CityId = 4,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9047),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2856),
                             IsActive = false,
                             Name = "Entertainment Service 1",
                             Status = false
@@ -510,7 +498,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 22,
                             CategoryId = 5,
                             CityId = 5,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9050),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2857),
                             IsActive = false,
                             Name = "Entertainment Service 2",
                             Status = false
@@ -520,7 +508,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 23,
                             CategoryId = 5,
                             CityId = 6,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9051),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2858),
                             IsActive = false,
                             Name = "Entertainment Service 3",
                             Status = false
@@ -530,7 +518,7 @@ namespace ServiceFinder.App.Migrations
                             Id = 24,
                             CategoryId = 5,
                             CityId = 7,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9052),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2858),
                             IsActive = false,
                             Name = "Entertainment Service 4",
                             Status = false
@@ -540,11 +528,40 @@ namespace ServiceFinder.App.Migrations
                             Id = 25,
                             CategoryId = 5,
                             CityId = 8,
-                            CreatedOn = new DateTime(2019, 10, 22, 11, 9, 36, 434, DateTimeKind.Local).AddTicks(9053),
+                            CreatedOn = new DateTime(2019, 10, 31, 11, 11, 14, 5, DateTimeKind.Local).AddTicks(2859),
                             IsActive = false,
                             Name = "Entertainment Service 5",
                             Status = false
                         });
+                });
+
+            modelBuilder.Entity("ServiceFinder.Main.Model.ReviewModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn");
+
+                    b.Property<bool>("EverUsed");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<int>("ObjectId");
+
+                    b.Property<int>("OverAllReview");
+
+                    b.Property<string>("ReviewTest");
+
+                    b.Property<DateTime>("ReviewTime");
+
+                    b.Property<bool>("ShowOptions");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("reviews");
                 });
 #pragma warning restore 612, 618
         }

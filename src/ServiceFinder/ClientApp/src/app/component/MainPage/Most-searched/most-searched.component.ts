@@ -17,8 +17,6 @@ export class MostSearchedComponent implements OnInit {
 
   ngOnInit() {
     this.getServices();
-    
-
   }
   getServices() {
     

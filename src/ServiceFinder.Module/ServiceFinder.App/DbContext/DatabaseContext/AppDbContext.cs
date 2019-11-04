@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ServiceFinder.App.Model;
 using ServiceFinder.App.ViewModel;
 using ServiceFinder.Main.Model;
 using ServiceFinder.Main.ViewModel;
@@ -14,9 +15,11 @@ namespace ServiceFinder.Backend.Context
         public virtual DbSet<ObjectModel> objects { get; set; }
         public virtual DbSet<CityModel> cities { get; set; }
         public virtual DbSet<ReviewModel> reviews { get; set; }
+        public virtual DbSet<ObjectVisitModel> objectVisit { get; set; }
         public DbQuery<SearchResultViewModel> searchResult { get; set; }
         public virtual DbQuery<CategoryViewModel> categoriesView { get; set; }
         public virtual DbQuery<CategoryServicesViewModel> categoryServices { get; set; }
+        public virtual DbQuery<ObjectVisitViewModel> objectVisitView { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
