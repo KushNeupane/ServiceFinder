@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using ServiceFinder.App.Service;
 using ServiceFinder.DI.Services.App;
 using ServiceFinder.Main.Service;
 
@@ -11,6 +12,7 @@ namespace ServiceFinder.Backend.Extension
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IObjectService, ObjectService>();
             services.AddTransient<ICityService, CityService>();
+            services.AddTransient<IReviewService, ReviewService>();
         }
     }
 }

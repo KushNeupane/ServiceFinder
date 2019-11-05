@@ -1,8 +1,11 @@
 <section class="most-searched">
   <h2 class="section-title">Most Searched Services</h2>
-  <ngx-slick class="slick-slider carousel" #slickModal="slick-modal" [config]="{
+  <ngx-slick
+    class="slick-slider carousel"
+    #slickModal="slick-modal"
+    [config]="{
       slidesToShow: 5,
-      slidesToScroll:5,
+      slidesToScroll: 5,
       dots: true,
       arrows: false,
       cssEase: easeInOut,
@@ -10,22 +13,38 @@
         {
           breakpoint: 768,
           settings: {
-            slidesToShow:1,
+            slidesToShow: 1,
             slidesToScroll: 1
           }
         }
       ]
-      }">
+    }"
+  >
     <li class="slide" *ngFor="let item of arr" ngxSlickItem>
-      <a [routerLink]="['/getService', item.serviceItemId]" href="" class="service-card">
+      <a
+        [routerLink]="['/getService', item.objectId]"
+        href=""
+        class="service-card"
+      >
         <div class="card">
-          <img 
-            src="../../../../../../wwwroot/ServiceProfilePicture/{{item.displayName}}/{{item.originalProfileImageName}}">
+          <img
+            *ngIf="item.originalProfileImageName === null"
+            src="../../../assets/img/gallery-5.jpeg"
+          />
+          <img
+            *ngIf="item.originalProfileImageName"
+            src="../../../../../../wwwroot/ServiceProfilePicture/{{
+              item.displayName
+            }}/{{ item.originalProfileImageName }}"
+          />
           <!-- <img src="../../../assets/img/gallery-5.jpeg"> -->
           <div class="info">
-            <span class="rating rounded"><b>{{item.averageRating | number : '1.1-1'}}</b><small>/5</small></span>
-            <h4>{{item.name}}</h4>
-            <p class="address">{{item.address}}</p>
+            <span class="rating rounded"
+              ><b>{{ item.averageRating | number: "1.1-1" }}</b
+              ><small>/5</small></span
+            >
+            <h4>{{ item.name }}</h4>
+            <p class="address">{{ item.address }}</p>
           </div>
         </div>
       </a>

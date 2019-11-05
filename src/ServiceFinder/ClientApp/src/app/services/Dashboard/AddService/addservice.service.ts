@@ -123,7 +123,7 @@ export class AddserviceService {
 
   getTotalViewCount() {
     return this.http.get<ViewService[]>(
-      this.baseurl + "api/service/getTotalServiceViewCount"
+      this.baseurl + "object/getMostVisitedObjects"
     );
   }
 

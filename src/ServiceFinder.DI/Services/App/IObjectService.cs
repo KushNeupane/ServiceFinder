@@ -17,8 +17,5 @@ namespace ServiceFinder.DI.Services.App
         Task<IObjectViewModel> GetObjectById(int id);
         void AddObjectVisitLog(IObjectLogViewModel model);
         Task<IEnumerable<IObjectVisitViewModel>> GetMostVisitedObjects();
-
-
-        
     }
 }
