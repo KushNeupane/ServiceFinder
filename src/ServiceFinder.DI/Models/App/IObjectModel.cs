@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ServiceFinder.DI.Model.App
 {
@@ -20,6 +21,7 @@ namespace ServiceFinder.DI.Model.App
         TimeSpan? ServiceCloseTime { get; set; }
         bool Status { get; set; }
         string Description { get; set; }
+        string ImageURL { get; set; }
         string ProfileImageUrl { get; set; }
         string OriginalProfileImageName { get; set; }
         string CoverImageUrl { get; set; }

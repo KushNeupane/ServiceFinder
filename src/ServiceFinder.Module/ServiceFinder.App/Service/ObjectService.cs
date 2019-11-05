@@ -15,7 +15,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ServiceFinder.Main.ViewModel;
 
 namespace ServiceFinder.Main.Service
 {
@@ -42,6 +41,7 @@ namespace ServiceFinder.Main.Service
         public async Task<IObjectViewModel> AddAsync(IObjectViewModel model)
         {
             ObjectModel objectModel = mapper.Map<ObjectModel>(model);
+            objectModel.UserId = this.currentUserId;
             await appDbContext.objects.AddAsync(objectModel);
             await appDbContext.SaveChangesAsync();
             return model;
@@ -62,15 +62,31 @@ namespace ServiceFinder.Main.Service
             return mapper.Map<List<IObjectViewModel>>(model);
         }
 
-        public async Task<IObjectViewModel> GetByIdAsync(int id)
+        public async Task<List<IObjectViewModel>> GetObjectByUserId()
         {
-            ObjectModel model = await appDbContext.objects.FindAsync(id);
-            return mapper.Map<IObjectViewModel>(model);
+            List<ObjectModel> serviceObject = appDbContext.objects.ToList();
+            List<ObjectViewModel> viewObject = new List<ObjectViewModel>();
+
+            foreach(ObjectModel model in serviceObject)
+            {
+                if (model.UserId == this.currentUserId)
+                {
+                    viewObject.Add(mapper.Map<ObjectViewModel>(model));
+                }
+            }
+            return mapper.Map<List<IObjectViewModel>>(viewObject);
         }
 
-        public async Task<IObjectViewModel> UpdateAsync(IObjectViewModel model, int id)
+        public async Task<IObjectViewModel> UpdateAsync(IObjectViewModel viewModel, int id)
         {
-            throw new System.NotImplementedException();
+            ObjectModel model = mapper.Map<ObjectModel>(viewModel);
+            try
+            {
+                appDbContext.Entry(model).State = EntityState.Modified;
+                await appDbContext.SaveChangesAsync();
+            }
+            catch(Exception ex) { }
+            return viewModel;
         }
         public async Task<List<ICategoryServicesViewModel>> GetObjectByCategoryId(int? id, int? LoadMoreCount)
         {

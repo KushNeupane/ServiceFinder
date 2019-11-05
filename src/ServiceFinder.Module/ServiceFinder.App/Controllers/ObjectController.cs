@@ -5,8 +5,8 @@ using Servicefinder.Core.Response;
 using ServiceFinder.App.ViewModel;
 using ServiceFinder.DI.Services.App;
 using ServiceFinder.DI.ViewModel.App;
+using ServiceFinder.Main.ViewModel;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ServiceFinder.App.Controllers
@@ -44,11 +44,11 @@ namespace ServiceFinder.App.Controllers
             return response;
         }
 
-        [Route("get-object/{id}")]
-        public async Task<ResponseModel> GetObjectById(int id)
+        [Route("get-objectByServiceId/{id}")]
+        public async Task<ResponseModel> GetObjectByServiceId(int id)
         {
             ResponseModel response = new ResponseModel();
-            if (id == null)
+            if (id == 0)
             {
                 throw new ArgumentNullException("id is null");
             }
@@ -60,9 +60,22 @@ namespace ServiceFinder.App.Controllers
             catch (Exception ex) { }
             return response;
         }
+        
+        [Route("get-objectByUserId")]
+        public async Task<ResponseModel> GetObjectByUserId()
+        {
+            ResponseModel response = new ResponseModel();
+            try
+            {
+                response.data = await objectService.GetObjectByUserId();
+                response.isSuccess = true;
+            }
+            catch (Exception ex) { }
+            return response;
+        }
 
         [Route("update-object/{id}")]
-        public async Task<ResponseModel> UpdateObject(IObjectViewModel viewModel,int id)
+        public async Task<ResponseModel> UpdateObject([FromBody]IObjectViewModel viewModel,int id)
         {
             ResponseModel response = new ResponseModel();
             try
@@ -74,8 +87,9 @@ namespace ServiceFinder.App.Controllers
             return response;
         }
 
+        [HttpPost]
         [Route("add-object")]
-        public async Task<ResponseModel> AddCity(IObjectViewModel model)
+        public async Task<ResponseModel> AddCity([FromBody]ObjectViewModel model)
         {
             ResponseModel response = new ResponseModel();
             try

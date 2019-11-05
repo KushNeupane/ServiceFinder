@@ -168,10 +168,10 @@ export class ServiceInfoComponent implements OnInit {
             this.CoverImage;
         }
 
-        this.service.GetImages(this.serviceId).subscribe(result => {
-          this.imageList = result;
-          console.log(this.imageList);
-        });
+        // this.service.GetImages(this.serviceId).subscribe(result => {
+        //   this.imageList = result;
+        //   console.log(this.imageList);
+        // });
 
         //Posting the service view count in ServiceItemViewLog
         this.service
@@ -207,7 +207,7 @@ export class ServiceInfoComponent implements OnInit {
     this.selectedProfileImage.append("profile", "profile");
     this.selectedProfileImage.append("cover", "notCover");
     this.service
-      .editService(this.serviceId, this.selectedProfileImage, this.options)
+      .editService(this.serviceId, this.selectedProfileImage)
       .subscribe(res => {
         this.toastr.success("Your Service Main Picture is updated", "", {
           positionClass: "toast-bottom-right"
@@ -244,7 +244,7 @@ export class ServiceInfoComponent implements OnInit {
     this.selectedCoverImage.append("cover", "cover");
     this.selectedCoverImage.append("profile", "notProfile");
     this.service
-      .editService(this.serviceId, this.selectedCoverImage, this.options)
+      .editService(this.serviceId, this.selectedCoverImage)
       .subscribe(res => {
         this.toastr.success("Your Service Cover Picture is updated", "", {
           positionClass: "toast-bottom-right"

@@ -1,7 +1,7 @@
-import { ViewService } from './user.viewService.model';
+import { ViewService } from "./user.viewService.model";
+import { AddServiceModel } from "./user.addService.model";
 
 export class ViewServiceById {
-
-    serviceDataById : ViewService;
-    showReview : boolean;
+  serviceDataById: AddServiceModel;
+  showReview: boolean;
 }
