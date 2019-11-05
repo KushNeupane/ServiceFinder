@@ -139,7 +139,7 @@ namespace ServiceFinder.App.Controllers
         //Get the list of most visited services
         [Route("getMostVisitedObjects")]
         public async Task<ResponseModel> GetMostVisitedObjects()
-        {
+    {
             ResponseModel response = new ResponseModel();
             try
             {

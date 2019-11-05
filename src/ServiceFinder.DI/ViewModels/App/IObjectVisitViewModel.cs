@@ -6,7 +6,7 @@ namespace ServiceFinder.DI.ViewModels.App
 {
     public interface IObjectVisitViewModel
     {
-         int ServiceItemId { get; set; }
+         int ObjectId { get; set; }
          string OriginalProfileImageName { get; set; }
          string Name { get; set; }
          int TotalView { get; set; }

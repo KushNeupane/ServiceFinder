@@ -15,7 +15,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ServiceFinder.Main.ViewModel;
 
 namespace ServiceFinder.Main.Service
 {
@@ -23,7 +22,6 @@ namespace ServiceFinder.Main.Service
     {
         IServiceProvider service = null;
         AppDbContext appDbContext = null;
-        UserDbContext userDbContext = null;
         private string currentUserId;
         IMapper mapper => service.GetService(typeof(IMapper)) as IMapper;
         IHttpContextAccessor httpContextAccessor => service.GetService(typeof(IHttpContextAccessor)) as IHttpContextAccessor;
@@ -35,7 +33,6 @@ namespace ServiceFinder.Main.Service
         {
             service = _service;
             appDbContext = _appDbContext;
-            userDbContext = _userDbcontext;
             this.currentUserId = httpContextAccessor.HttpContext.Request.Cookies["UserId"];
         }
 
@@ -105,24 +102,24 @@ namespace ServiceFinder.Main.Service
                     objectView.ShowReview = false;
                 }
             }
-            return mapper.Map<IObjectViewModel>(objectView); 
+           
+            return mapper.Map<IObjectViewModel>(objectView);
         }
 
         public void AddObjectVisitLog(IObjectLogViewModel model)
         {
-            
+
             var sql = "EXEC dbo.SpObjectViewLog @UserId = {0}, @ObjectId = {1}";
             var res = appDbContext.Database.ExecuteSqlCommand(sql, currentUserId, model.ObjectId);
         }
 
-        public  async Task<IEnumerable<IObjectVisitViewModel>> GetMostVisitedObjects()
+        public async Task<IEnumerable<IObjectVisitViewModel>> GetMostVisitedObjects()
         {
-            //if(appDbContext != null)
-            //{
-            //    IObjectVisitViewModel totalVisitedObjects = appDbContext.objectVisitView.FromSql($@"EXEC dbo.SpServiceVisitCountSel").ToList();
-            //    ObjectVisitViewModel objectVisitModel = new ObjectVisitViewModel()
-            //    return totalVisitedObjects;
-            //}
+            if (appDbContext != null)
+            {
+                List<ObjectVisitViewModel> totalVisitedObjects = appDbContext.objectVisitView.FromSql($@"EXEC dbo.SpServiceVisitCountSel").ToList();
+                return mapper.Map<List<IObjectVisitViewModel>>(totalVisitedObjects);
+            }
 
             return null;
         }

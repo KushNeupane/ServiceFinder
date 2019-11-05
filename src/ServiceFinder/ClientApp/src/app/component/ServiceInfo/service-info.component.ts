@@ -126,6 +126,7 @@ export class ServiceInfoComponent implements OnInit {
   getServiceDetail() {
     if (this.serviceId > 0) {
       this.service.GetServiceByServiceItemId(this.serviceId).subscribe(res => {
+        debugger;
         let result = <any>res;
         if (result.data["appUser"] == null) {
           this.profileImage = null;

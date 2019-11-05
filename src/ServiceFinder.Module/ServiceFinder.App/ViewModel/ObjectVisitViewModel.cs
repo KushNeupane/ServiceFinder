@@ -4,7 +4,7 @@ namespace ServiceFinder.App.ViewModel
 {
     public class ObjectVisitViewModel: IObjectVisitViewModel
     {
-        public int ServiceItemId { get; set; }
+        public int ObjectId { get; set; }
         public string OriginalProfileImageName { get; set; }
         public string Name { get; set; }
         public int TotalView { get; set; }
