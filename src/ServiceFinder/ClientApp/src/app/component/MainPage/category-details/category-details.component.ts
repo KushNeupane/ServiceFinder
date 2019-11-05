@@ -41,7 +41,7 @@ export class CategoryDetailsComponent implements OnInit {
       for (let i = 0; i < result.data.length; i++) {
         this.serviceList.push(result.data[i]);
       }
-      this.categoryName = this.serviceList[0].categoryName;
+      this.categoryName = this.serviceList[0].category["categoryName"];
       if (this.serviceList.length == result.data[0].totalCount) {
         this.loadMoreButton = false;
       }

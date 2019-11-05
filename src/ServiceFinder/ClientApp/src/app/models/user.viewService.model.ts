@@ -1,17 +1,25 @@
 export class ViewService {
-  categoryId: number;
-  cityId: number;
-  name: string;
-  description: string;
+  id: number;
   userId: string;
+  cityId: number;
+  categoryId: number;
+  name: string;
+  companyName: string;
+  webLink: string;
+  mapLink: string;
   email: string;
   phoneNumber: string;
-  workingShift: string;
+  additionalEmail: string;
+  additionalPhoneNumber: string;
   status: boolean;
   createdOn: Date;
-  isDeleted: Boolean;
+  description: string;
   originalProfileImageName: string;
   originalCoverImageName: string;
-  displayName: string;
-  categoryName: string;
+  isActive: boolean;
+  loggedIn: boolean;
+  showReview: boolean;
+  appUser: object;
+  city: object;
+  category: object;
 }

@@ -1,10 +1,20 @@
 <section class="dashboard">
   <mat-sidenav-container>
-    <mat-sidenav opened #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" fixedInViewport="fixed">
-      <div class="logo left-header"><a routerLink=""><img src="../../../../assets/img/logo-white.png" alt="logo"></a>
+    <mat-sidenav
+      opened
+      #sidenav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      fixedInViewport="fixed"
+    >
+      <div class="logo left-header">
+        <a routerLink=""
+          ><img src="../../../../assets/img/logo-white.png" alt="logo"
+        /></a>
       </div>
       <div class="greeting text-center">
-        <p><b>{{users?.displayName}}</b></p>
+        <p>
+          <b>{{ users?.displayName }}</b>
+        </p>
       </div>
       <ul>
         <li>
@@ -20,14 +30,14 @@
           </a>
         </li>
         <li>
-          <a (click)="myReviews()" routerLink='/dashboard/myReviews'>
+          <a (click)="myReviews()" routerLink="/dashboard/myReviews">
             <i class="material-icons">star</i>
             My Reviews
           </a>
         </li>
 
         <li>
-          <a (click)="Setting()" routerLink='/dashboard/editprofile'>
+          <a (click)="Setting()" routerLink="/dashboard/editprofile">
             <i class="material-icons">settings</i>
             Setting
           </a>
@@ -39,23 +49,30 @@
         <div class="row">
           <div class="col-md-12">
             <div class="right-header">
-              <button mat-button (click)="sidenav.toggle();status=!status" [ngClass]="status ? 'active' : ''"
-                class="sidebar-toggler">
+              <button
+                mat-button
+                (click)="sidenav.toggle(); status = !status"
+                [ngClass]="status ? 'active' : ''"
+                class="sidebar-toggler"
+              >
                 <mat-icon>menu</mat-icon>
               </button>
-              <h2>{{title}}</h2>
+              <h2>{{ title }}</h2>
               <ul class="user-actions d-flex">
                 <li class="dropdown thumb">
-                  <a href="#" class="dropdown-toggle btn" data-toggle="dropdown">
-                    <img src="../../../../../../wwwroot/profilePic/{{profileImage}}"
-                      onerror="this.src='../../../../assets/img/defaultimg.jpg'">
+                  <a
+                    href="#"
+                    class="dropdown-toggle btn"
+                    data-toggle="dropdown"
+                  >
+                    <img [src]="ProfileImageURL" />
                   </a>
                   <ul class="dropdown-menu">
                     <li>
                       <a href="#">Privacy</a>
                     </li>
                     <li>
-                      <a routerLink='/dashboard/editprofile'>Profile</a>
+                      <a routerLink="/dashboard/editprofile">Profile</a>
                     </li>
                     <li class="dropdown-divider"></li>
                     <li>
@@ -64,7 +81,11 @@
                   </ul>
                 </li>
                 <li class="dropdown">
-                  <a href="#" data-toggle="dropdown" class="dropdown-toggle btn">
+                  <a
+                    href="#"
+                    data-toggle="dropdown"
+                    class="dropdown-toggle btn"
+                  >
                     <mat-icon>notifications</mat-icon>
                   </a>
                   <ul class="dropdown-menu notifications">

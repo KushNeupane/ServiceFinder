@@ -17,6 +17,7 @@ export class UserComponent implements OnInit {
   public MyServiceList: ViewService[];
   users: EditProfileModel = new EditProfileModel();
   public profileImage: string;
+  public ProfileImageURL: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,6 +36,12 @@ export class UserComponent implements OnInit {
     this.service.getCurrentUser().subscribe(result => {
       this.users = result;
       this.profileImage = this.users.originalImageName;
+      if (this.profileImage == null) {
+        this.ProfileImageURL = "../../../../assets/img/defaultimg.jpg";
+      } else {
+        this.ProfileImageURL =
+          "../../../../../../wwwroot/profilePic/" + this.profileImage;
+      }
     });
     this.getServices();
   }
@@ -61,7 +68,8 @@ export class UserComponent implements OnInit {
   }
   getServices() {
     this.service.GetServicesByUserId().subscribe(res => {
-      this.MyServiceList = res;
+      let result = <any>res;
+      this.MyServiceList = result.data;
     });
   }
 

@@ -6,9 +6,18 @@
         <div class="demo-form-wrapper">
           <mat-form-field>
             <mat-placeholder>Service Name</mat-placeholder>
-            <input matInput name="name" #name="ngModel" [(ngModel)]="provider.name" required>
+            <input
+              matInput
+              name="name"
+              #name="ngModel"
+              [(ngModel)]="serviceFile.name"
+              required
+            />
           </mat-form-field>
-          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="custom-alert">
+          <div
+            *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="custom-alert"
+          >
             <div class="errorMsg" *ngIf="name.errors.required">
               Service Name is required.
             </div>
@@ -18,8 +27,15 @@
         <div class="demo-form-group">
           <mat-form-field>
             <mat-placeholder>Choose Your Category</mat-placeholder>
-            <mat-select [(ngModel)]="provider.categoryId" name="categoryId" #categoryId="ngModel" required>
-              <mat-option *ngFor="let item of categoryList" [value]="item.id">{{item.name}}</mat-option>
+            <mat-select
+              [(ngModel)]="serviceFile.categoryId"
+              name="categoryId"
+              #categoryId="ngModel"
+              required
+            >
+              <mat-option *ngFor="let item of categoryList" [value]="item.id">{{
+                item.name
+              }}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -28,8 +44,15 @@
         <div class="demo-form-group">
           <mat-form-field>
             <mat-placeholder>City</mat-placeholder>
-            <mat-select [(ngModel)]="provider.cityId" name="cityId" #categoryId="ngModel" required>
-              <mat-option *ngFor="let item of cityList" [value]="item.id">{{item.name}}</mat-option>
+            <mat-select
+              [(ngModel)]="serviceFile.cityId"
+              name="cityId"
+              #categoryId="ngModel"
+              required
+            >
+              <mat-option *ngFor="let item of cityList" [value]="item.id">{{
+                item.name
+              }}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -38,11 +61,21 @@
         <div class="demo-form-wrapper">
           <mat-form-field>
             <mat-placeholder>Phone Number</mat-placeholder>
-            <input matInput type="tel" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="provider.phoneNumber"
-              maxlength="10" required>
+            <input
+              matInput
+              type="tel"
+              name="phoneNumber"
+              #phoneNumber="ngModel"
+              [(ngModel)]="serviceFile.phoneNumber"
+              maxlength="10"
+              required
+            />
             <mat-icon matSuffix>phone</mat-icon>
           </mat-form-field>
-          <div *ngIf="phoneNumber.invalid && phoneNumber.touched" class="custom-alert">
+          <div
+            *ngIf="phoneNumber.invalid && phoneNumber.touched"
+            class="custom-alert"
+          >
             <div class="errorMsg" *ngIf="phoneNumber.errors.required">
               PhoneNumber is required.
             </div>
@@ -54,11 +87,24 @@
         <div class="demo-form-wrapper">
           <mat-form-field>
             <mat-placeholder>Email</mat-placeholder>
-            <input type="email" matInput name="email" #email="ngModel" [(ngModel)]="provider.email" required email>
+            <input
+              type="email"
+              matInput
+              name="email"
+              #email="ngModel"
+              [(ngModel)]="serviceFile.email"
+              required
+              email
+            />
             <mat-icon matSuffix>mail</mat-icon>
           </mat-form-field>
-          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="custom-alert">
-            <div class="errorMsg" *ngIf="email.errors.required">Email is required.</div>
+          <div
+            *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="custom-alert"
+          >
+            <div class="errorMsg" *ngIf="email.errors.required">
+              Email is required.
+            </div>
             <div class="errorMsg" *ngIf="email.errors?.email">
               Email formate is not valid.
             </div>
@@ -67,11 +113,49 @@
 
         <div class="demo-form-wrapper">
           <mat-form-field>
-            <mat-placeholder>Description</mat-placeholder>
-            <textarea matInput name="description" #description="ngModel" [(ngModel)]="provider.description" rows="5"
-              minlength="250" required></textarea>
+            <mat-placeholder>Weblink</mat-placeholder>
+            <input
+              matInput
+              name="webLink"
+              #webLink="ngModel"
+              [(ngModel)]="serviceFile.webLink"
+            />
+            <mat-icon matSuffix>public</mat-icon>
           </mat-form-field>
-          <div *ngIf="description.invalid && (description.dirty || description.touched)" class="custom-alert">
+        </div>
+
+        <div class="demo-form-wrapper">
+          <mat-form-field>
+            <mat-placeholder>MapLink</mat-placeholder>
+            <input
+              matInput
+              name="mapLink"
+              #mapLink="ngModel"
+              [(ngModel)]="serviceFile.mapLink"
+            />
+            <mat-icon matSuffix>place</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <div class="demo-form-wrapper">
+          <mat-form-field>
+            <mat-placeholder>Description</mat-placeholder>
+            <textarea
+              matInput
+              name="description"
+              #description="ngModel"
+              [(ngModel)]="serviceFile.description"
+              rows="5"
+              minlength="250"
+              required
+            ></textarea>
+          </mat-form-field>
+          <div
+            *ngIf="
+              description.invalid && (description.dirty || description.touched)
+            "
+            class="custom-alert"
+          >
             <div class="errorMsg" *ngIf="description.errors.required">
               Description is required.
             </div>
@@ -89,25 +173,31 @@
           </mat-form-field>
         </div> -->
 
-        <div *ngIf="imageEdit==false" class="demo-form-group">
+        <!-- <div *ngIf="imageEdit == false" class="demo-form-group">
           <h6>Service Images</h6>
           <div class="form-group image-upload">
             <label>
               <span class="upload-btn">Browse Image</span>
-              <input type="file" (change)="onFileUpload($event)" multiple>
+              <input type="file" (change)="onFileUpload($event)" multiple />
             </label>
           </div>
           <div class="form-group image-upload" *ngIf="show">
-            <ul *ngFor="let image of imagePreview; let i=index">
-              <img class="thumb-preview" [src]="image" style="background-image: url();">
-              <div (click)="removeImage(i)"><i class="material-icons">close</i></div>
+            <ul *ngFor="let image of imagePreview; let i = index">
+              <img
+                class="thumb-preview"
+                [src]="image"
+                style="background-image: url();"
+              />
+              <div (click)="removeImage(i)">
+                <i class="material-icons">close</i>
+              </div>
               <p [innerHTML]="imgnameList[i]"></p>
             </ul>
           </div>
-        </div>
+        </div> -->
 
         <!-- images preview -->
-        <div *ngIf="imageEdit==true" class="demo-form-wrapper">
+        <!-- <div *ngIf="imageEdit==true" class="demo-form-wrapper">
           <h6>Add/Remove/Change Images</h6>
           <ul class="image-thumbnails">
             <li *ngFor="let image of imageList">
@@ -115,64 +205,42 @@
               <a [routerLink]="" (click)="deleteImage(image.id)"><i class="fas fa-times"></i></a>
             </li>
 
-            <!-- <div class="form-group image-upload" *ngIf="show"> -->
             <li *ngFor="let image of imagePreview; let i=index">
               <img class="thumb-preview" [src]="image" style="background-image: url();">
               <div (click)="removeImage(i)"><i class="material-icons">close</i></div>
               <p [innerHTML]="imgnameList[i]"></p>
             </li>
-            <!-- </div> -->
             <li class="add-more">
               <b>Add More</b>
               <input type="file" (change)="onFileUpload($event)" multiple>
             </li>
           </ul>
 
-        </div>
-        <!-- images preview -->
-
-
-        <!-- <div class="demo-form-wrapper">
-          <h6>Service Availibility</h6>
-          <mat-checkbox name="status" #status="ngModel" value="true" [(ngModel)]="provider.status">I am Available
-          </mat-checkbox>
         </div> -->
 
-
-        <!-- <div class="demo-form-wrapper">
-          <h6>Datepicker</h6>
-          <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </div> -->
-
-        <!-- <div class="demo-form-group">
-          <h6>RaDios</h6>
-          <mat-radio-group>
-            <mat-radio-button value="1">Option 1</mat-radio-button>
-            <mat-radio-button value="2">Option 2</mat-radio-button>
-          </mat-radio-group>
-        </div>
-
-        <div class="demo-form-group">
-          <h6>Sliders</h6>
-          <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000">
-          </mat-slider>
-        </div> -->
-
-        <button *ngIf="id===0" (click)="onSignUp(form)" class="btn btn-primary">Add <mat-icon>chevron_right</mat-icon>
+        <button
+          *ngIf="id === 0"
+          (click)="onSignUp(form)"
+          class="btn btn-primary"
+        >
+          Add <mat-icon>chevron_right</mat-icon>
         </button>
-        <button *ngIf="id!==0" (click)="onSignUp(form)" class="btn btn-primary">Update <mat-icon>chevron_right
-          </mat-icon></button>
+        <button
+          *ngIf="id !== 0"
+          (click)="onSignUp(form)"
+          class="btn btn-primary"
+        >
+          Update <mat-icon>chevron_right </mat-icon>
+        </button>
       </form>
     </div>
   </div>
   <section class="confirmation_box" *ngIf="statusActive">
     <div class="confirmation_wrapper">
-      <a [routerLink]="" class="cross_btn" (click)="destroyConfbox()"><i class="fas fa-times"></i></a>
-      <p>Do you want to editS the service ? </p>
+      <a [routerLink]="" class="cross_btn" (click)="destroyConfbox()"
+        ><i class="fas fa-times"></i
+      ></a>
+      <p>Do you want to editS the service ?</p>
       <div class="confirmation_actions">
         <button (click)="yes(form)" class="btn btn-primary">Yes</button>
         <button (click)="destroyConfbox()" class="btn">No</button>

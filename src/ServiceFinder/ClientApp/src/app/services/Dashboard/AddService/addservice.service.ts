@@ -9,6 +9,7 @@ import { ViewServiceById } from "src/app/models/user.ViewServiceById.model";
 import { ServiceReviewModel } from "src/app/models/user.serviceReview.model";
 import { QuestionAnswerModel } from "src/app/models/user.questionAnswerModel";
 import { ChangePasswordModel } from "./../../../models/user.changePassword.model";
+import { AddServiceModel } from "src/app/models/user.addService.model";
 
 @Injectable({
   providedIn: "root"
@@ -17,12 +18,9 @@ export class AddserviceService {
   baseurl = environment.baseURL;
   constructor(private http: HttpClient) {}
 
-  AddService(selectedFile, options) {
-    return this.http.post(
-      this.baseurl + "api/service/addService",
-      selectedFile,
-      options
-    );
+  AddService(serviceFile: any) {
+    debugger;
+    return this.http.post(this.baseurl + "object/add-object", serviceFile);
   }
 
   GetCategories() {
@@ -46,32 +44,31 @@ export class AddserviceService {
   }
 
   GetServiceByServiceItemId(id) {
-    return this.http.get<ViewServiceById>(
-      this.baseurl + "object/get-object/" + id
+    return this.http.get<ViewService>(
+      this.baseurl + "object/get-objectByServiceId/" + id
     );
   }
 
-  GetImages(id) {
-    return this.http.get<ViewImages[]>(
-      this.baseurl + "api/service/getImages/" + id
-    );
-  }
+  // GetImages(id) {
+  //   return this.http.get<ViewImages[]>(
+  //     this.baseurl + "api/service/getImages/" + id
+  //   );
+  // }
 
   GetServicesByUserId() {
     return this.http.get<ViewService[]>(
-      this.baseurl + "api/service/getServicesByUserId"
+      this.baseurl + "object/get-objectByUserId"
     );
   }
 
   deleteService(id) {
-    return this.http.delete(this.baseurl + "api/service/deleteService/" + id);
+    return this.http.delete(this.baseurl + "object/delete-object/" + id);
   }
 
-  editService(id, selectedFile, options) {
+  editService(id, serviceFile) {
     return this.http.put(
-      this.baseurl + "api/service/updateService/" + id,
-      selectedFile,
-      options
+      this.baseurl + "object/update-object/" + id,
+      serviceFile
     );
   }
 

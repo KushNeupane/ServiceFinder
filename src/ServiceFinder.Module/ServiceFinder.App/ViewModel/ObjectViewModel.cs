@@ -2,6 +2,7 @@
 using ServiceFinder.Main.Model;
 using ServiceFinder.Users.Model;
 using System;
+using System.Collections.Generic;
 
 namespace ServiceFinder.Main.ViewModel
 {
@@ -23,6 +24,7 @@ namespace ServiceFinder.Main.ViewModel
         public TimeSpan? ServiceCloseTime { get; set; }
         public bool Status { get; set; }
         public string Description { get; set; }
+        public string ImageURL { get; set; }
         public string ProfileImageUrl { get; set; }
         public string OriginalProfileImageName { get; set; }
         public string CoverImageUrl { get; set; }
