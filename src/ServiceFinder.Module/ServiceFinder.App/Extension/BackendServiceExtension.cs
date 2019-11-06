@@ -13,6 +13,7 @@ namespace ServiceFinder.Backend.Extension
             services.AddTransient<IObjectService, ObjectService>();
             services.AddTransient<ICityService, CityService>();
             services.AddTransient<IReviewService, ReviewService>();
+            services.AddTransient<IQuestionAnswerService, QuestionAnswerService>();
         }
     }
 }

@@ -19,7 +19,6 @@ export class AddserviceService {
   constructor(private http: HttpClient) {}
 
   AddService(serviceFile: any) {
-    debugger;
     return this.http.post(this.baseurl + "object/add-object", serviceFile);
   }
 
@@ -100,7 +99,7 @@ export class AddserviceService {
   }
 
   addReview(model) {
-    return this.http.post(this.baseurl + "api/service/addReview/", model);
+    return this.http.post(this.baseurl + "review/add-review/", model);
   }
 
   getReviewByServiceId(id) {
@@ -114,7 +113,6 @@ export class AddserviceService {
   }
 
   postServiceVisitLog(model) {
-    debugger;
     return this.http.post(this.baseurl + "object/addObjectLog/", model);
   }
 
@@ -148,23 +146,17 @@ export class AddserviceService {
   }
 
   askQuestions(data) {
-    return this.http.post(
-      this.baseurl + "api/questionAnswer/postQuestions",
-      data
-    );
+    return this.http.post(this.baseurl + "questionAnswers/add-questions", data);
   }
 
   getQuestionsAndAnswerByServiceId(id) {
     return this.http.get(
-      this.baseurl + "api/questionAnswer/getQuestionsAndAnswerById/" + id
+      this.baseurl + "questionAnswers/get-questionsAnswers/" + id
     );
   }
 
   giveAnswers(data) {
-    return this.http.post(
-      this.baseurl + "api/questionAnswer/postAnswers",
-      data
-    );
+    return this.http.post(this.baseurl + "questionAnswers/add-answers", data);
   }
 
   getAnswerByServiceItemId(id) {

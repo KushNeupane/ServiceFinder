@@ -126,7 +126,6 @@ export class ServiceInfoComponent implements OnInit {
   getServiceDetail() {
     if (this.serviceId > 0) {
       this.service.GetServiceByServiceItemId(this.serviceId).subscribe(res => {
-        debugger;
         let result = <any>res;
         if (result.data["appUser"] == null) {
           this.profileImage = null;
@@ -529,9 +528,9 @@ export class ServiceInfoComponent implements OnInit {
     this.service
       .getQuestionsAndAnswerByServiceId(this.serviceId)
       .subscribe(res => {
-        let response = <any>res;
-        this.QADisplayModel = this.prepareQuestionAnswere(response);
         debugger;
+        let response = <any>res;
+        this.QADisplayModel = this.prepareQuestionAnswere(response.data);
         if (
           this.QADisplayModel[0].firstQuestion == true &&
           this.QADisplayModel[0].showOptions == true &&
@@ -579,7 +578,6 @@ export class ServiceInfoComponent implements OnInit {
   }
 
   private prepareQuestionAnswere(reponse: any) {
-    debugger;
     var temp = [];
     let qaDisplayModel: any[] = [];
     if (reponse !== null && typeof reponse !== "undefined") {

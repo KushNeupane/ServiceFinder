@@ -45,15 +45,15 @@ namespace ServiceFinder.Users.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "aeebe1ae-5831-43c5-b409-f7fbffe2dd15",
-                            ConcurrencyStamp = "b78296b6-8f97-4186-9a9b-6390cfee670b",
+                            Id = "bb2d2c12-cad1-49c4-a557-586d4b7ab40e",
+                            ConcurrencyStamp = "84f3c443-42e5-4a0d-b06c-64722b3a7133",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "718e7bf0-d05f-4731-939b-ba74bad822a9",
-                            ConcurrencyStamp = "a756f3d6-fa20-4bad-8bf7-8a9d98dbb074",
+                            Id = "1c9ce49d-dd95-4d05-8a8a-affce9bf4c83",
+                            ConcurrencyStamp = "b35679ea-057e-4c8d-bb60-d5b58b1ed045",
                             Name = "user",
                             NormalizedName = "USER"
                         });

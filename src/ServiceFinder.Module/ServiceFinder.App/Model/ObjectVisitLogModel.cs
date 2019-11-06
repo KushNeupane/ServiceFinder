@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ServiceFinder.App.Model
 {
-    public class ObjectVisitModel: IObjectVisitModel
+    public class ObjectVisitLogModel: IObjectVisitModel
     {
         [Key]
         public int Id { get; set; }

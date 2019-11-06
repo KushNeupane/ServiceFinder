@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Servicefinder.Core.Response;
 using ServiceFinder.App.ViewModel;
 using ServiceFinder.Backend.Context;
@@ -12,7 +13,6 @@ using ServiceFinder.Users.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ServiceFinder.App.Service
@@ -34,17 +34,63 @@ namespace ServiceFinder.App.Service
             this.currentUserId = httpContextAccessor.HttpContext.Request.Cookies["UserId"];
         }
 
-        public Task<IResponseModel> AddAsync(IReviewViewModel model)
+        public async Task<IResponseModel> AddAsync(IReviewViewModel model)
         {
             ResponseModel response = new ResponseModel() { errors = new List<string>() };
+            ReviewModel reviewModel = mapper.Map<ReviewModel>(model);
             using (appDbContext)
             {
-                
-                //return mapper.Map<List<ICategoryServicesViewModel>>(model);
-                
+                if (currentUserId != null)
+                {
+                    reviewModel.UserId = currentUserId;
+                    List<IReviewViewModel> reviews = await this.GetReviewByObjectId(reviewModel.ObjectId);
+                    List<ReviewModel> reviewModels = mapper.Map<List<ReviewModel>>(reviews);
+
+                    try
+                    {
+                        if (reviewModels.Count == 0)
+                        {
+                            appDbContext.Add(reviewModel);
+                            appDbContext.SaveChanges();
+                            response.isSuccess = true;
+                        }
+                        else
+                        {
+                            foreach (var review in reviewModels)
+                             {
+                           
+                                if (review.UserId == this.currentUserId)
+                                {
+                                    ReviewModel entity = appDbContext.reviews.Find(review.Id);
+                                   // entity.ReviewTest = model.ReviewTest;
+                                    // reviewModel.Id =review.Id;
+                                    //reviewModel.Id = review.Id;
+                                    await appDbContext.SaveChangesAsync();
+                                    response.isSuccess = true;
+                                    response.successMessage = "Review Updated!!";
+                                    return mapper.Map<IResponseModel>(response);
+                                }
+                           }
+                            appDbContext.Add(reviewModel);
+                            appDbContext.SaveChanges();
+                            response.isSuccess = true;
+                            response.successMessage = "Review Submitted!!";
+                        }
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
+                }
+                else
+                {
+                    response.isSuccess = false;
+                    response.errors.Add("Login before rating");
+                    return mapper.Map<IResponseModel>(response);
+                }
             }
 
-            return null;
+            return mapper.Map<IResponseModel>(response);
         }
 
         public Task<IReviewViewModel> DeleteAsync(int id)
@@ -68,24 +114,24 @@ namespace ServiceFinder.App.Service
         }
         public async Task<List<IReviewViewModel>> GetReviewByObjectId(int objectId)
         {
-            List<ReviewModel> models = new List<ReviewModel>();           
+            List<ReviewModel> models = new List<ReviewModel>();
             models = appDbContext.reviews.ToList();
-            List<ReviewViewModel>viewModels, reviews = new List<ReviewViewModel>();
+            List<ReviewViewModel> viewModels, reviews = new List<ReviewViewModel>();
             viewModels = mapper.Map<List<ReviewViewModel>>(models);
-            foreach(var model in viewModels)
+            foreach (var model in viewModels)
             {
-                if(model.ObjectId == objectId)
+                if (model.ObjectId == objectId)
                 {
                     ApplicationUserModel user = await userManager.FindByIdAsync(model.UserId);
                     model.AppUser = user;
-                    if(model.UserId == currentUserId)
+                    if (model.UserId == currentUserId)
                     {
                         model.ShowOptions = true;
                     }
                     reviews.Add(model);
                 }
             }
-            return mapper.Map<List<IReviewViewModel>>(reviews); 
+            return mapper.Map<List<IReviewViewModel>>(reviews);
         }
     }
 }

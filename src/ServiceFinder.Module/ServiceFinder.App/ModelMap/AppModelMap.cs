@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Servicefinder.Core.Response;
+using ServiceFinder.App.Model;
 using ServiceFinder.App.ViewModel;
 using ServiceFinder.DI.Response.Core;
 using ServiceFinder.DI.ViewModel.App;
@@ -24,6 +25,12 @@ namespace ServiceFinder.Backend.ModelMap
             CreateMap<IObjectViewModel, ObjectViewModel>().ReverseMap();
             CreateMap<IObjectVisitViewModel, ObjectVisitViewModel>().ReverseMap();
             CreateMap<ReviewViewModel, ReviewModel>().ReverseMap();
+            CreateMap<ReviewModel, IReviewViewModel>().ReverseMap();
+            CreateMap<QuestionViewModel, IQuestionViewModel>().ReverseMap();
+            CreateMap<QuestionModel, IQuestionViewModel>().ReverseMap();
+            CreateMap<AnswerViewModel, IAnswerViewModel>().ReverseMap();
+            CreateMap<AnswerModel, IAnswerViewModel>().ReverseMap();
+            CreateMap<IQuestionAnswerViewModel, QuestionAnswerViewModel>().ReverseMap();
 
         }
     }

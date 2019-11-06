@@ -36,12 +36,10 @@ export class CategoryDetailsComponent implements OnInit {
     this.provider.categoryId = this.categoryId;
     let value = JSON.stringify(this.provider);
     this.service.GetServicesByCategoryId(value).subscribe(res => {
-      debugger;
       let result = <any>res;
       for (let i = 0; i < result.data.length; i++) {
         this.serviceList.push(result.data[i]);
       }
-      this.categoryName = this.serviceList[0].category["categoryName"];
       if (this.serviceList.length == result.data[0].totalCount) {
         this.loadMoreButton = false;
       }
@@ -53,7 +51,9 @@ export class CategoryDetailsComponent implements OnInit {
     this.provider.loadMoreCount = this.loadmore;
     let value = JSON.stringify(this.provider);
     this.service.GetServicesByCategoryId(value).subscribe(res => {
+      debugger;
       let result = <any>res;
+      this.categoryName = result.data[0].categoryName;
       this.serviceList = result.data;
       if (this.serviceList.length == result.data[0].totalCount) {
         this.loadMoreButton = false;

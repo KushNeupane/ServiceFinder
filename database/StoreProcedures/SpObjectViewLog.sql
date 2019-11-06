@@ -9,7 +9,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE [dbo].[SpObjectViewLog]
+CREATE PROCEDURE [dbo].[SpObjectViewLog]
 (
 	@UserId VARCHAR(250),
     @ObjectId INT

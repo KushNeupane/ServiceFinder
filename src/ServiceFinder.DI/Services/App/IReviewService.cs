@@ -1,4 +1,5 @@
-﻿using ServiceFinder.DI.Response.Core;
+﻿using ServiceFinder.DI.Models.App;
+using ServiceFinder.DI.Response.Core;
 using ServiceFinder.DI.ViewModels.App;
 using System;
 using System.Collections.Generic;

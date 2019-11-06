@@ -18,7 +18,6 @@ export class MostSearchedComponent implements OnInit {
   }
   getServices() {
     this.service.getTotalViewCount().subscribe(res => {
-      debugger;
       let result = <any>res;
       this.arr = result.data.result;
     });
