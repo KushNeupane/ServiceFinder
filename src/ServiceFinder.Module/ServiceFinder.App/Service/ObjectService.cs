@@ -1,20 +1,20 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
+using System.Linq;
+using System.Threading.Tasks;
+using ServiceFinder.Main.Model;
+using ServiceFinder.Users.Model;
 using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
+using ServiceFinder.App.ViewModel;
+using ServiceFinder.Main.ViewModel;
+using ServiceFinder.Backend.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ServiceFinder.App.ViewModel;
-using ServiceFinder.Backend.Context;
 using ServiceFinder.DI.Services.App;
 using ServiceFinder.DI.ViewModel.App;
 using ServiceFinder.DI.ViewModels.App;
-using ServiceFinder.Main.Model;
-using ServiceFinder.Main.ViewModel;
 using ServiceFinder.Users.DatabaseContext;
-using ServiceFinder.Users.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ServiceFinder.Main.Service
 {
@@ -119,13 +119,11 @@ namespace ServiceFinder.Main.Service
                     objectView.ShowReview = false;
                 }
             }
-           
             return mapper.Map<IObjectViewModel>(objectView);
         }
 
         public void AddObjectVisitLog(IObjectLogViewModel model)
         {
-
             var sql = "EXEC dbo.SpObjectViewLog @UserId = {0}, @ObjectId = {1}";
             var res = appDbContext.Database.ExecuteSqlCommand(sql, currentUserId, model.ObjectId);
         }
@@ -137,9 +135,7 @@ namespace ServiceFinder.Main.Service
                 List<ObjectVisitViewModel> totalVisitedObjects = appDbContext.objectVisitView.FromSql($@"EXEC dbo.SpServiceVisitCountSel").ToList();
                 return mapper.Map<List<IObjectVisitViewModel>>(totalVisitedObjects);
             }
-
             return null;
         }
-
     }
 }

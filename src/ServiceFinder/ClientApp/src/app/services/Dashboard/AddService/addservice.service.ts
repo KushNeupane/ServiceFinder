@@ -77,11 +77,10 @@ export class AddserviceService {
     );
   }
 
-  updateUser(selectedFile, options) {
+  updateUser(editProfile) {
     return this.http.put(
       this.baseurl + "api/editProfile/editUserProfile",
-      selectedFile,
-      options
+      editProfile
     );
   }
 
