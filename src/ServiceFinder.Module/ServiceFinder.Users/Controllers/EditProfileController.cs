@@ -26,47 +26,43 @@ namespace ServiceFinder.Users.Controllers
             this.httpContextAccessor = httpContextAccessor;
         }
 
-
         //Edit Profile API
         [HttpPut]
         [Route("editUserProfile")]
-        public async Task<ResponseModel> EditProfile()
+        public async Task<ResponseModel> EditProfile([FromBody]EditProfileViewModel model)
         {
-
-            string values = Request.Form["values"];
-            var files = Request.Form.Files;
-
-
             ResponseModel response = new ResponseModel();
-            response.isSuccess = false;
-            var id = httpContextAccessor.HttpContext.Request.Cookies["UserId"];
-            ApplicationUserModel user = await userManager.FindByIdAsync(id);
-            ApplicationUserModel model = JsonConvert.DeserializeObject<ApplicationUserModel>(values);
 
-            //updating values.
-            user.DisplayName = model.DisplayName;
-            user.Email = model.Email;
-            user.Address = model.Address;
-            user.PhoneNumber = model.PhoneNumber;
-
-            //updating images
-
-            foreach (var file in files)
-            {
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\profilePic", file.FileName);
-                try
-                {
-                    var stream = new FileStream(path, FileMode.Create);
-                    file.CopyTo(stream);
-                }
-                catch (Exception) { }
-
-                //  user.ImageUrl = path;
-                // user.OriginalImageName = file.FileName;
-            }
-            await userManager.UpdateAsync(user);
-            response.isSuccess = true;
             return response;
+            //string values = Request.Form["values"];
+            //var files = Request.Form.Files;
+            //response.isSuccess = false;
+            //var id = httpContextAccessor.HttpContext.Request.Cookies["UserId"];
+            //ApplicationUserModel user = await userManager.FindByIdAsync(id);
+            //ApplicationUserModel model = JsonConvert.DeserializeObject<ApplicationUserModel>(values);
+
+            ////updating values.
+            //user.DisplayName = model.DisplayName;
+            //user.Email = model.Email;
+            //user.Address = model.Address;
+            //user.PhoneNumber = model.PhoneNumber;
+
+            ////updating images
+            //foreach (var file in files)
+            //{
+            //    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\profilePic", file.FileName);
+            //    try
+            //    {
+            //        var stream = new FileStream(path, FileMode.Create);
+            //        file.CopyTo(stream);
+            //    }
+            //    catch (Exception) { }
+
+            //    //  user.ImageUrl = path;
+            //    // user.OriginalImageName = file.FileName;
+            //}
+            //await userManager.UpdateAsync(user);
+            //response.isSuccess = true;
 
         }
 
@@ -111,7 +107,7 @@ namespace ServiceFinder.Users.Controllers
                     }
                     else
                         response.isSuccess = false;
-                }
+                } 
                 catch (Exception) { };
             }
             return response;

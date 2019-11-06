@@ -19,7 +19,6 @@ export class AddserviceService {
   constructor(private http: HttpClient) {}
 
   AddService(serviceFile: any) {
-    debugger;
     return this.http.post(this.baseurl + "object/add-object", serviceFile);
   }
 
@@ -78,11 +77,10 @@ export class AddserviceService {
     );
   }
 
-  updateUser(selectedFile, options) {
+  updateUser(editProfile) {
     return this.http.put(
       this.baseurl + "api/editProfile/editUserProfile",
-      selectedFile,
-      options
+      editProfile
     );
   }
 
@@ -114,7 +112,6 @@ export class AddserviceService {
   }
 
   postServiceVisitLog(model) {
-    debugger;
     return this.http.post(this.baseurl + "object/addObjectLog/", model);
   }
 

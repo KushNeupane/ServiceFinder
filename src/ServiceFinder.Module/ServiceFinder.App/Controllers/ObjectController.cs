@@ -1,13 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing;
+﻿using System;
 using Newtonsoft.Json;
-using Servicefinder.Core.Response;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using ServiceFinder.App.ViewModel;
+using Servicefinder.Core.Response;
+using Microsoft.AspNetCore.Routing;
+using ServiceFinder.Main.ViewModel;
 using ServiceFinder.DI.Services.App;
 using ServiceFinder.DI.ViewModel.App;
-using ServiceFinder.Main.ViewModel;
-using System;
-using System.Threading.Tasks;
 
 namespace ServiceFinder.App.Controllers
 {

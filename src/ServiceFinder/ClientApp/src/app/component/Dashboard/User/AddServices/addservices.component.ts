@@ -153,9 +153,7 @@ export class AddServicesComponent implements OnInit {
     this.serviceFile.imageURL = "C:\\Users\\User\\Downloads\\gallery";
 
     if (this.id == 0) {
-      debugger;
       this.service.AddService(this.serviceFile).subscribe(res => {
-        debugger;
         this.show = false;
         this.toastr.success("Your Service is added", "", {
           positionClass: "toast-bottom-right"
